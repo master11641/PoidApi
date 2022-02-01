@@ -1,0 +1,32 @@
+@model DateTime?
+@{
+    var tempName = Guid.NewGuid().ToString();
+    var modelName = ViewData.ModelMetadata.PropertyName;
+}
+<input type="text" name="@modelName" class="form-control" id="@modelName"  style="display: none;"/>
+<input type="text" name="@tempName" id="@tempName" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#@tempName").kendoDatePickerShamsi({ culture: "fa-IR" });
+        $("#@tempName").on("change paste keyup", function () {
+
+
+            $('#@modelName').val(moment($(this).val(), 'jYYYY/jM/jD').format('YYYY/MM/DD'));
+        });
+        $('#@modelName').val('@ViewData.Model');
+
+    @if (ViewData.Model != null && !String.IsNullOrWhiteSpace(ViewData.Model.ToString()))
+    {
+        @: var datepicker = $("#@tempName").data("kendoDatePickerShamsi");
+        @:datepicker.value(moment('@ViewData.Model').format('jYYYY/jMM/jDD'));
+         @* @:datepicker.value(moment('@ViewData.Model', 'YYYY/M/D').format('jYYYY/jM/jD')); *@
+        @* @:('#@tempName').val(moment('@ViewData.Model', 'YYYY/M/D').format('jYYYY/jM/jD')); *@
+    }
+        
+
+
+    });
+</script>

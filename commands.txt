@@ -1,0 +1,24 @@
+dotnet new mvc -au None
+dotnet restore
+dotnet add package HotChocolate.AspNetCore.Authorization
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design//لازم برای عملیات میگریشن
+dotnet add package HotChocolate.AspNetCore.Authorization
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add package System.IdentityModel.Tokens.Jwt  
+dotnet add package HotChocolate.AspNetCore   
+dotnet add package HotChocolate.AspNetCore.Playground
+dotnet add package HotChocolate.Data   
+dotnet add package HotChocolate.Data.EntityFramework
+dotnet add package Microsoft.EntityFrameworkCore.Tools  
+dotnet add package Swashbuckle.AspNetCore   => SWAGGER
+ dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design =>Scaaffolding
+ dotnet add package System.Composition      =>Scaaffolding
+dotnet add package Microsoft.Composition =>Scaaffolding
+dotnet aspnet-codegenerator controller -m Lesson -dc BarnamaConntext -outDir Controllers\Lessons    => layout=null
+dotnet aspnet-codegenerator controller -m Partition -dc BarnamaConntext -outDir Controllers\Partitions -udl  =>Use default layout
+dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+dotnet ef database update
+dotnet ef migrations add  Four.two
+dotnet add package kavenegar --version 1.2.4
+dotnet publish -c Release   

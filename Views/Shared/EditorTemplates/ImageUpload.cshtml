@@ -1,0 +1,44 @@
+@model String
+ @{
+        var imageName = Guid.NewGuid().ToString();
+        var modelName = ViewData.ModelMetadata.PropertyName;
+ }
+ <input type="text" name="@modelName" value="@ViewData.Model" id="@modelName"  class="form-control"  />  
+ <input id="@imageName" class="form-control ImageSrc" type="file" accept="image/*" />
+
+
+<script type="text/javascript">
+    $(function () {     
+      $("#@imageName").kendoUpload({
+           name: "files",
+        async: {
+            saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+            removeUrl: "@Url.Action("SaveTemp", "Upload")", 
+            autoUpload: true
+        },
+            select: function () {
+                console.log('File selected.');
+            },      // function for when a file is selected
+        success: onFileSuccess,     // function that returns response after upload
+          // function after success
+             // function for when a file is removed
+        });
+        function onFileSuccess(e) {
+         $('#@modelName').val(e.response);
+            console.log("e.response", e.response);
+            console.log("e.operation", e.operation);
+            console.log("e.XMLHttpRequest.status", e.XMLHttpRequest.status);
+
+            //e.operation is upload or remove
+            if (e.operation === "upload") {
+                // a file was added, get the response
+                var fileid = e.response;
+            } else {
+                // Do something after a file was removed
+            }
+        }
+
+
+    });
+</script>
+

@@ -1,0 +1,94 @@
+@model ServicePackage
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section Scripts{
+<script src="~/js/kendoshamsi/JalaliDate.js"></script>
+<script src="~/js/kendoshamsi/kendo.web.js"></script>
+<script src="~/js/kendoshamsi/fa-IR.js"></script>
+<script src="~/js/kendoshamsi/kendo.calendarshamsi.js"></script>
+<script src="~/js/kendoshamsi/kendo.datepickershamsi.js"></script>
+
+<script type="text/javascript">
+    // kendo.culture("fa-IR");
+    @* $("#EndTime").kendoDatePickerShamsi({culture : "fa-IR"});
+            $(function () {
+            $("#StartTime").kendoDatePickerShamsi({culture : "fa-IR"});
+            }); *@
+</script>
+}
+<h1>Edit</h1>
+
+<h4>ServicePackage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desciption" class="control-label"></label>
+                <input asp-for="Desciption" class="form-control" />
+                <span asp-validation-for="Desciption" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                @* <input asp-for="ImageUrl" class="form-control" /> 
+                @Html.EditorFor(model => model.ImageUrl)
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>             
+                @Html.EditorFor(model => model.StartTime)
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                @Html.EditorFor(model => model.EndTime)
+
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div> *@
+            <div class="form-group form-check">
+                <label class="form-check-label col-md-12">
+                    <input class="form-check-input " asp-for="IsAdviserType" />  @Html.DisplayNameFor(model =>
+                    model.IsAdviserType)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpireAfterBuyInDays" class="control-label col-md-12"></label>
+                <input asp-for="ExpireAfterBuyInDays" class="form-control" />
+                <span asp-validation-for="ExpireAfterBuyInDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountId" class="control-label"></label>
+                <select asp-for="DiscountId" class="form-control" asp-items="ViewBag.DiscountId">
+                    <option value=null>تخفیفی را انتخاب کنید</option>
+                </select>
+                @* <span asp-validation-for="DiscountId" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="BazarProductId" class="control-label"></label>
+                <input asp-for="BazarProductId" class="form-control" />
+                <span asp-validation-for="BazarProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

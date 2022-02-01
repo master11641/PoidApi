@@ -1,0 +1,38 @@
+@model IEnumerable<User>
+
+<!-- USERS LIST -->
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">آخرین اعضا</h3>
+
+    <div class="card-tools">
+      @* <span class="badge badge-danger">۸ پیام جدید</span> *@
+      <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body p-0">
+    <ul class="users-list clearfix">
+      @foreach (var user in Model)
+      {
+        <li>
+          <img class="rounded-circle" alt="100x100" src="~/assets/images/user.jpg" style="width: 100px;" />
+          <a class="users-list-name mt-2" href="#">@user.Name @user.Family </a>
+          @* <span class="users-list-date">امروز</span> *@
+        </li>
+      }
+
+
+    </ul>
+    <!-- /.users-list -->
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer text-center">
+    <a href='@Url.Action("Index","User")'>مشاهده همه کاربران</a>
+  </div>
+  <!-- /.card-footer -->
+</div>
+<!--/.card -->

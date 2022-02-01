@@ -1,0 +1,40 @@
+@model IEnumerable<UserRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Name)  @Html.DisplayFor(modelItem => item.User.Family)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  userId=item.UserId , roleId = item.RoleId }) |             
+                @Html.ActionLink("Delete", "Delete",  new {  userId=item.UserId , roleId = item.RoleId }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

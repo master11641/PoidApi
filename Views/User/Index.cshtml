@@ -1,0 +1,91 @@
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "کاربران";
+}
+@section contentheader {
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">کاربران</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>خانه</a></li>
+          <li class="breadcrumb-item active">کاربران</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+}
+@* <h3>@ViewBag["Title"]</h3> *@
+<!--نحوه‌ی راست به چپ سازی گرید-->
+<div class="k-rtl">
+    <div id="report-grid"></div>
+</div>
+@section Scripts{
+     <script type="text/javascript">
+        $(function () {
+            var productsDataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetUsers", "User")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    },
+                    parameterMap: function (options) {
+                        return kendo.stringify(options);
+                    }
+                },
+                schema: {
+                    data: "data",
+                    total: "total",
+                    model: {
+                        fields: {
+                            "id": { type: "number" }, //تعیین نوع فیلد برای جستجوی پویا مهم است
+                            "name": { type: "string" } ,   
+                             "phoneNumber": { type: "string" } ,                       
+                        }
+                    }
+                },
+                error: function (e) {
+                    alert(e.errorThrown);
+                },
+                pageSize: 10,
+                sort: { field: "id", dir: "desc" },
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            });
+
+            $("#report-grid").kendoGrid({
+                dataSource: productsDataSource,
+                autoBind: true,
+                scrollable: false,
+                pageable: true,
+                sortable: true,
+                filterable: true,
+                reorderable: true,
+                columnMenu: true,
+                columns: [
+                    { field: "id", title: "شماره", width: "130px" },
+                    { field: "name", title: "نام کاربر" , template: '#=name# #=family#'},
+                     { field: "phoneNumber", title: "شماره همراه", },
+                    {
+                        field: "id", title: "عملیات",
+                        template: '<a  href="/user/edit/#=id#" class="k-button" >ویرایش</a> <a  href="/UserRole/Create?userId=#=id#" class="k-button" >افزودن نقش</a> '
+                    }
+              
+                ]
+            });
+        });
+    </script>
+}
+
+
+
+
+

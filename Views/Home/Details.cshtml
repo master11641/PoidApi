@@ -1,0 +1,27 @@
+@* <h1>@ViewBag.FileModel</h1> *@
+<style>
+    ul > li {
+    margin-right: 10px;
+}
+</style>
+@model IEnumerable<ExportModel>
+    @foreach (var item in Model)
+    {
+        <ul>
+        <li>@item.title 
+        <ul>
+        @foreach (var lesson in item.lessons)
+        {
+            <li>@lesson.title
+                <ul>
+            @foreach (var card in lesson.cards)
+            {
+                <li>@card.question</li>
+                <li>@card.dateCreated</li>
+            }  
+         </ul></li>
+
+        }
+        </ul></li>
+       </ul> 
+    }

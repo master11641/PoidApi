@@ -1,0 +1,55 @@
+@model IEnumerable<Invoice>
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">آخرین خرید ها</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pl-2 pr-2">
+@foreach (var item in Model)
+{
+    <li class="item">
+                    @* <div class="product-img">
+                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    </div> *@
+                    <div class="product-info">
+                      <a href="javascript:void(0)" class="product-title">@item.ServicePackage.Title
+                          @if(item.IsConfirm == true){
+                     <span class="badge badge-info float-left">@item.PersianPaymentDate </span>
+                  }else{
+                      <span class="badge badge-warning float-left">@item.PersianPaymentDate </span>
+                  }
+                 
+                        
+                        </a>
+                      <span class="product-description">
+                  @if(item.IsConfirm == true){
+                     <i> تایید شده</i>
+                  }else{
+                        <i> تایید نشده</i>
+                  }
+                      </span>
+                    </div>
+                  </li>
+}
+
+                  
+                  <!-- /.item -->
+                  
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href='@Url.Action("Index","Invoice")' class="uppercase">نمایش همه خرید ها</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>

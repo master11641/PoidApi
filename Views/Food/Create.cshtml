@@ -1,0 +1,128 @@
+@model Food
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Food</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="foodFrm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodMeels" class="control-label"></label>
+                <select id="MeelIds" name="MeelIds" multiple="multiple" data-placeholder="Select Meels...">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodNutrients" class="control-label"></label>
+                <select id="NutrientIds" name="NutrientIds" multiple="multiple" data-placeholder="Select Nutrients...">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodUnits" class="control-label"></label>
+                <select id="UnitIds" name="UnitIds" multiple="multiple" data-placeholder="Select Units...">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodImages" class="control-label"></label>
+                <input id="foodImagesInput" class="form-control ImageSrc" type="file" accept="image/*"  />
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // create MultiSelect from select HTML element
+
+        var meelIds = $("#MeelIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetMeels", "Meel")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+        var nutrientIds = $("#NutrientIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetNutrients", "Nutrient")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+
+        var unitIds = $("#UnitIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetAllUnits", "Unit")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+
+        $("#foodImagesInput").kendoUpload({
+            name: "files",
+            async: {
+                saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+                removeUrl: "@Url.Action("SaveTemp", "Upload")",
+                autoUpload: true
+            },
+            select: function () {
+                console.log('File selected.');
+            },      // function for when a file is selected
+            success: onFileSuccess,     // function that returns response after upload
+            // function after success
+            // function for when a file is removed
+        });
+        function onFileSuccess(e) {
+            $('#foodFrm').append("<input type='text' value='"+ e.response + "'  name='foodImages'   id='foodImages'  />");
+            console.log(e.response);
+        }
+
+    });
+</script>

@@ -1,0 +1,257 @@
+@model IEnumerable<Invoice>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+  /* براي كتابخانه‌ي انتخاب تاريخ هست */
+  [data-name="md-persiandatetimepicker"] table.table td {
+    font-family: Tahoma;
+    font-size: 14px;
+  }
+ </style>
+@section contentheader {
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">فاکتورها</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>خانه</a></li>
+                    <li class="breadcrumb-item active">فاکتورها</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+}
+
+<div class="k-rtl">
+    <div id="report-grid"></div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+    $(function () {
+        var productsDataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetInvoices", "Invoice")",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    type: 'GET'
+                },
+                parameterMap: function (options) {
+                    return kendo.stringify(options);
+                }
+            },
+            schema: {
+                data: "data",
+                total: "total",
+                model: {
+                    fields: {
+                        "id": { type: "number" }, //تعیین نوع فیلد برای جستجوی پویا مهم است
+                        "servicePackageId": { type: "number" },
+                        "refId": { type: "number" },
+                        "paymentDate": {
+                            type: "string", // use "date" if you want to use the built-in datapicker
+                            validation: { required: true }
+                        },
+                        "amount": { type: "number" },
+                        "authority": { type: "string" },
+                        "isConfirm": { type: "boolean" },
+
+                    }
+                }
+            },
+            error: function (e) {
+                alert(e.errorThrown);
+            },
+            pageSize: 10,
+            sort: { field: "id", dir: "desc" },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#report-grid").kendoGrid({
+            dataSource: productsDataSource,
+            autoBind: true,
+            scrollable: false,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            reorderable: true,
+            editable: true ,
+            columnMenu: true,
+            columns: [
+                { field: "id", title: "شماره", width: "130px" },
+                { field: "servicePackage", title: "پکیج", template: '#=servicePackage.title#' },
+                { field: "refId", title: "شماره ارجاع" },
+              
+                {
+                    field: "paymentDate", title: "تاریخ ثبت",
+                    //format: "{0:yyyy/MM/dd}",
+                    //filterable: { ui: "datepicker" }
+                    template: kendo.template($("#persianDateTemplate").html()),
+                    editor: addMdDateTimePicker,
+                    filterable: {
+                        ui: function (element) {
+                            var name = $(element[0]).data("bind").replace("[", "").replace("]", "").replace(".", "").replace(" ", "").replace(":", "");
+                            $(element[0])
+                                .addClass("k-input k-textbox")
+                                .attr("style", "width:100%")
+                                .attr("data-mddatetimepicker", "true")
+                                .attr("data-englishnumber", "true")
+                                .attr("data-trigger", "click")
+                                .attr("data-targetselector", "#" + name)
+                                .attr("data-fromdate", "true")
+                                .attr("data-enabletimepicker", "false")
+                                .attr("data-placement", "right")
+                                .attr("name", name)
+                                .attr("id", name);
+                            EnableMdDateTimePickers();
+                        }
+                    }
+                },
+
+                { field: "amount", title: "مبلغ" },
+                { field: "isConfirm", title: "تایید" },
+                {
+                    field: "id", title: "عملیات",
+                    template: '<a  href="/Invoice/edit/#=id#" class="k-button" >ویرایش</a>  <a  href="/Invoice/delete/#=id#" class="k-button" >حذف</a>'
+                }
+
+            ],
+            filter: function (args) {
+                console.log(args);
+                if (args.field === "paymentDate") {
+                    for (var i = 0; i < args.filter.filters.length; i++) {
+                        var filterValue = args.filter.filters[i].value;
+                        if (filterValue) {
+                            args.filter.filters[i].value = moment(filterValue, 'jYYYY/jMM/jDD').format('YYYY-MM-DD');
+                        }
+                    }
+                }
+            },
+        });
+    });
+
+        // استفاده از يك كنترل انتخاب تاريخ شمسي بجاي نمونه‌ي توكار ميلادي
+        function addMdDateTimePicker(container, options) {
+		    // console.log(options);
+            // دريافت تاريخ ميلادي و تبديل آن به شمسي جهت نمايش در تكست باكس
+            var fieldValue = options.model[options.field];
+            var persianDate = fieldValue ? moment(fieldValue).format('jYYYY/jMM/jDD') : "";
+
+            // ايجاد كنترل انتخاب تاريخ سفارشي با مقدار تاريخ شمسي دريف جاري
+            var input = $('<div dir="ltr" class="input-group">'+
+                              '<div class="input-group-addon" data-name="datepicker1" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#' + options.field + '" data-fromdate="false" data-enabletimepicker="false" data-englishnumber="true" data-placement="left">'+
+                                  '<span class="glyphicon glyphicon-calendar"></span>'+
+                              '</div>'+
+                              '<input type="text" value="'+ persianDate +'" class="form-control" id="' + options.field + '" placeholder="از تاریخ" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#' + options.field + '" data-englishnumber="true"  data-fromdate="true" data-enabletimepicker="false" data-placement="right" />'+
+                           '</div>');
+            // افزودن كنترل جديد به صفحه
+            input.appendTo(container);
+
+            // با خبر سازي كتابخانه انتخاب تاريخ از تكست باكس جديد
+            EnableMdDateTimePickers();
+
+            // هر زمانيكه كاربر تاريخ جديدي را وارد كرد، آن‌را به ميلادي تبديل كرده و در مدل رديف جاري ثبت مي‌كنيم
+            // در نهايت اين مقدار ميلادي است كه به سمت سرور ارسال خواهد شد
+            $('#' + options.field).change(function(){
+                var selectedPersianDate = $(this)[0].value;
+                if(selectedPersianDate) {
+                   var gregorianDate = moment(selectedPersianDate, 'jYYYY/jMM/jDD').format('YYYY-MM-DD');
+                   options.model.set(options.field,  gregorianDate);
+                }
+            });
+
+            // با از دست رفتن فوكوس نياز است اين كنترل مخفي شود
+            $('#' + options.field).blur(function(){
+                $('[data-name="datepicker1"]').MdPersianDateTimePicker('hide');
+            });
+        }
+
+</script>
+ <script id="persianDateTemplate" type="text/x-kendo-template">
+        #if( paymentDate ) {#
+           #=moment(paymentDate).format('jYYYY/jMM/jDD')#
+        #}#
+    </script>
+}
+
+
+
+@* <h1>Index</h1>
+
+    <p>
+    <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => model.ServicePackage)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.RefId)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.RegisterDate)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.PaymentDate)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.Amount)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.Authority)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.IsConfirm)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.User)
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.ServicePackage.Id)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.RefId)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.RegisterDate)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.PersianPaymentDate)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.Amount)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.Authority)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.IsConfirm)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.User.Id)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table> *@
