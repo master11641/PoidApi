@@ -14405,6 +14405,38 @@
         }
       },
       {
+        "HashCode": -1801014094,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__FoodCountComponentViewComponentTagHelper",
+        "AssemblyName": "LeitnerApi",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:food-count-component",
+            "Attributes": [
+              {
+                "Name": "number-to-take"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "number-to-take",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "numberToTake"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__FoodCountComponentViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "FoodCountComponent"
+        }
+      },
+      {
         "HashCode": 141407075,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -16468,8 +16500,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Edit.cshtml",
+      "TargetPath": "Views\\BadHabit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Edit.cshtml",
       "TargetPath": "Views\\Invoice\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Edit.cshtml",
+      "TargetPath": "Views\\Sickness\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Edit.cshtml",
+      "TargetPath": "Views\\FatPart\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16498,6 +16545,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Delete.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Index.cshtml",
       "TargetPath": "Views\\Group\\Index.cshtml",
       "FileKind": "mvc"
@@ -16508,8 +16560,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Details.cshtml",
+      "TargetPath": "Views\\FatPart\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Delete.cshtml",
+      "TargetPath": "Views\\Role\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Create.cshtml",
       "TargetPath": "Views\\UserRole\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Details.cshtml",
+      "TargetPath": "Views\\Allergy\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Details.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Create.cshtml",
+      "TargetPath": "Views\\Allergy\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Edit.cshtml",
+      "TargetPath": "Views\\Allergy\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16520,6 +16602,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Edit.cshtml",
       "TargetPath": "Views\\Food\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Create.cshtml",
+      "TargetPath": "Views\\Sickness\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16543,13 +16630,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Edit.cshtml",
+      "TargetPath": "Views\\Protein\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Details.cshtml",
       "TargetPath": "Views\\ServicePackage\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Delete.cshtml",
+      "TargetPath": "Views\\BadHabit\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Index.cshtml",
       "TargetPath": "Views\\Invoice\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Edit.cshtml",
+      "TargetPath": "Views\\Gender\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16573,8 +16675,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Details.cshtml",
+      "TargetPath": "Views\\Question\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Edit.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Delete.cshtml",
+      "TargetPath": "Views\\Allergy\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Details.cshtml",
       "TargetPath": "Views\\Meel\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Create.cshtml",
+      "TargetPath": "Views\\Role\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16598,6 +16725,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Create.cshtml",
+      "TargetPath": "Views\\Protein\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Index.cshtml",
       "TargetPath": "Views\\Nutrient\\Index.cshtml",
       "FileKind": "mvc"
@@ -16605,6 +16737,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Create.cshtml",
       "TargetPath": "Views\\Nutrient\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Create.cshtml",
+      "TargetPath": "Views\\Gender\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16618,8 +16755,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Create.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Delete.cshtml",
       "TargetPath": "Views\\Group\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Details.cshtml",
+      "TargetPath": "Views\\Role\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16633,13 +16780,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Index.cshtml",
+      "TargetPath": "Views\\Question\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Create.cshtml",
       "TargetPath": "Views\\Invoice\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Create.cshtml",
+      "TargetPath": "Views\\FatPart\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Edit.cshtml",
       "TargetPath": "Views\\Unit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Index.cshtml",
+      "TargetPath": "Views\\Sickness\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16658,6 +16820,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Details.cshtml",
+      "TargetPath": "Views\\Protein\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Delete.cshtml",
+      "TargetPath": "Views\\Protein\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Index.cshtml",
       "TargetPath": "Views\\Unit\\Index.cshtml",
       "FileKind": "mvc"
@@ -16665,6 +16837,31 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Index.cshtml",
+      "TargetPath": "Views\\Allergy\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Index.cshtml",
+      "TargetPath": "Views\\BadHabit\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Details.cshtml",
+      "TargetPath": "Views\\Sickness\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Edit.cshtml",
+      "TargetPath": "Views\\Role\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Index.cshtml",
+      "TargetPath": "Views\\Gender\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16680,6 +16877,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Details.cshtml",
       "TargetPath": "Views\\Invoice\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Index.cshtml",
+      "TargetPath": "Views\\Protein\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16703,13 +16905,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Create.cshtml",
+      "TargetPath": "Views\\Question\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Index.cshtml",
       "TargetPath": "Views\\ServicePackage\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Details.cshtml",
+      "TargetPath": "Views\\BadHabit\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Edit.cshtml",
+      "TargetPath": "Views\\Question\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Index.cshtml",
+      "TargetPath": "Views\\FatPart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Delete.cshtml",
+      "TargetPath": "Views\\Sickness\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16733,6 +16960,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Delete.cshtml",
+      "TargetPath": "Views\\Question\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Details.cshtml",
       "TargetPath": "Views\\User\\Details.cshtml",
       "FileKind": "mvc"
@@ -16740,6 +16972,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Index.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16763,8 +17000,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Create.cshtml",
+      "TargetPath": "Views\\BadHabit\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Details.cshtml",
+      "TargetPath": "Views\\Gender\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16778,6 +17025,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Index.cshtml",
+      "TargetPath": "Views\\Role\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Create.cshtml",
       "TargetPath": "Views\\Food\\Create.cshtml",
       "FileKind": "mvc"
@@ -16788,6 +17040,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Delete.cshtml",
+      "TargetPath": "Views\\FatPart\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Index.cshtml",
       "TargetPath": "Views\\Food\\Index.cshtml",
       "FileKind": "mvc"
@@ -16795,6 +17052,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Edit.cshtml",
       "TargetPath": "Views\\FoodUnit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Delete.cshtml",
+      "TargetPath": "Views\\Gender\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

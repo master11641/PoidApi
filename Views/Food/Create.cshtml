@@ -2,14 +2,15 @@
 
 @{
     ViewData["Title"] = "Create";
+     Layout=null;
 }
 
-<h1>Create</h1>
+<h1>درج</h1>
 
-<h4>Food</h4>
+<h4>غذا</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create" id="foodFrm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -45,7 +46,9 @@
 
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                @* <input type="submit" value="Create" class="btn btn-primary" /> *@
+                    <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Create","Food")' forsendform="#foodFrm"
+                    method="POST" record="false">ثبت تغییرات</a>
             </div>
         </form>
     </div>
@@ -115,13 +118,32 @@
             select: function () {
                 console.log('File selected.');
             },      // function for when a file is selected
-            success: onFileSuccess,     // function that returns response after upload
+            success: onFileSuccess,   
+             remove: onRemove,   // function that returns response after upload
             // function after success
             // function for when a file is removed
         });
         function onFileSuccess(e) {
-            $('#foodFrm').append("<input type='text' value='"+ e.response + "'  name='foodImages'   id='foodImages'  />");
-            console.log(e.response);
+            if (e.response.length != 0) {
+                $('#foodFrm').append("<input type='text' value='"+ e.response+"'  name='foodImages'   id='foodImages' style='visibility: hidden;' />");
+                console.log(e.response);
+                $('span').each(function () {
+                    if ($(this).html() == e.response) {
+                      $(this).parent().append("<image  src='/uploads/"+e.response+"' class='img img-thumbnail'  style='height:100px;' />");
+                    }
+                });
+            }
+
+        }
+        
+        function onRemove(e) {
+            console.log(e);
+            //alert(e.files[0].name);
+            $('input[type=text]').each(function () {
+                if ($(this).val() === e.files[0].name) {
+                    $(this).remove();
+                }
+            });
         }
 
     });

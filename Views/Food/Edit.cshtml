@@ -1,15 +1,16 @@
 @model Food
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "ویرایش";
+     Layout=null;
 }
 
-<h1>Edit</h1>
+<h1>ویرایش</h1>
 
-<h4>Food</h4>
+<h4>غذا</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit" id="foodFrm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -45,7 +46,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                @* <input type="submit" value="Save" class="btn btn-primary" /> *@
+                 <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Edit","Food")' forsendform="#foodFrm" method="POST" record="false">ثبت تغییرات</a>
             </div>
         </form>
     </div>

@@ -2,15 +2,14 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = null;
 }
 
-<h1>Edit</h1>
-
-<h4>FoodUnit</h4>
+<h4>ویرایش و حذف واحد غذا</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-12">
+        <form asp-action="Edit" id="myFrm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="FoodId" />
             <input type="hidden" asp-for="UnitId" />
@@ -20,13 +19,13 @@
                 <span asp-validation-for="Calorie" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Edit","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })' forsendform="#myFrm" method="POST" record="false">ثبت تغییرات</a>
+ <a class="btn btn-danger btn-lg  tjax" href='@Url.Action("Delete","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })' forsendform="#myFrm" method="POST" record="false">حذف واحد </a>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 

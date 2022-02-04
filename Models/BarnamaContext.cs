@@ -73,13 +73,22 @@ public class BarnamaConntext : DbContext {
   public DbSet<Group> Groups { get; set; }
 
   public DbSet<Food> Foods { get; set; }
- public DbSet<FoodMeel> FoodMeels { get; set; }
+  public DbSet<FoodMeel> FoodMeels { get; set; }
   public DbSet<FoodUnit> FoodUnits { get; set; }
- public DbSet<FoodNutrient> foodNutrients { get; set; }
+  public DbSet<FoodNutrient> foodNutrients { get; set; }
   public DbSet<Nutrient> Nutrients { get; set; }
   public DbSet<FoodImage> FoodImages { get; set; }
   public DbSet<Meel> Meels { get; set; }
-
   public DbSet<Unit> Units { get; set; }
+  public DbSet<Goal> Goals { get; set; }
+  public DbSet<Gender> Genders { get; set; }
+  public DbSet<FatPart> FatParts { get; set; }
+  public DbSet<Sickness> Sicknesses { get; set; }
+  public DbSet<Allergy> Allergies { get; set; }
+  public DbSet<ActivityRate> ActivityRates { get; set; }
+  public DbSet<BadHabit> BadHabits { get; set; }
+  public DbSet<Protein> Proteins { get; set; }
+  public DbSet<Question> Questions { get; set; }
+   
 
 }

@@ -19,10 +19,12 @@
 </div>
 }
 <div class="row">
-  @* @await Component.InvokeAsync("LessonCountComponent")
-  @await Component.InvokeAsync("BookCountComponent") *@
+  @* @await Component.InvokeAsync("LessonCountComponent")*@
+
+   @await Component.InvokeAsync("UserCountComponent") 
+  @await Component.InvokeAsync("FoodCountComponent") 
   @await Component.InvokeAsync("InvoiceCountComponent")
-  @await Component.InvokeAsync("UserCountComponent") 
+ 
 </div>
 <div class="row">
   <div class="col-md-8">

@@ -63,7 +63,9 @@
 body {
     font-family: 'Vazir', sans-serif !important;
 }
-
+.k-multiselect-wrap{
+    height: 30px;
+}
 .ltr {
     direction:ltr;
 }
