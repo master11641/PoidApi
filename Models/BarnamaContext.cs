@@ -59,6 +59,17 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.FoodUnits)
       .HasForeignKey (bc => bc.UnitId);
 
+    modelBuilder.Entity<QuestionDiet> ()
+      .HasKey (bc => new { bc.QuestionId, bc.DietId });
+    modelBuilder.Entity<QuestionDiet> ()
+      .HasOne (bc => bc.Question)
+      .WithMany (b => b.QuestionDiets)
+      .HasForeignKey (bc => bc.QuestionId);
+    modelBuilder.Entity<QuestionDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.QuestionDiets)
+      .HasForeignKey (bc => bc.DietId);
+
     //*****************
   }
   public virtual DbSet<User> Users { get; set; }
@@ -89,6 +100,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<BadHabit> BadHabits { get; set; }
   public DbSet<Protein> Proteins { get; set; }
   public DbSet<Question> Questions { get; set; }
-   
+   public DbSet<Diet> Diets { get; set; }
+  public DbSet<QuestionDiet> questionDiets { get; set; }  
 
 }

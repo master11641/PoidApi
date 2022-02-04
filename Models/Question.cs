@@ -9,7 +9,7 @@ public class Question {
     public int Id { get; set; }
     [Display(Name="عنوان")]
     public string Title { get; set; }
-  
+  public ICollection<QuestionDiet> QuestionDiets { get; set; }
   
  
 
