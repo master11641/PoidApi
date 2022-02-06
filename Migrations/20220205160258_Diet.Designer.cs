@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeitnerApi.Migrations
 {
     [DbContext(typeof(BarnamaConntext))]
-    partial class BarnamaConntextModelSnapshot : ModelSnapshot
+    [Migration("20220205160258_Diet")]
+    partial class Diet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,31 +105,31 @@ namespace LeitnerApi.Migrations
                     b.Property<string>("ActivityRateDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ActivityRateId")
+                    b.Property<int>("ActivityRateId")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Age")
+                    b.Property<double>("Age")
                         .HasColumnType("float");
 
                     b.Property<string>("AllergyDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GenderId")
+                    b.Property<int>("GenderId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GoalId")
+                    b.Property<int>("GoalId")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Height")
+                    b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<bool?>("RequestComplete")
+                    b.Property<bool>("RequestComplete")
                         .HasColumnType("bit");
 
                     b.Property<string>("SicknessDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SleepRateId")
+                    b.Property<int>("SleepRateId")
                         .HasColumnType("int");
 
                     b.Property<string>("TakingMedicationDescription")
@@ -136,10 +138,10 @@ namespace LeitnerApi.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WaterRateId")
+                    b.Property<int>("WaterRateRateId")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Weight")
+                    b.Property<double>("Weight")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -154,7 +156,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WaterRateId");
+                    b.HasIndex("WaterRateRateId");
 
                     b.ToTable("Diets");
                 });
@@ -307,7 +309,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("NutrientId");
 
-                    b.ToTable("FoodNutrients");
+                    b.ToTable("foodNutrients");
                 });
 
             modelBuilder.Entity("FoodUnit", b =>
@@ -528,29 +530,6 @@ namespace LeitnerApi.Migrations
                     b.HasIndex("DietId");
 
                     b.ToTable("QuestionDiets");
-                });
-
-            modelBuilder.Entity("Recipe", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FoodId");
-
-                    b.ToTable("Recipes");
                 });
 
             modelBuilder.Entity("Role", b =>
@@ -786,19 +765,27 @@ namespace LeitnerApi.Migrations
                 {
                     b.HasOne("ActivityRate", "ActivityRate")
                         .WithMany()
-                        .HasForeignKey("ActivityRateId");
+                        .HasForeignKey("ActivityRateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Gender", "Gender")
                         .WithMany()
-                        .HasForeignKey("GenderId");
+                        .HasForeignKey("GenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Goal", "Goal")
                         .WithMany()
-                        .HasForeignKey("GoalId");
+                        .HasForeignKey("GoalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SleepRate", "SleepRate")
                         .WithMany()
-                        .HasForeignKey("SleepRateId");
+                        .HasForeignKey("SleepRateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("User", "User")
                         .WithMany()
@@ -808,7 +795,9 @@ namespace LeitnerApi.Migrations
 
                     b.HasOne("WaterRate", "WaterRate")
                         .WithMany()
-                        .HasForeignKey("WaterRateId");
+                        .HasForeignKey("WaterRateRateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ActivityRate");
 
@@ -976,17 +965,6 @@ namespace LeitnerApi.Migrations
                     b.Navigation("Diet");
 
                     b.Navigation("Question");
-                });
-
-            modelBuilder.Entity("Recipe", b =>
-                {
-                    b.HasOne("Food", "Food")
-                        .WithMany()
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("ServicePackage", b =>

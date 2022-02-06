@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 using Barnama.Models;
 
-public class Sickness {
-    public int Id { get; set; }
-    [Display(Name="عنوان")]
-    public string Title { get; set; }
-  
-  public ICollection<SicknessDiet> SicknessDiets { get; set; }
+public class BadHabitDiet {
 
+    public int DietId { get; set; }
+    public Diet Diet { get; set; }
+    public int BadHabitId { get; set; }
+    public BadHabit  BadHabit { get; set; }
+   
 }

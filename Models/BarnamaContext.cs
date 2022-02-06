@@ -70,6 +70,61 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.QuestionDiets)
       .HasForeignKey (bc => bc.DietId);
 
+    modelBuilder.Entity<ProteinDiet> ()
+      .HasKey (bc => new { bc.ProteinId, bc.DietId });
+    modelBuilder.Entity<ProteinDiet> ()
+      .HasOne (bc => bc.Protein)
+      .WithMany (b => b.ProteinDiets)
+      .HasForeignKey (bc => bc.ProteinId);
+    modelBuilder.Entity<ProteinDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.ProteinDiets)
+      .HasForeignKey (bc => bc.DietId);
+
+    modelBuilder.Entity<AllergyDiet> ()
+      .HasKey (bc => new { bc.AllergyId, bc.DietId });
+    modelBuilder.Entity<AllergyDiet> ()
+      .HasOne (bc => bc.Allergy)
+      .WithMany (b => b.AllergyDiets)
+      .HasForeignKey (bc => bc.AllergyId);
+    modelBuilder.Entity<AllergyDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.AllergyDiets)
+      .HasForeignKey (bc => bc.DietId);
+
+    modelBuilder.Entity<BadHabitDiet> ()
+      .HasKey (bc => new { bc.BadHabitId, bc.DietId });
+    modelBuilder.Entity<BadHabitDiet> ()
+      .HasOne (bc => bc.BadHabit)
+      .WithMany (b => b.BadHabitDiets)
+      .HasForeignKey (bc => bc.BadHabitId);
+    modelBuilder.Entity<BadHabitDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.BadHabitDiets)
+      .HasForeignKey (bc => bc.DietId);
+
+    modelBuilder.Entity<SicknessDiet> ()
+      .HasKey (bc => new { bc.SicknessId, bc.DietId });
+    modelBuilder.Entity<SicknessDiet> ()
+      .HasOne (bc => bc.Sickness)
+      .WithMany (b => b.SicknessDiets)
+      .HasForeignKey (bc => bc.SicknessId);
+    modelBuilder.Entity<SicknessDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.SicknessDiets)
+      .HasForeignKey (bc => bc.DietId);
+
+    modelBuilder.Entity<FatPartDiet> ()
+      .HasKey (bc => new { bc.FatPartId, bc.DietId });
+    modelBuilder.Entity<FatPartDiet> ()
+      .HasOne (bc => bc.FatPart)
+      .WithMany (b => b.FatPartDiets)
+      .HasForeignKey (bc => bc.FatPartId);
+    modelBuilder.Entity<FatPartDiet> ()
+      .HasOne (bc => bc.Diet)
+      .WithMany (b => b.FatPartDiets)
+      .HasForeignKey (bc => bc.DietId);
+
     //*****************
   }
   public virtual DbSet<User> Users { get; set; }
@@ -86,7 +141,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<Food> Foods { get; set; }
   public DbSet<FoodMeel> FoodMeels { get; set; }
   public DbSet<FoodUnit> FoodUnits { get; set; }
-  public DbSet<FoodNutrient> foodNutrients { get; set; }
+  public DbSet<FoodNutrient> FoodNutrients { get; set; }
   public DbSet<Nutrient> Nutrients { get; set; }
   public DbSet<FoodImage> FoodImages { get; set; }
   public DbSet<Meel> Meels { get; set; }
@@ -100,7 +155,11 @@ public class BarnamaConntext : DbContext {
   public DbSet<BadHabit> BadHabits { get; set; }
   public DbSet<Protein> Proteins { get; set; }
   public DbSet<Question> Questions { get; set; }
-   public DbSet<Diet> Diets { get; set; }
-  public DbSet<QuestionDiet> questionDiets { get; set; }  
+  public DbSet<Diet> Diets { get; set; }
+  public DbSet<QuestionDiet> QuestionDiets { get; set; }
+  public DbSet<ProteinDiet> ProteinDiets { get; set; }
+  public DbSet<SleepRate> SleepRates { get; set; }
+  public DbSet<WaterRate> WaterRates { get; set; }
+  public DbSet<Recipe> Recipes { get; set; }
 
 }

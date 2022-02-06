@@ -5,11 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 using Barnama.Models;
 
-public class Sickness {
+public class Program {
     public int Id { get; set; }
-    [Display(Name="عنوان")]
+
+    [Display (Name = "عنوان")]
     public string Title { get; set; }
-  
-  public ICollection<SicknessDiet> SicknessDiets { get; set; }
+   public DateTime StartDate { get; set; }
+   public DateTime EndDate { get; set; }
+   public int MyProperty { get; set; }
+   
 
 }

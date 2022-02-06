@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeitnerApi.Migrations
 {
     [DbContext(typeof(BarnamaConntext))]
-    partial class BarnamaConntextModelSnapshot : ModelSnapshot
+    [Migration("20220206135641_Diet.two")]
+    partial class Diettwo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace LeitnerApi.Migrations
                     b.Property<int?>("GenderId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GoalId")
+                    b.Property<int>("GoalId")
                         .HasColumnType("int");
 
                     b.Property<double?>("Height")
@@ -136,7 +138,7 @@ namespace LeitnerApi.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WaterRateId")
+                    b.Property<int?>("WaterRateRateId")
                         .HasColumnType("int");
 
                     b.Property<double?>("Weight")
@@ -154,7 +156,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WaterRateId");
+                    b.HasIndex("WaterRateRateId");
 
                     b.ToTable("Diets");
                 });
@@ -794,7 +796,9 @@ namespace LeitnerApi.Migrations
 
                     b.HasOne("Goal", "Goal")
                         .WithMany()
-                        .HasForeignKey("GoalId");
+                        .HasForeignKey("GoalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SleepRate", "SleepRate")
                         .WithMany()
@@ -808,7 +812,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasOne("WaterRate", "WaterRate")
                         .WithMany()
-                        .HasForeignKey("WaterRateId");
+                        .HasForeignKey("WaterRateRateId");
 
                     b.Navigation("ActivityRate");
 

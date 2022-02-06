@@ -7,11 +7,13 @@ using Barnama.Models;
 
 public class FatPart {
     public int Id { get; set; }
-    [Display(Name="عنوان")]
+
+    [Display (Name = "عنوان")]
     public string Title { get; set; }
-    [Display(Name="تصویر")]
-     public string ImageUrl { get; set; } 
-  
- 
+
+    [Display (Name = "تصویر")]
+    public string ImageUrl { get; set; }
+
+    public ICollection<FatPartDiet> FatPartDiets { get; set; }
 
 }

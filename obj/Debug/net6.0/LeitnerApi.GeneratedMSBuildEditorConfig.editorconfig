@@ -179,6 +179,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[I:/Asp.net Core Projects/PoidsApi/Views/Goal/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Goal/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Goal/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Goal/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Goal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [I:/Asp.net Core Projects/PoidsApi/Views/Group/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -311,6 +331,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[I:/Asp.net Core Projects/PoidsApi/Views/Recipe/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Recipe/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Recipe/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Recipe/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/Recipe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [I:/Asp.net Core Projects/PoidsApi/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -423,6 +463,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[I:/Asp.net Core Projects/PoidsApi/Views/SleepRate/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xlZXBSYXRlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SleepRate/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xlZXBSYXRlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SleepRate/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xlZXBSYXRlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SleepRate/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xlZXBSYXRlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SleepRate/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xlZXBSYXRlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [I:/Asp.net Core Projects/PoidsApi/Views/Unit/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -485,6 +545,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [I:/Asp.net Core Projects/PoidsApi/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/WaterRate/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJSYXRlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/WaterRate/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJSYXRlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/WaterRate/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJSYXRlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/WaterRate/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJSYXRlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/WaterRate/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJSYXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [I:/Asp.net Core Projects/PoidsApi/Views/_ViewImports.cshtml]

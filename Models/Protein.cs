@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,11 +7,12 @@ using Barnama.Models;
 
 public class Protein {
     public int Id { get; set; }
-    [Display(Name="عنوان")]
+
+    [Display (Name = "عنوان")]
     public string Title { get; set; }
-  
-     [Display(Name="تصویر")]
-     public string ImageUrl { get; set; } 
- 
+
+    [Display (Name = "تصویر")]
+    public string ImageUrl { get; set; }
+    public ICollection<ProteinDiet> ProteinDiets { get; set; }
 
 }

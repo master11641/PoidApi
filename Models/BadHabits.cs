@@ -9,8 +9,7 @@ public class BadHabit {
     public int Id { get; set; }
     [Display(Name="عنوان")]
     public string Title { get; set; }
-  
-  
+   public ICollection<BadHabitDiet> BadHabitDiets { get; set; }  
  
 
 }

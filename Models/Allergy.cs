@@ -10,7 +10,7 @@ public class Allergy {
     [Display(Name="عنوان")]
     public string Title { get; set; }
   
-  
+  public ICollection<AllergyDiet> AllergyDiets { get; set; }
  
 
 }

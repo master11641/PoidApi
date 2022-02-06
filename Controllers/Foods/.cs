@@ -66,7 +66,7 @@ namespace LeitnerApi.Controllers.Foods {
                 }
                 foreach (int id in NutrientIds) {
                     FoodNutrient foodNutrient = new FoodNutrient { NutrientId = id, Food = food };
-                    _context.foodNutrients.Attach (foodNutrient);
+                    _context.FoodNutrients.Attach (foodNutrient);
                 }
 
                 foreach (int id in UnitIds) {
@@ -101,7 +101,7 @@ namespace LeitnerApi.Controllers.Foods {
             var SelectedMeelIds = _context.FoodMeels.Where (x => x.FoodId == food.Id).Select (x => x.MeelId).ToArray ();
             ViewData["SelectedMeelIds"] = SelectedMeelIds;
 
-            var SelectedNutrientIds = _context.foodNutrients.Where (x => x.FoodId == food.Id).Select (x => x.NutrientId).ToArray ();
+            var SelectedNutrientIds = _context.FoodNutrients.Where (x => x.FoodId == food.Id).Select (x => x.NutrientId).ToArray ();
             ViewData["SelectedNutrientIds"] = SelectedNutrientIds;
             var SelectedUnitIds = _context.FoodUnits.Where (x => x.FoodId == food.Id ).Select (x => x.UnitId).ToArray ();
             ViewData["SelectedUnitIds"] = SelectedUnitIds;
