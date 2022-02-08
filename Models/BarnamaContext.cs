@@ -8,7 +8,7 @@ public class BarnamaConntext : DbContext {
   public static bool isMigration = true;
   protected override void OnConfiguring (DbContextOptionsBuilder options) {
     options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
-    // options.UseSqlServer ("server=158.58.187.148\\MSSQLSERVER2017;database=metaplan;user=barnamer1;password=Aserfg1@;");
+    //options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
 
   }
   protected override void OnModelCreating (ModelBuilder modelBuilder) {
