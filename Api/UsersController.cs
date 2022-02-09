@@ -41,7 +41,7 @@ public class UsersApiController : ControllerBase {
     public IActionResult Register (String phoneNumber, String name, String family, String introducedUserPhone) {
         var user = _userService.GetByUserName (phoneNumber);
         var rand = new Random ();
-        var uid = rand.Next (1000, 9999);
+        var uid = rand.Next (10000, 99999);
         String newPassword = uid.ToString ();
         // string token = "";
         if (user == null) {
@@ -51,6 +51,7 @@ public class UsersApiController : ControllerBase {
             RegisterDate = DateTime.Now,
             Name = name,
             Family = family,
+            ImageProfileUrl = "/uploads/noimage.png"
 
             };
             if (introducedUserPhone != null) {
@@ -71,27 +72,38 @@ public class UsersApiController : ControllerBase {
             _context.SaveChanges ();
             user = addUser;
         } else {
-            return NotFound ("شماره همراه از قبل وجود دارد");
-            // user.Name = name;
-            // user.Family = family;
-            // user.Password = newPassword;
-            // _context.SaveChanges ();
+            // return NotFound ("شماره همراه از قبل وجود دارد");
+            user.Name = name;
+            user.Family = family;
+            user.Password = newPassword;
+            _context.SaveChanges ();
         }
-       // Field userField = _context.Fields.Where (x => x.Id == user.FieldId).Include (x => x.Grade).FirstOrDefault ();
+        // Field userField = _context.Fields.Where (x => x.Id == user.FieldId).Include (x => x.Grade).FirstOrDefault ();
         UserDetails userDetails = new UserDetails {
             Id = user.Id,
             Family = user.Family,
             FcmToken = "",
-         
-           // FieldTitle = userField?.Title,
+
+            // FieldTitle = userField?.Title,
             PhoneNumber = user.PhoneNumber,
             Name = user.Name,
-            Password = "",
-           // GradeId = userField?.GradeId,
-           //GradeTitle = userField?.Grade?.Title
+            Password = newPassword,
+            ImageProfileUrl = user.ImageProfileUrl
+            // GradeId = userField?.GradeId,
+            //GradeTitle = userField?.Grade?.Title
 
         };
         return Ok (userDetails);
+    }
+
+    [HttpPost ("ChangeUserProfileImage")]
+    public IActionResult ChangeUserProfileImage (int userId, string imageUrl) {
+        var user = _context.Users.Find (userId);
+        if (user == null) {
+            return BadRequest ("کاربری شما نامعتبر است");
+        }
+        user.ImageProfileUrl = imageUrl;
+        return Ok (imageUrl);
     }
 
     [HttpPost ("GetUserByPhone")]
@@ -109,14 +121,13 @@ public class UsersApiController : ControllerBase {
             Id = user.Id,
             Family = user.Family,
             FcmToken = "",
-          
+
             //FieldTitle = userField?.Title,
             PhoneNumber = user.PhoneNumber,
             Name = user.Name,
             Password = "",
             // GradeId = userField?.GradeId,
             // GradeTitle = userField?.Grade?.Title,
-        
 
         };
         return Ok (userDetails);
@@ -133,31 +144,9 @@ public class UsersApiController : ControllerBase {
         String newPassword = uid.ToString ();
         user.Password = newPassword;
         _context.SaveChanges ();
-        // var sender = "10008000880055";
-        // var receptor = phone;
-        // var message = String.Format ("Planiverse Code :  {0}", user.Password);
-        // var api = new Kavenegar.KavenegarApi ("33735370676E55562B46367761763335756852594966616161416E37387A683547573851336E2F465379513D");
-        // api.Send (sender, receptor, message);
-        //********************
-        // var request = new HttpRequestMessage (HttpMethod.Get,
-        //     String.Format ("https://api.kavenegar.com/v1/33735370676E55562B46367761763335756852594966616161416E37387A683547573851336E2F465379513D/verify/lookup.json?receptor={1}&token={0}&template=verify", user.Password, phone));
-
-        // var response = HttpClient.SendAsync (request);
         new SmsUtil ().Send (phone, user.Password);
         return Ok (user.Password);
     }
-
-    // public async Task<ActionResult> SendSmsAsync (string phone) {
-
-    //     var request = new HttpRequestMessage (HttpMethod.Get,
-    //         "https://api.kavenegar.com/v1/33735370676E55562B46367761763335756852594966616161416E37387A683547573851336E2F465379513D/verify/lookup.json?receptor=09155344405&token=852596&template=verify");
-    //     string result = "";
-    //     var response = HttpClient.SendAsync (request);
-    //     if (response.IsCompletedSuccessfully) {
-    //         result = await response.Result.Content.ReadAsStringAsync ();
-    //     }
-    //     return Ok (result);
-    // }
 
     [HttpPost ("login")]
     public async Task<IActionResult> Login (AuthenticateRequest request) {
@@ -176,7 +165,7 @@ public class UsersApiController : ControllerBase {
             }
         }
 
-        return NotFound ();
+        return BadRequest ("اطلاعات وارد شده اشتباه است .");
     }
 
     [HttpPost ("setField")]
@@ -184,7 +173,7 @@ public class UsersApiController : ControllerBase {
         //حذف کلیه اطلاعات قبلی کاربر در صورتی که تغییر رشته دهد
 
         User user = _userService.GetById (userId);
-       
+
         // if (user.FieldId != fieldId) {
         //     List<Lesson> lessons = _context.Lessons.Where (x => x.UserName == user.PhoneNumber).ToList ();
         //     if (lessons.Count != 0) {
@@ -200,20 +189,17 @@ public class UsersApiController : ControllerBase {
 
         var users = _context.Users.Include (x => x.UserRoles).Where (x => x.UserRoles.Count > 0).ToList ();
 
-       
         _context.Users.Attach (user);
         _context.SaveChanges ();
-       // Field field = _context.Fields.Include (x => x.Grade).FirstOrDefault (x => x.Id == fieldId);
+        // Field field = _context.Fields.Include (x => x.Grade).FirstOrDefault (x => x.Id == fieldId);
         UserDetails ud = new UserDetails {
             Family = user.Family,
             FcmToken = user.FcmToken,
-            
-           
+
             Id = user.Id,
             Name = user.Name,
             Password = user.Password,
             PhoneNumber = user.Password,
-           
 
         };
         return Ok (ud);
