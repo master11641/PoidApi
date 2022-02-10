@@ -318,7 +318,49 @@ namespace LeitnerApi.Migrations
                     b.Property<int>("UnitId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Calorie")
+                    b.Property<double?>("Calcium")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Calorie")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Carbohydrate")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Fat")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Iron")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Magnesium")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Phosphor")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Potassium")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Protein")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Sfa")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Sodium")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Sugar")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Tfa")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Umfa")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Upfa")
                         .HasColumnType("float");
 
                     b.HasKey("FoodId", "UnitId");

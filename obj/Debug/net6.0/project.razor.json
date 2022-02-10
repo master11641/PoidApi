@@ -14245,6 +14245,38 @@
         }
       },
       {
+        "HashCode": -1801014094,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__FoodCountComponentViewComponentTagHelper",
+        "AssemblyName": "LeitnerApi",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:food-count-component",
+            "Attributes": [
+              {
+                "Name": "number-to-take"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "number-to-take",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "numberToTake"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__FoodCountComponentViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "FoodCountComponent"
+        }
+      },
+      {
         "HashCode": 1129561694,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__InvoiceCountComponentViewComponentTagHelper",
@@ -14402,38 +14434,6 @@
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "__Generated__UserCountComponentViewComponentTagHelper",
           "MVC.ViewComponent.Name": "UserCountComponent"
-        }
-      },
-      {
-        "HashCode": -1801014094,
-        "Kind": "MVC.ViewComponent",
-        "Name": "__Generated__FoodCountComponentViewComponentTagHelper",
-        "AssemblyName": "LeitnerApi",
-        "CaseSensitive": false,
-        "TagMatchingRules": [
-          {
-            "TagName": "vc:food-count-component",
-            "Attributes": [
-              {
-                "Name": "number-to-take"
-              }
-            ]
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "MVC.ViewComponent",
-            "Name": "number-to-take",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "numberToTake"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "__Generated__FoodCountComponentViewComponentTagHelper",
-          "MVC.ViewComponent.Name": "FoodCountComponent"
         }
       },
       {
@@ -16642,6 +16642,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Index.cshtml",
       "TargetPath": "Views\\UserRole\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\ReadExcell.cshtml",
+      "TargetPath": "Views\\Food\\ReadExcell.cshtml",
       "FileKind": "mvc"
     },
     {

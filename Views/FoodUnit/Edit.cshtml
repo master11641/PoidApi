@@ -19,13 +19,88 @@
                 <span asp-validation-for="Calorie" class="text-danger"></span>
             </div>
             <div class="form-group">
-            <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Edit","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })' forsendform="#myFrm" method="POST" record="false">ثبت تغییرات</a>
- <a class="btn btn-danger btn-lg  tjax" href='@Url.Action("Delete","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })' forsendform="#myFrm" method="POST" record="false">حذف واحد </a>
+                <label asp-for="Protein" class="control-label"></label>
+                <input asp-for="Protein" class="form-control" />
+                <span asp-validation-for="Protein" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Carbohydrate" class="control-label"></label>
+                <input asp-for="Carbohydrate" class="form-control" />
+                <span asp-validation-for="Carbohydrate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fat" class="control-label"></label>
+                <input asp-for="Fat" class="form-control" />
+                <span asp-validation-for="Fat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sugar" class="control-label"></label>
+                <input asp-for="Sugar" class="form-control" />
+                <span asp-validation-for="Sugar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sodium" class="control-label"></label>
+                <input asp-for="Sodium" class="form-control" />
+                <span asp-validation-for="Sodium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Potassium" class="control-label"></label>
+                <input asp-for="Potassium" class="form-control" />
+                <span asp-validation-for="Potassium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Magnesium" class="control-label"></label>
+                <input asp-for="Magnesium" class="form-control" />
+                <span asp-validation-for="Magnesium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calcium" class="control-label"></label>
+                <input asp-for="Calcium" class="form-control" />
+                <span asp-validation-for="Calcium" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phosphor" class="control-label"></label>
+                <input asp-for="Phosphor" class="form-control" />
+                <span asp-validation-for="Phosphor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iron" class="control-label"></label>
+                <input asp-for="Iron" class="form-control" />
+                <span asp-validation-for="Iron" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Umfa" class="control-label"></label>
+                <input asp-for="Umfa" class="form-control" />
+                <span asp-validation-for="Umfa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Upfa" class="control-label"></label>
+                <input asp-for="Upfa" class="form-control" />
+                <span asp-validation-for="Upfa" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sfa" class="control-label"></label>
+                <input asp-for="Sfa" class="form-control" />
+                <span asp-validation-for="Sfa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tfa" class="control-label"></label>
+                <input asp-for="Tfa" class="form-control" />
+                <span asp-validation-for="Tfa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary btn-lg  tjax"
+                    href='@Url.Action("Edit","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })'
+                    forsendform="#myFrm" method="POST" record="false">ثبت تغییرات</a>
+                <a class="btn btn-danger btn-lg  tjax"
+                    href='@Url.Action("Delete","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })'
+                    forsendform="#myFrm" method="POST" record="false">حذف واحد </a>
 
             </div>
         </form>
     </div>
 </div>
-
-
-

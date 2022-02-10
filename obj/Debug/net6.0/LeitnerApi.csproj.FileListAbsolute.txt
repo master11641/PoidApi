@@ -354,3 +354,6 @@ I:\Asp.net Core Projects\PoidsApi\obj\Debug\net6.0\LeitnerApi.dll
 I:\Asp.net Core Projects\PoidsApi\obj\Debug\net6.0\ref\LeitnerApi.dll
 I:\Asp.net Core Projects\PoidsApi\obj\Debug\net6.0\LeitnerApi.pdb
 I:\Asp.net Core Projects\PoidsApi\obj\Debug\net6.0\LeitnerApi.genruntimeconfig.cache
+I:\Asp.net Core Projects\PoidsApi\bin\Debug\net6.0\GemBox.Spreadsheet.dll
+I:\Asp.net Core Projects\PoidsApi\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+I:\Asp.net Core Projects\PoidsApi\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\GemBox.Spreadsheet.dll

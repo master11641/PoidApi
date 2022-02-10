@@ -6,15 +6,15 @@
 }
 <style>
     .badge {
-  .close {
-    padding-right: $badge-padding-x;
-    padding-left: $badge-padding-x;
-    margin-right: -$badge-padding-x;
-    font-size: inherit;
-    color: inherit;
-    text-shadow: none;
-  }
-}
+        .close {
+            padding-right: $badge-padding-x;
+            padding-left: $badge-padding-x;
+            margin-right: -$badge-padding-x;
+            font-size: inherit;
+            color: inherit;
+            text-shadow: none;
+        }
+    }
 </style>
 @section contentheader {
 <div class="content-header">
@@ -33,8 +33,10 @@
     </div><!-- /.container-fluid -->
 </div>
 }
+<h5>ثبت اطلاعات از طریق فایل اکسل</h5>
 <!--نحوه‌ی راست به چپ سازی گرید-->
 <div class="k-rtl">
+    <input id="importFile" class="form-control " type="file" accept="*/*" />
     <div id="report-grid"></div>
 </div>
 @section Scripts{
@@ -85,7 +87,7 @@
             columnMenu: true,
             columns: [
                 { field: "id", title: "شماره", width: "130px" },
-                { field: "title", title: "عنوان غذا",template: kendo.template($("#titleTemplate").html())},
+                { field: "title", title: "عنوان غذا", template: kendo.template($("#titleTemplate").html()) },
 
                 {
                     field: "id", title: "عملیات",
@@ -97,6 +99,41 @@
                 { template: kendo.template($("#toolbarTemplate").html()) }
             ]
         });
+        $(document).ready(function () {
+            $("#importFile").kendoUpload({
+                name: "files",
+                showFileList: true,
+                async: {
+                    saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+                    removeUrl: "@Url.Action("SaveTemp", "Upload")",
+                    autoUpload: true
+                },
+                select: function (e) {
+                    console.log('File selected.');
+                },      // function for when a file is selected
+                success: onFileSuccess,
+
+                // function after success
+                // function for when a file is removed
+            });
+            function onFileSuccess(e) {
+                if (e.response.length != 0) {
+                    //alert(e.response);
+                    $.post("@Url.Action("ReadExcell", "Food")", { fileName: e.response }, function (result,status,xhr) {
+                        if(status=='success'){
+                            $("#report-grid").data("kendoGrid").dataSource.read();
+                        }else{
+                            alert('خطایی رخ داده است.');
+                        }
+                      
+                    });
+                }
+
+            }
+        });// $(document).ready(function () {
+
+
+
     });
     function completeHandler(sender, response) {
         $('#tjaxModal').modal('hide');

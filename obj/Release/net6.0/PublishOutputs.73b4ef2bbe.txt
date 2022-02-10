@@ -4,6 +4,7 @@ I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\appsettings.json
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\LeitnerApi.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\LeitnerApi.runtimeconfig.json
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\LeitnerApi.pdb
+I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\GemBox.Spreadsheet.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\GreenDonut.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\HotChocolate.Abstractions.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\HotChocolate.AspNetCore.dll
@@ -65,6 +66,7 @@ I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\Microsoft.Win32.Sys
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\Newtonsoft.Json.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\Newtonsoft.Json.Bson.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\PersianDateTime.Core.dll
+I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\BouncyCastle.Crypto.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\RestSharp.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.Swagger.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -134,6 +136,7 @@ I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\ru\Microsoft.CodeAn
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\runtimes\unix\lib\netcoreapp3.1\GemBox.Spreadsheet.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 I:\Asp.net Core Projects\PoidsApi\bin\Release\net6.0\publish\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

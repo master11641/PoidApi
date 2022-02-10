@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "GemBox.Spreadsheet/47.0.1398": {
+        "type": "package",
+        "dependencies": {
+          "Portable.BouncyCastle": "1.8.9",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/GemBox.Spreadsheet.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/GemBox.Spreadsheet.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.1/GemBox.Spreadsheet.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          }
+        }
+      },
       "GreenDonut/12.0.1": {
         "type": "package",
         "dependencies": {
@@ -1317,7 +1336,7 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -1529,6 +1548,15 @@
         },
         "runtime": {
           "lib/net6.0/PersianDateTime.Core.dll": {}
+        }
+      },
+      "Portable.BouncyCastle/1.8.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
       "RestSharp/106.13.0": {
@@ -2608,10 +2636,10 @@
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
         }
       },
-      "System.Text.Encoding.CodePages/4.7.0": {
+      "System.Text.Encoding.CodePages/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0"
+          "Microsoft.NETCore.Platforms": "5.0.0"
         },
         "compile": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
@@ -2849,6 +2877,33 @@
     }
   },
   "libraries": {
+    "GemBox.Spreadsheet/47.0.1398": {
+      "sha512": "AQiz/SwWxHZH/470TP7ZnssgDYKw6855LXmjKu/vojd1C9pEKlurTI2sPPECcyhWDPf1eF9dZkHKDjuJ0NZkoQ==",
+      "type": "package",
+      "path": "gembox.spreadsheet/47.0.1398",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "README.md",
+        "Readme.txt",
+        "gembox.spreadsheet.47.0.1398.nupkg.sha512",
+        "gembox.spreadsheet.nuspec",
+        "lib/net35/GemBox.Spreadsheet.dll",
+        "lib/net35/GemBox.Spreadsheet.xml",
+        "lib/netcoreapp3.1/GemBox.Spreadsheet.dll",
+        "lib/netcoreapp3.1/GemBox.Spreadsheet.xml",
+        "lib/netstandard2.0/GemBox.Spreadsheet.dll",
+        "lib/netstandard2.0/GemBox.Spreadsheet.xml",
+        "licenses/EULA.txt",
+        "licenses/ThirdPartyCodeLicenses/DotNetZip License.txt",
+        "licenses/ThirdPartyCodeLicenses/ExCSS License.txt",
+        "licenses/ThirdPartyCodeLicenses/NPOI License.txt",
+        "licenses/ThirdPartyCodeLicenses/PDFsharp and MigraDoc License.txt",
+        "licenses/ThirdPartyCodeLicenses/SVG.NET License.txt",
+        "runtimes/unix/lib/netcoreapp3.1/GemBox.Spreadsheet.dll"
+      ]
+    },
     "GreenDonut/12.0.1": {
       "sha512": "CsFZ3OTAYXBPTUnQAWU1m3MMZBuFV9m0ja+9gElQ23vRaEPKVfPVvpy2ia9p4NQz9OcfNcpJ/5AFoFyY8ITCgw==",
       "type": "package",
@@ -4505,17 +4560,18 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.1.0": {
-      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/3.1.0",
+      "path": "microsoft.netcore.platforms/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -5101,6 +5157,21 @@
         "lib/net6.0/PersianDateTime.Core.xml",
         "persiandatetime.core.2.0.0.nupkg.sha512",
         "persiandatetime.core.nuspec"
+      ]
+    },
+    "Portable.BouncyCastle/1.8.9": {
+      "sha512": "wlJo8aFoeyl+W93iFXTK5ShzDYk5WBqoUPjTNEM0Xv9kn1H+4hmuCjF0/n8HLm9Nnp1aY6KNndWqQTNk+NGgRQ==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.8.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.8.9.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
       ]
     },
     "RestSharp/106.13.0": {
@@ -8417,13 +8488,14 @@
         "system.text.encoding.nuspec"
       ]
     },
-    "System.Text.Encoding.CodePages/4.7.0": {
-      "sha512": "aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
+    "System.Text.Encoding.CodePages/5.0.0": {
+      "sha512": "NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
       "type": "package",
-      "path": "system.text.encoding.codepages/4.7.0",
+      "path": "system.text.encoding.codepages/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -8451,7 +8523,7 @@
         "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
-        "system.text.encoding.codepages.4.7.0.nupkg.sha512",
+        "system.text.encoding.codepages.5.0.0.nupkg.sha512",
         "system.text.encoding.codepages.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -9127,6 +9199,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GemBox.Spreadsheet >= 47.0.1398",
       "HotChocolate.AspNetCore >= 12.0.1",
       "HotChocolate.AspNetCore.Authorization >= 12.0.1",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
@@ -9193,6 +9266,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "GemBox.Spreadsheet": {
+            "target": "Package",
+            "version": "[47.0.1398, )"
+          },
           "HotChocolate.AspNetCore": {
             "target": "Package",
             "version": "[12.0.1, )"

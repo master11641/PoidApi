@@ -93,7 +93,7 @@ namespace LeitnerApi.Controllers.FoodUnits
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("FoodId,UnitId,Calorie")] FoodUnit foodUnit)
+        public async Task<IActionResult> Edit(FoodUnit foodUnit)
         {
        
 
