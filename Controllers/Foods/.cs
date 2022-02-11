@@ -74,8 +74,8 @@ namespace LeitnerApi.Controllers.Foods {
         }
 
         void addFood (string title, string unitTitle, double? calorie, double? Protein, double? Carbohydrate, double? Fat, double? Sugar, double? Sodium, double? Potassium, double? Magnesium, double? Calcium, double? Phosphor, double? Iron, double? Umfa, double? Upfa, double? Sfa, double? Tfa) {
-            int foodId = 0;
-            var food = _context.Foods.Where (x => x.Title == title).FirstOrDefault ();
+          
+            var food = _context.Foods.Where (x => x.Title == title).Include(x=>x.FoodUnits).FirstOrDefault ();
             var unit = _context.Units.Where (x => x.Title == unitTitle).FirstOrDefault ();
             if (unit == null) {
                 unit = new Unit ();
@@ -88,10 +88,10 @@ namespace LeitnerApi.Controllers.Foods {
                 food.Title = title;
                 food.GroupId = 1;
                 _context.Foods.Add (food);
-            } else {
-                foodId = food.Id;
+            } else {              
+                food.FoodUnits.Clear();
             }
-            FoodUnit foodUnit = new FoodUnit ();
+            FoodUnit foodUnit = new FoodUnit();
             foodUnit.Food = food;
             foodUnit.Unit = unit;
             foodUnit.Calorie = calorie;
@@ -110,7 +110,7 @@ namespace LeitnerApi.Controllers.Foods {
             foodUnit.Sfa = Sfa;
             foodUnit.Tfa = Tfa;
             _context.FoodUnits.Add (foodUnit);
-            foodId = _context.SaveChanges ();
+            _context.SaveChanges ();
 
         }
 

@@ -106,9 +106,9 @@ namespace Barnama.Controllers {
             if (bmi < 25) {
                 callery = (double) (1.1 * 1.3 * 24 * g * diet.Weight);
             } else {
-               double weightNormal = (double)(coefficient * ((diet.Height / 100) * (diet.Height / 100)));
-               double ibw = (double)(weightNormal + ((diet.Weight-weightNormal)*0.25));
-               callery = 1.1*1.3*24*g*ibw;
+                double weightNormal = (double) (coefficient * ((diet.Height / 100) * (diet.Height / 100)));
+                double ibw = (double) (weightNormal + ((diet.Weight - weightNormal) * 0.25));
+                callery = 1.1 * 1.3 * 24 * g * ibw;
             }
 
             var result = new {
@@ -116,6 +116,43 @@ namespace Barnama.Controllers {
                 description = description
             };
             return Ok (result);
+        }
+
+        [HttpPost ("setGoalUser")]
+        public IActionResult setGoalUser (int userId,int goalId) {
+               var diet = _context.Diets.Include (x => x.User).Where (x => x.RequestComplete == false).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+               if(diet==null){
+                  return BadRequest("رژیم قابل ویارایش وجود ندارد .");
+               }
+               diet.GoalId = goalId;
+               _context.SaveChanges();
+               return Ok();
+        }
+        
+        //اگر رژیم تکمیل نشده ای داشت مراحل آن را محاسبه و بر می گرداند 
+        //در غیر اینصورت مقدار 6 به معنای تکمیل شده را بر می گرداند
+        [HttpPost ("GeStepCompleteCountUser")]
+        public IActionResult GeStepCompleteCountUser (int userId) {
+            var step = 0;
+            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).OrderByDescending (x => x.Id);
+            Diet currentDiet;
+            if (diets.Count () > 0) {
+                currentDiet = diets.Where (x => x.RequestComplete == false).FirstOrDefault ();
+                if (currentDiet == null) {
+                    currentDiet = diets.Where (x => x.RequestComplete == true).FirstOrDefault ();
+                    if (currentDiet != null) {
+                        step = 6;
+                    }
+                } else {
+                    if (currentDiet.GoalId != null) {
+                        step = 1;
+                    }
+                    if (currentDiet.Age != null && currentDiet.GenderId != null && currentDiet.Height != null) {
+                        step = 2;
+                    }
+                }
+            }
+            return Ok (step);
         }
     }
 }
