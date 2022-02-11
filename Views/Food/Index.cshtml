@@ -119,13 +119,9 @@
             function onFileSuccess(e) {
                 if (e.response.length != 0) {
                     //alert(e.response);
-                    $.post("@Url.Action("ReadExcell", "Food")", { fileName: e.response }, function (result,status,xhr) {
-                        if(status=='success'){
-                            $("#report-grid").data("kendoGrid").dataSource.read();
-                        }else{
-                            alert('خطایی رخ داده است.');
-                        }
-                      
+                    $.post("@Url.Action("ReadExcell", "Food")", { fileName: e.response }, function (result,status,xhr) {                       
+                            $("#report-grid").data("kendoGrid").dataSource.read();                       
+                            alert('اطلاعات با موفقیت بارگذاری شد');
                     });
                 }
 

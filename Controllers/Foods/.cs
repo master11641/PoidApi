@@ -53,7 +53,7 @@ namespace LeitnerApi.Controllers.Foods {
                         if (row.AllocatedCells[j].ValueType != CellValueType.Null) {
 
                             if (j == 0 && rowCount != 0) {
-                                addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
+                                addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().RemoveDigits().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
 
                                     , double.Parse (row.AllocatedCells[14].Value.ToString ()), double.Parse (row.AllocatedCells[15].Value.ToString ()), double.Parse (row.AllocatedCells[16].Value.ToString ())
 
@@ -88,8 +88,14 @@ namespace LeitnerApi.Controllers.Foods {
                 food.Title = title;
                 food.GroupId = 1;
                 _context.Foods.Add (food);
-            } else {              
-                food.FoodUnits.Clear();
+            } else {  
+                if(unit.Id > 0){
+                 var foodUnits =   _context.FoodUnits.Where(x=>x.FoodId==food.Id && x.UnitId == unit.Id);  
+                _context.FoodUnits.RemoveRange(foodUnits) ;
+                _context.SaveChanges();
+                } 
+             
+               
             }
             FoodUnit foodUnit = new FoodUnit();
             foodUnit.Food = food;
