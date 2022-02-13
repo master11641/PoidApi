@@ -119,25 +119,25 @@ namespace Barnama.Controllers {
         }
 
         [HttpPost ("setGoalUser")]
-        public IActionResult setGoalUser (int userId,int goalId) {
-               var diet = _context.Diets.Include (x => x.User).Where (x => x.RequestComplete == false).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
-               if(diet==null){
-                  return BadRequest("رژیم قابل ویارایش وجود ندارد .");
-               }
-               diet.GoalId = goalId;
-               _context.SaveChanges();
-               return Ok();
+        public IActionResult setGoalUser (int userId, int goalId) {
+            var diet = _context.Diets.Include (x => x.User).Where (x => x.UserId == userId).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویارایش وجود ندارد .");
+            }
+            diet.GoalId = goalId;
+            _context.SaveChanges ();
+            return Ok (goalId);
         }
-        
+
         //اگر رژیم تکمیل نشده ای داشت مراحل آن را محاسبه و بر می گرداند 
         //در غیر اینصورت مقدار 6 به معنای تکمیل شده را بر می گرداند
         [HttpPost ("GeStepCompleteCountUser")]
         public IActionResult GeStepCompleteCountUser (int userId) {
             var step = 0;
-            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).OrderByDescending (x => x.Id);
+            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).Where (x => x.UserId == userId).OrderByDescending (x => x.Id);
             Diet currentDiet;
             if (diets.Count () > 0) {
-                currentDiet = diets.Where (x => x.RequestComplete == false).FirstOrDefault ();
+                currentDiet = diets.Where (x => x.RequestComplete != true).FirstOrDefault ();
                 if (currentDiet == null) {
                     currentDiet = diets.Where (x => x.RequestComplete == true).FirstOrDefault ();
                     if (currentDiet != null) {
@@ -154,5 +154,23 @@ namespace Barnama.Controllers {
             }
             return Ok (step);
         }
+
+        [HttpGet ("GetNotCompletedDietUser")]
+        public IActionResult GetNotCompletedDietUser (int userId) {
+
+            var currentDiet = _context.Diets.Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
+            if (currentDiet != null) {
+
+                return Ok (currentDiet);
+            }
+            currentDiet = new Diet ();
+            currentDiet.UserId = userId;
+            _context.Diets.Add (currentDiet);
+            int id = _context.SaveChanges ();
+            currentDiet.Id = id;
+            return Ok (currentDiet);
+
+        } //GetNotCompletedDietUser
+
     }
 }

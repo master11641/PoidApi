@@ -103,6 +103,7 @@ public class UsersApiController : ControllerBase {
             return BadRequest ("کاربری شما نامعتبر است");
         }
         user.ImageProfileUrl = imageUrl;
+        _context.SaveChanges();
         return Ok (imageUrl);
     }
 
