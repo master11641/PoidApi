@@ -118,17 +118,48 @@ namespace Barnama.Controllers {
             return Ok (result);
         }
 
-        [HttpPost ("setGoalUser")]
-        public IActionResult setGoalUser (int userId, int goalId) {
+        [HttpPost ("SetGoalUser")]
+        public IActionResult SetGoalUser (int userId, int goalId) {
             var diet = _context.Diets.Include (x => x.User).Where (x => x.UserId == userId).FirstOrDefault ();
             if (diet == null) {
-                return BadRequest ("رژیم قابل ویارایش وجود ندارد .");
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
             diet.GoalId = goalId;
             _context.SaveChanges ();
             return Ok (goalId);
         }
 
+        [HttpPost ("SetGenderUser")]
+        public IActionResult SetGenderUser (int userId, int genderId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.GenderId = genderId;
+            _context.SaveChanges ();
+            return Ok (genderId);
+        }
+
+        [HttpPost ("SetAgeUser")]
+        public IActionResult SetAgeUser (int userId, double age) {
+            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.Age = age;
+            _context.SaveChanges ();
+            return Ok (int.Parse (age.ToString ()));
+        }
+         [HttpPost ("SetHeightUser")]
+        public IActionResult SetHeightUser (int userId, double height) {
+            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.Height = height;
+            _context.SaveChanges ();
+            return Ok (height);
+        }
         //اگر رژیم تکمیل نشده ای داشت مراحل آن را محاسبه و بر می گرداند 
         //در غیر اینصورت مقدار 6 به معنای تکمیل شده را بر می گرداند
         [HttpPost ("GeStepCompleteCountUser")]

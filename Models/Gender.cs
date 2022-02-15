@@ -10,6 +10,7 @@ public class Gender {
     [Display(Name="عنوان")]
     public string Title { get; set; }
     [Display(Name="تصویر")]
+     [UIHint("ImageUpload")]
      public string ImageUrl { get; set; } 
   
  
