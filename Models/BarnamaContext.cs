@@ -142,6 +142,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<FoodMeel> FoodMeels { get; set; }
   public DbSet<FoodUnit> FoodUnits { get; set; }
   public DbSet<FoodNutrient> FoodNutrients { get; set; }
+   public DbSet<FatPartDiet> FatPartDiets { get; set; }
   public DbSet<Nutrient> Nutrients { get; set; }
   public DbSet<FoodImage> FoodImages { get; set; }
   public DbSet<Meel> Meels { get; set; }

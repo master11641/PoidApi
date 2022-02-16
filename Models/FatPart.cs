@@ -11,7 +11,8 @@ public class FatPart {
     [Display (Name = "عنوان")]
     public string Title { get; set; }
 
-    [Display (Name = "تصویر")]
+    [Display(Name="تصویر")]
+     [UIHint("ImageUpload")]
     public string ImageUrl { get; set; }
 
     public ICollection<FatPartDiet> FatPartDiets { get; set; }

@@ -142,7 +142,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("SetAgeUser")]
         public IActionResult SetAgeUser (int userId, double age) {
-            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -150,15 +150,27 @@ namespace Barnama.Controllers {
             _context.SaveChanges ();
             return Ok (int.Parse (age.ToString ()));
         }
-         [HttpPost ("SetHeightUser")]
+
+        [HttpPost ("SetHeightUser")]
         public IActionResult SetHeightUser (int userId, double height) {
-            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
             diet.Height = height;
             _context.SaveChanges ();
             return Ok (height);
+        }
+
+        [HttpPost ("SetWeightUser")]
+        public IActionResult SetWeightUser (int userId, double weight) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.Weight = weight;
+            _context.SaveChanges ();
+            return Ok (weight);
         }
         //اگر رژیم تکمیل نشده ای داشت مراحل آن را محاسبه و بر می گرداند 
         //در غیر اینصورت مقدار 6 به معنای تکمیل شده را بر می گرداند
@@ -178,7 +190,7 @@ namespace Barnama.Controllers {
                     if (currentDiet.GoalId != null) {
                         step = 1;
                     }
-                    if (currentDiet.Age != null && currentDiet.GenderId != null && currentDiet.Height != null) {
+                    if (currentDiet.Age != null && currentDiet.GenderId != null && currentDiet.Height != null && currentDiet.Weight != null) {
                         step = 2;
                     }
                 }
@@ -189,7 +201,7 @@ namespace Barnama.Controllers {
         [HttpGet ("GetNotCompletedDietUser")]
         public IActionResult GetNotCompletedDietUser (int userId) {
 
-            var currentDiet = _context.Diets.Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
+            var currentDiet = _context.Diets.Include(x=>x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);
