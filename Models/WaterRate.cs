@@ -8,6 +8,7 @@ using Barnama.Models;
 public class WaterRate {
     public int Id { get; set; }
     [Display(Name="عنوان")]
+    
     public string Title { get; set; }  
  
 

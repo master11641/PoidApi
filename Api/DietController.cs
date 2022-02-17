@@ -202,7 +202,8 @@ namespace Barnama.Controllers {
         [HttpGet ("GetNotCompletedDietUser")]
         public IActionResult GetNotCompletedDietUser (int userId) {
 
-            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
+            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
+                .Include (x => x.BadHabitDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);
@@ -250,6 +251,29 @@ namespace Barnama.Controllers {
             return Ok (id.Count);
         }
 
+        [HttpPost ("AddSleepRate")]
+        public IActionResult AddSleepRate (int userId, int sleepRateId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+
+            diet.SleepRateId = sleepRateId;
+            _context.SaveChanges ();
+            return Ok (sleepRateId);
+        }
+
+        [HttpPost ("AddWaterRate")]
+        public IActionResult AddWaterRate (int userId, int waterRateId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.WaterRateId = waterRateId;
+            _context.SaveChanges ();
+            return Ok (waterRateId);
+        }
+
         [HttpPost ("AddAllergies")]
         public IActionResult AddAllergies (int userId, List<int> id) {
             var diet = _context.Diets.Include (x => x.AllergyDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
@@ -262,6 +286,24 @@ namespace Barnama.Controllers {
                 foreach (int allergyId in id) {
                     AllergyDiet temp = new AllergyDiet { AllergyId = allergyId, Diet = diet };
                     diet.AllergyDiets.Add (temp);
+                }
+            }
+            _context.SaveChanges ();
+            return Ok (id.Count);
+        }
+
+        [HttpPost ("AddBadHabits")]
+        public IActionResult AddBadHabits (int userId, List<int> id) {
+            var diet = _context.Diets.Include (x => x.BadHabitDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.BadHabitDiets.Clear ();
+            if (id != null && id.Count != 0) {
+
+                foreach (int habitId in id) {
+                    BadHabitDiet temp = new BadHabitDiet { BadHabitId = habitId, Diet = diet };
+                    diet.BadHabitDiets.Add (temp);
                 }
             }
             _context.SaveChanges ();
@@ -313,5 +355,15 @@ namespace Barnama.Controllers {
             return Ok (dietId);
         }
 
+        [HttpPost ("AddActivityDiscription")]
+        public IActionResult AddActivityDiscription (int userId, string description) {
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.ActivityRateDescription = description;
+            int dietId = _context.SaveChanges ();
+            return Ok (dietId);
+        }
     }
 }

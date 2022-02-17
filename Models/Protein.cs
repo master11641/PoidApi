@@ -12,6 +12,7 @@ public class Protein {
     public string Title { get; set; }
 
     [Display (Name = "تصویر")]
+    [UIHint("ImageUpload")]
     public string ImageUrl { get; set; }
     public ICollection<ProteinDiet> ProteinDiets { get; set; }
 
