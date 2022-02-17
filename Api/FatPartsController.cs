@@ -19,22 +19,22 @@ namespace Barnama.Controllers {
 
         }
 
-        [HttpPost ("AddParts")]
-        public IActionResult AddParts (int userId, List<int> id) {          
-            var diet = _context.Diets.Include(x=>x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
-           if (diet == null) {
-                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
-            }
-            if (id != null && id.Count != 0) {
-                diet.FatPartDiets.Clear ();
-                foreach (int partId in id) {
-                    FatPartDiet fatDiet = new FatPartDiet { FatPartId = partId, Diet = diet };
-                    diet.FatPartDiets.Add (fatDiet);
-                }
-            }
-            _context.SaveChanges ();
-           return Ok(id.Count);
-        }
+        // [HttpPost ("AddParts")]
+        // public IActionResult AddParts (int userId, List<int> id) {          
+        //     var diet = _context.Diets.Include(x=>x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+        //    if (diet == null) {
+        //         return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+        //     }
+        //     if (id != null && id.Count != 0) {
+        //         diet.FatPartDiets.Clear ();
+        //         foreach (int partId in id) {
+        //             FatPartDiet fatDiet = new FatPartDiet { FatPartId = partId, Diet = diet };
+        //             diet.FatPartDiets.Add (fatDiet);
+        //         }
+        //     }
+        //     _context.SaveChanges ();
+        //    return Ok(id.Count);
+        // }
 
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -201,7 +202,7 @@ namespace Barnama.Controllers {
         [HttpGet ("GetNotCompletedDietUser")]
         public IActionResult GetNotCompletedDietUser (int userId) {
 
-            var currentDiet = _context.Diets.Include(x=>x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
+            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);
@@ -214,6 +215,103 @@ namespace Barnama.Controllers {
             return Ok (currentDiet);
 
         } //GetNotCompletedDietUser
+        [HttpPost ("AddParts")]
+        public IActionResult AddParts (int userId, List<int> id) {
+            var diet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            if (id != null && id.Count != 0) {
+                diet.FatPartDiets.Clear ();
+                foreach (int partId in id) {
+                    FatPartDiet fatDiet = new FatPartDiet { FatPartId = partId, Diet = diet };
+                    diet.FatPartDiets.Add (fatDiet);
+                }
+            }
+            _context.SaveChanges ();
+            return Ok (id.Count);
+        }
+
+        [HttpPost ("AddSicknesses")]
+        public IActionResult AddSicknesses (int userId, List<int> id) {
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.SicknessDiets.Clear ();
+            if (id != null && id.Count != 0) {
+
+                foreach (int sickId in id) {
+                    SicknessDiet temp = new SicknessDiet { SicknessId = sickId, Diet = diet };
+                    diet.SicknessDiets.Add (temp);
+                }
+            }
+            _context.SaveChanges ();
+            return Ok (id.Count);
+        }
+
+        [HttpPost ("AddAllergies")]
+        public IActionResult AddAllergies (int userId, List<int> id) {
+            var diet = _context.Diets.Include (x => x.AllergyDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.AllergyDiets.Clear ();
+            if (id != null && id.Count != 0) {
+
+                foreach (int allergyId in id) {
+                    AllergyDiet temp = new AllergyDiet { AllergyId = allergyId, Diet = diet };
+                    diet.AllergyDiets.Add (temp);
+                }
+            }
+            _context.SaveChanges ();
+            return Ok (id.Count);
+        }
+
+        [HttpPost ("AddActivity")]
+        public IActionResult AddActivity (int userId, int activityId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+
+            diet.ActivityRateId = activityId;
+            _context.SaveChanges ();
+            return Ok (activityId);
+        }
+
+        [HttpPost ("AddSickDiscription")]
+        public IActionResult AddSickDiscription (int userId, string description) {
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.SicknessDescription = description;
+            int dietId = _context.SaveChanges ();
+            return Ok (dietId);
+        }
+
+        [HttpPost ("AddAllergyDiscription")]
+        public IActionResult AddAllergyDiscription (int userId, string description) {
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.AllergyDescription = description;
+            int dietId = _context.SaveChanges ();
+            return Ok (dietId);
+        }
+
+        [HttpPost ("AddMedicationDiscription")]
+        public IActionResult AddMedicationDiscription (int userId, string description) {
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.TakingMedicationDescription = description;
+            int dietId = _context.SaveChanges ();
+            return Ok (dietId);
+        }
 
     }
 }

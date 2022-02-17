@@ -12,8 +12,8 @@ namespace Barnama.Controllers {
             _context = context;;
         }
 
-        [HttpGet ("GetGoals")]
-        public IActionResult GetGoals () {          
+        [HttpGet ("GetSicknesses")]
+        public IActionResult GetSicknesses () {          
             return Ok (_context.Sicknesses.Select(x=>new{x.Id,x.Title}).ToList());
 
         }
