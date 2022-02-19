@@ -163,6 +163,28 @@ namespace Barnama.Controllers {
             return Ok (height);
         }
 
+        [HttpPost ("SetWaistUser")]
+        public IActionResult SetWaistUser (int userId, double waist) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.Waist = waist;
+            _context.SaveChanges ();
+            return Ok (waist);
+        }
+
+        [HttpPost ("SetWristUser")]
+        public IActionResult SetWristUser (int userId, double wrist) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.Wrist = wrist;
+            _context.SaveChanges ();
+            return Ok (wrist);
+        }
+
         [HttpPost ("SetWeightUser")]
         public IActionResult SetWeightUser (int userId, double weight) {
             var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
@@ -178,7 +200,11 @@ namespace Barnama.Controllers {
         [HttpPost ("GeStepCompleteCountUser")]
         public IActionResult GeStepCompleteCountUser (int userId) {
             var step = 0;
-            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).Where (x => x.UserId == userId).OrderByDescending (x => x.Id);
+            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).Where (x => x.UserId == userId)
+                .Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
+                .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).
+
+            OrderByDescending (x => x.Id);
             Diet currentDiet;
             if (diets.Count () > 0) {
                 currentDiet = diets.Where (x => x.RequestComplete != true).FirstOrDefault ();
@@ -191,9 +217,22 @@ namespace Barnama.Controllers {
                     if (currentDiet.GoalId != null) {
                         step = 1;
                     }
-                    if (currentDiet.Age != null && currentDiet.GenderId != null && currentDiet.Height != null && currentDiet.Weight != null) {
+                    if (currentDiet.Waist != null) {
                         step = 2;
                     }
+                    if (currentDiet.FatPartDiets != null && currentDiet.FatPartDiets.Count != 0) {
+                        step = 3;
+                    }
+                    if (currentDiet.AllergyDescription != null) {
+                        step = 4;
+                    }
+                    if (currentDiet.ProteinDiets != null && currentDiet.ProteinDiets.Count != 0) {
+                        step = 5;
+                    }
+                    if (currentDiet.QuestionDiets != null && currentDiet.QuestionDiets.Count != 0) {
+                        step = 6;
+                    }
+
                 }
             }
             return Ok (step);
@@ -203,7 +242,7 @@ namespace Barnama.Controllers {
         public IActionResult GetNotCompletedDietUser (int userId) {
 
             var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
-                .Include (x => x.BadHabitDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
+                .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);
@@ -308,6 +347,42 @@ namespace Barnama.Controllers {
             }
             _context.SaveChanges ();
             return Ok (id.Count);
+        }
+
+        [HttpPost ("AddProteins")]
+        public IActionResult AddProteins (int userId, List<int> id) {
+            var diet = _context.Diets.Include (x => x.ProteinDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.ProteinDiets.Clear ();
+            if (id != null && id.Count != 0) {
+
+                foreach (int proteinId in id) {
+                    ProteinDiet temp = new ProteinDiet { ProteinId = proteinId, Diet = diet };
+                    diet.ProteinDiets.Add (temp);
+                }
+            }
+            _context.SaveChanges ();
+            return Ok (id.Count);
+        }
+
+        [HttpPost ("AddQuestions")]
+        public IActionResult AddQuestions (int userId, List<int> questionIds, List<int> values) {
+            var diet = _context.Diets.Include (x => x.QuestionDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            if (diet == null) {
+                return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+            diet.QuestionDiets.Clear ();
+            if (questionIds != null && questionIds.Count != 0) {
+                for (int i = 0; i < questionIds.Count; i++) {
+                    QuestionDiet temp = new QuestionDiet { QuestionId = questionIds[i], Diet = diet, ResponseValue = values[i] };
+                    diet.QuestionDiets.Add (temp);
+                }
+
+            }
+            _context.SaveChanges ();
+            return Ok (questionIds.Count);
         }
 
         [HttpPost ("AddActivity")]

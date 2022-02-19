@@ -42,6 +42,8 @@ public class Diet {
 
     public double? Age { get; set; }
     public double? Height { get; set; }
+    public double? Waist { get; set; }//کمر
+    public double? Wrist { get; set; }//مچ
     public double? Weight { get; set; }
     public String SicknessDescription { get; set; }
     public String AllergyDescription { get; set; }
