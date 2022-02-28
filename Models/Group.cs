@@ -11,7 +11,11 @@ public class Group {
     public string Title { get; set; }
     [Display(Name="تصویر")]
      public string ImageUrl { get; set; }
-   
+    [Display(Name="گروه والد")]
+    public int? ParentId { get; set; }
+    [ForeignKey("ParentId")]
+    public Group Parent { get; set; }
+    public ICollection<Group> Childrens { get; set; }
    public ICollection<Food> Foods { get; set; }
  
 

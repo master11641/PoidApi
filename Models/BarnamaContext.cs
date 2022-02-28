@@ -7,7 +7,7 @@ public class BarnamaConntext : DbContext {
   // public BarnamaConntext () { }
   public static bool isMigration = true;
   protected override void OnConfiguring (DbContextOptionsBuilder options) {
-   options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
+    options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
     // options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
 
   }
@@ -126,6 +126,10 @@ public class BarnamaConntext : DbContext {
       .HasForeignKey (bc => bc.DietId);
 
     //*****************
+    modelBuilder.Entity<Group> ().HasOne (x => x.Parent)
+      .WithMany (x => x.Childrens)
+      .HasForeignKey (x => x.ParentId).IsRequired (false).OnDelete (DeleteBehavior.Restrict);
+
   }
   public virtual DbSet<User> Users { get; set; }
 
@@ -142,7 +146,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<FoodMeel> FoodMeels { get; set; }
   public DbSet<FoodUnit> FoodUnits { get; set; }
   public DbSet<FoodNutrient> FoodNutrients { get; set; }
-   public DbSet<FatPartDiet> FatPartDiets { get; set; }
+  public DbSet<FatPartDiet> FatPartDiets { get; set; }
   public DbSet<Nutrient> Nutrients { get; set; }
   public DbSet<FoodImage> FoodImages { get; set; }
   public DbSet<Meel> Meels { get; set; }

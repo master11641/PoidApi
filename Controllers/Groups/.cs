@@ -44,6 +44,7 @@ namespace LeitnerApi.Controllers.Groups
         // GET: Group/Create
         public IActionResult Create()
         {
+             ViewData["ParentId"] = new SelectList (_context.Groups, "Id", "Title");
             return View();
         }
 
@@ -52,14 +53,18 @@ namespace LeitnerApi.Controllers.Groups
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ImageUrl")] Group @group)
+        public async Task<IActionResult> Create([Bind("Id,Title,ImageUrl,ParentId")] Group @group)
         {
             if (ModelState.IsValid)
             {
+                if(@group.ParentId==0){
+                  @group.ParentId = null;
+                }
                 _context.Add(@group);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+             ViewData["ParentId"] = new SelectList (_context.Groups, "Id", "Title");
             return View(@group);
         }
 
@@ -76,6 +81,7 @@ namespace LeitnerApi.Controllers.Groups
             {
                 return NotFound();
             }
+              ViewData["ParentId"] = new SelectList (_context.Groups, "Id", "Title",@group.ParentId);
             return View(@group);
         }
 
@@ -93,6 +99,9 @@ namespace LeitnerApi.Controllers.Groups
 
             if (ModelState.IsValid)
             {
+                  if(@group.ParentId==0){
+                  @group.ParentId = null;
+                }
                 try
                 {
                     _context.Update(@group);

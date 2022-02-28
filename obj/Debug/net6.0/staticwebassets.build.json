@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RRqiLv+WGgzAUBdQYWZYPN8rcco5S+KbHOUEWp8fRAk=",
+  "Hash": "P6Gx75RW+ca6O3XFG9S7BMylYqKTZX09EZ6SpPKP4Ck=",
   "Source": "LeitnerApi",
   "BasePath": "_content/LeitnerApi",
   "Mode": "Default",
@@ -32708,6 +32708,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\1592394918_5791558.jpg"
     },
     {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\173e9f3a-3ccf-4634-89f3-9689962137ff6455826086555962686.jpg",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/173e9f3a-3ccf-4634-89f3-9689962137ff6455826086555962686.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\173e9f3a-3ccf-4634-89f3-9689962137ff6455826086555962686.jpg"
+    },
+    {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\1تنقلات.xlsx",
       "SourceId": "LeitnerApi",
       "SourceType": "Discovered",
@@ -32876,6 +32893,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\image_picker3747725046701513897.jpg"
+    },
+    {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\image_picker9163121314206178328.jpg",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/image_picker9163121314206178328.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\image_picker9163121314206178328.jpg"
     },
     {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\Longhair2.png",
