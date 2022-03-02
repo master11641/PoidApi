@@ -39,6 +39,13 @@
                 <select id="UnitIds" name="UnitIds" multiple="multiple" data-placeholder="Select Units...">
                 </select>
             </div>
+
+                <div class="form-group">
+                <label asp-for="SicknessFoods" class="control-label"></label>
+                <select id="SicknessIds" name="SicknessIds" multiple="multiple" data-placeholder="Select Sicks...">
+                </select>
+            </div>
+
             <div class="form-group">
                 <label asp-for="FoodImages" class="control-label"></label>
                 <div id='imageShow'></div>
@@ -59,6 +66,8 @@
         var selectedMeelsIdsArray = [];
         var selectedNutrientsIdsArray = [];
         var selectedUnitsIdsArray = [];
+       var selectedSicksIdsArray = [];
+        
     @foreach (var d in ViewBag.SelectedMeelIds)
     {
         @:selectedMeelsIdsArray.push("@d");
@@ -71,7 +80,10 @@
     {
         @:selectedUnitsIdsArray.push("@d");
     }
-
+   @foreach (var d in ViewBag.SelectedSicks)
+    {
+        @:selectedSicksIdsArray.push("@d");
+    }
 
 
 
@@ -92,6 +104,25 @@
                 }
             }
         });
+
+     var SicknessIds = $("#SicknessIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            value: selectedSicksIdsArray,
+            dataSource: {
+                transport: {
+                    read: {
+                       url: "@Url.Action("GetSicks", "Sickness")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+        
 
         var nutrientIds = $("#NutrientIds").kendoMultiSelect({
             autoBind: true,

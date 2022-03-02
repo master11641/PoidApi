@@ -16525,6 +16525,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Delete.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Details.cshtml",
       "TargetPath": "Views\\Home\\Details.cshtml",
       "FileKind": "mvc"
@@ -16742,6 +16747,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Delete.cshtml",
       "TargetPath": "Views\\Allergy\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Edit.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16975,6 +16985,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Index.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Create.cshtml",
       "TargetPath": "Views\\User\\Create.cshtml",
       "FileKind": "mvc"
@@ -17052,6 +17067,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Index.cshtml",
       "TargetPath": "Views\\Goal\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Create.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17187,6 +17207,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Details.cshtml",
       "TargetPath": "Views\\Food\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Details.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Details.cshtml",
       "FileKind": "mvc"
     },
     {

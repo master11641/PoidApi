@@ -447,6 +447,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[I:/Asp.net Core Projects/PoidsApi/Views/SicknessFood/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NGb29kXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SicknessFood/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NGb29kXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SicknessFood/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NGb29kXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SicknessFood/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NGb29kXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[I:/Asp.net Core Projects/PoidsApi/Views/SicknessFood/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NGb29kXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [I:/Asp.net Core Projects/PoidsApi/Views/Sickness/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lja25lc3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

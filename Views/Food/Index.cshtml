@@ -148,6 +148,13 @@
                 <li class="list-inline-item"> <a href="/FoodUnit/Edit?foodId=${foodUnits[i].foodId}&unitId=${foodUnits[i].unitId}" class="badge badge-info tjax"  popup="true" style="padding: 5px;"  >  ${ foodUnits[i].unit.title }  </a> </li>
             # } #
         </ul>
+     <ul class="list-inline">
+            #for (var i=0,len=sicknessFoods.length; i<len; i++){#
+                <li class="list-inline-item"> <a href="/SicknessFood/Edit?foodId=${sicknessFoods[i].foodId}&sickId=${sicknessFoods[i].sicknessId}" class="badge badge-danger tjax"  popup="true" style="padding: 5px;"  >  ${ sicknessFoods[i].sickness.title }  </a> </li>
+            # } #
+        </ul>
+
+
     </div>
 </script>
 }

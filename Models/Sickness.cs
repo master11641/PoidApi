@@ -11,5 +11,7 @@ public class Sickness {
     public string Title { get; set; }
   
   public ICollection<SicknessDiet> SicknessDiets { get; set; }
+  
+  public ICollection<SicknessFood>  SicknessFoods { get; set; }
 
 }

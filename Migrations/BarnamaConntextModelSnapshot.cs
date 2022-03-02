@@ -695,6 +695,24 @@ namespace LeitnerApi.Migrations
                     b.ToTable("SicknessDiet");
                 });
 
+            modelBuilder.Entity("SicknessFood", b =>
+                {
+                    b.Property<int>("SicknessId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("MustBe")
+                        .HasColumnType("bit");
+
+                    b.HasKey("SicknessId", "FoodId");
+
+                    b.HasIndex("FoodId");
+
+                    b.ToTable("SicknessFoods");
+                });
+
             modelBuilder.Entity("SleepRate", b =>
                 {
                     b.Property<int>("Id")
@@ -1080,6 +1098,25 @@ namespace LeitnerApi.Migrations
                     b.Navigation("Sickness");
                 });
 
+            modelBuilder.Entity("SicknessFood", b =>
+                {
+                    b.HasOne("Food", "Food")
+                        .WithMany("SicknessFoods")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sickness", "Sickness")
+                        .WithMany("SicknessFoods")
+                        .HasForeignKey("SicknessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("Sickness");
+                });
+
             modelBuilder.Entity("UserRole", b =>
                 {
                     b.HasOne("Role", "Role")
@@ -1143,6 +1180,8 @@ namespace LeitnerApi.Migrations
                     b.Navigation("FoodNutrients");
 
                     b.Navigation("FoodUnits");
+
+                    b.Navigation("SicknessFoods");
                 });
 
             modelBuilder.Entity("Group", b =>
@@ -1180,6 +1219,8 @@ namespace LeitnerApi.Migrations
             modelBuilder.Entity("Sickness", b =>
                 {
                     b.Navigation("SicknessDiets");
+
+                    b.Navigation("SicknessFoods");
                 });
 
             modelBuilder.Entity("Unit", b =>

@@ -7,8 +7,8 @@ public class BarnamaConntext : DbContext {
   // public BarnamaConntext () { }
   public static bool isMigration = true;
   protected override void OnConfiguring (DbContextOptionsBuilder options) {
-    options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
-    // options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
+    // options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
+    options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
 
   }
   protected override void OnModelCreating (ModelBuilder modelBuilder) {
@@ -114,6 +114,20 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.SicknessDiets)
       .HasForeignKey (bc => bc.DietId);
 
+
+
+ modelBuilder.Entity<SicknessFood> ()
+      .HasKey (bc => new { bc.SicknessId, bc.FoodId });
+    modelBuilder.Entity<SicknessFood> ()
+      .HasOne (bc => bc.Sickness)
+      .WithMany (b => b.SicknessFoods)
+      .HasForeignKey (bc => bc.SicknessId);
+    modelBuilder.Entity<SicknessFood> ()
+      .HasOne (bc => bc.Food)
+      .WithMany (b => b.SicknessFoods)
+      .HasForeignKey (bc => bc.FoodId);
+
+
     modelBuilder.Entity<FatPartDiet> ()
       .HasKey (bc => new { bc.FatPartId, bc.DietId });
     modelBuilder.Entity<FatPartDiet> ()
@@ -145,6 +159,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<Food> Foods { get; set; }
   public DbSet<FoodMeel> FoodMeels { get; set; }
   public DbSet<FoodUnit> FoodUnits { get; set; }
+  public DbSet<SicknessFood> SicknessFoods { get; set; }
   public DbSet<FoodNutrient> FoodNutrients { get; set; }
   public DbSet<FatPartDiet> FatPartDiets { get; set; }
   public DbSet<Nutrient> Nutrients { get; set; }

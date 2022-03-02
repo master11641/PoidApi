@@ -30,12 +30,12 @@ namespace LeitnerApi.Controllers.Foods {
             var dataString = this.HttpContext.GetJsonDataFromQueryString ();
             var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
 
-            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit);
+            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit).Include(x=>x.SicknessFoods).ThenInclude(x=>x.Sickness);
             return list.AsQueryable ()
                 .ToDataSourceResult (5, request.Skip, request.Sort, request.Filter);
         }
 
-         public IActionResult ReadExcell (string fileName) {
+        public IActionResult ReadExcell (string fileName) {
             SpreadsheetInfo.SetLicense ("FREE-LIMITED-KEY");
             string path = Path.Combine (this._env.WebRootPath, "uploads\\") + fileName;
             var workbook = ExcelFile.Load (path);
@@ -53,7 +53,7 @@ namespace LeitnerApi.Controllers.Foods {
                         if (row.AllocatedCells[j].ValueType != CellValueType.Null) {
 
                             if (j == 0 && rowCount != 0) {
-                                addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().RemoveDigits().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
+                                addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().RemoveDigits ().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
 
                                     , double.Parse (row.AllocatedCells[14].Value.ToString ()), double.Parse (row.AllocatedCells[15].Value.ToString ()), double.Parse (row.AllocatedCells[16].Value.ToString ())
 
@@ -74,8 +74,8 @@ namespace LeitnerApi.Controllers.Foods {
         }
 
         void addFood (string title, string unitTitle, double? calorie, double? Protein, double? Carbohydrate, double? Fat, double? Sugar, double? Sodium, double? Potassium, double? Magnesium, double? Calcium, double? Phosphor, double? Iron, double? Umfa, double? Upfa, double? Sfa, double? Tfa) {
-          
-            var food = _context.Foods.Where (x => x.Title == title).Include(x=>x.FoodUnits).FirstOrDefault ();
+
+            var food = _context.Foods.Where (x => x.Title == title).Include (x => x.FoodUnits).FirstOrDefault ();
             var unit = _context.Units.Where (x => x.Title == unitTitle).FirstOrDefault ();
             if (unit == null) {
                 unit = new Unit ();
@@ -88,16 +88,15 @@ namespace LeitnerApi.Controllers.Foods {
                 food.Title = title;
                 food.GroupId = 1;
                 _context.Foods.Add (food);
-            } else {  
-                if(unit.Id > 0){
-                 var foodUnits =   _context.FoodUnits.Where(x=>x.FoodId==food.Id && x.UnitId == unit.Id);  
-                _context.FoodUnits.RemoveRange(foodUnits) ;
-                _context.SaveChanges();
-                } 
-             
-               
+            } else {
+                if (unit.Id > 0) {
+                    var foodUnits = _context.FoodUnits.Where (x => x.FoodId == food.Id && x.UnitId == unit.Id);
+                    _context.FoodUnits.RemoveRange (foodUnits);
+                    _context.SaveChanges ();
+                }
+
             }
-            FoodUnit foodUnit = new FoodUnit();
+            FoodUnit foodUnit = new FoodUnit ();
             foodUnit.Food = food;
             foodUnit.Unit = unit;
             foodUnit.Calorie = calorie;
@@ -146,7 +145,8 @@ namespace LeitnerApi.Controllers.Foods {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind ("Id,Title,GroupId")] Food food, List<int> MeelIds, List<int> NutrientIds, List<int> UnitIds, List<string> foodImages) {
+        public async Task<IActionResult> Create ([Bind ("Id,Title,GroupId")] Food food, List<int> MeelIds, List<int> NutrientIds,
+            List<int> UnitIds, List<string> foodImages, List<int> SicknessIds) {
             if (ModelState.IsValid) {
 
                 foreach (int id in MeelIds) {
@@ -164,6 +164,12 @@ namespace LeitnerApi.Controllers.Foods {
                     FoodUnit foodUnit = new FoodUnit { UnitId = id, Food = food };
                     _context.FoodUnits.Attach (foodUnit);
                 }
+
+                foreach (int id in SicknessIds) {
+                    SicknessFood sicknessFood = new SicknessFood { FoodId = id, Food = food };
+                    _context.SicknessFoods.Attach (sicknessFood);
+                }
+
                 foreach (string image in foodImages) {
 
                     FoodImage foodImage = new FoodImage { ImageUrl = image, Food = food };
@@ -200,18 +206,21 @@ namespace LeitnerApi.Controllers.Foods {
             var SelectedImages = _context.FoodImages.Where (x => x.FoodId == id).Select (x => x.ImageUrl).ToList ();
             ViewData["SelectedImages"] = SelectedImages;
 
+                   var SelectedSicks = _context.SicknessFoods.Where (x => x.FoodId == id).Select (x => x.SicknessId).ToList ();
+            ViewData["SelectedSicks"] = SelectedSicks; 
+
             return View (food);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit (int id, string title, int groupId, List<int> MeelIds, List<int> NutrientIds, List<int> UnitIds, List<string> foodImages) {
+        public IActionResult Edit (int id, string title, int groupId, List<int> MeelIds, List<int> NutrientIds, List<int> UnitIds, List<string> foodImages, List<int> SicknessIds) {
 
             if (ModelState.IsValid) {
                 try {
 
                     var model = _context.Foods
-                        .Include (x => x.FoodMeels).Include (x => x.FoodNutrients).Include (x => x.FoodUnits).Include (x => x.FoodImages)
+                        .Include (x => x.FoodMeels).Include (x => x.FoodNutrients).Include (x => x.FoodUnits).Include (x => x.FoodImages).Include (x=>x.SicknessFoods)
                         .FirstOrDefault (x => x.Id == id);
 
                     model.FoodMeels.Clear ();
@@ -225,6 +234,12 @@ namespace LeitnerApi.Controllers.Foods {
                     foreach (int nutId in NutrientIds) {
                         FoodNutrient foodNutrient = new FoodNutrient { NutrientId = nutId, Food = model };
                         model.FoodNutrients.Add (foodNutrient);
+                    }
+
+                    model.SicknessFoods.Clear ();
+                    foreach (int sickId in SicknessIds) {
+                        SicknessFood sicknessFood = new SicknessFood { SicknessId = sickId, Food = model };
+                        model.SicknessFoods.Add (sicknessFood);
                     }
 
                     model.FoodUnits.Clear ();

@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-     Layout=null;
+    Layout = null;
 }
 
 <h1>درج</h1>
@@ -39,15 +39,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="FoodImages" class="control-label"></label>
-                <input id="foodImagesInput" class="form-control ImageSrc" type="file" accept="image/*"  />
+                <input id="foodImagesInput" class="form-control ImageSrc" type="file" accept="image/*" />
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SicknessFoods" class="control-label"></label>
+                <select id="SicknessIds" name="SicknessIds" multiple="multiple" data-placeholder="Select Sicks...">
                 </select>
             </div>
 
-
-
             <div class="form-group">
                 @* <input type="submit" value="Create" class="btn btn-primary" /> *@
-                    <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Create","Food")' forsendform="#foodFrm"
+                <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Create","Food")' forsendform="#foodFrm"
                     method="POST" record="false">ثبت تغییرات</a>
             </div>
         </form>
@@ -57,6 +60,24 @@
 <script>
     $(document).ready(function () {
         // create MultiSelect from select HTML element
+
+        var meelIds = $("#SicknessIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetSicks", "Sickness")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+
 
         var meelIds = $("#MeelIds").kendoMultiSelect({
             autoBind: true,
@@ -74,6 +95,7 @@
                 }
             }
         });
+
         var nutrientIds = $("#NutrientIds").kendoMultiSelect({
             autoBind: true,
             autoClose: false,
@@ -118,24 +140,24 @@
             select: function () {
                 console.log('File selected.');
             },      // function for when a file is selected
-            success: onFileSuccess,   
-             remove: onRemove,   // function that returns response after upload
+            success: onFileSuccess,
+            remove: onRemove,   // function that returns response after upload
             // function after success
             // function for when a file is removed
         });
         function onFileSuccess(e) {
             if (e.response.length != 0) {
-                $('#foodFrm').append("<input type='text' value='"+ e.response+"'  name='foodImages'   id='foodImages' style='visibility: hidden;' />");
+                $('#foodFrm').append("<input type='text' value='" + e.response + "'  name='foodImages'   id='foodImages' style='visibility: hidden;' />");
                 console.log(e.response);
                 $('span').each(function () {
                     if ($(this).html() == e.response) {
-                      $(this).parent().append("<image  src='/uploads/"+e.response+"' class='img img-thumbnail'  style='height:100px;' />");
+                        $(this).parent().append("<image  src='/uploads/" + e.response + "' class='img img-thumbnail'  style='height:100px;' />");
                     }
                 });
             }
 
         }
-        
+
         function onRemove(e) {
             console.log(e);
             //alert(e.files[0].name);
