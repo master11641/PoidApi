@@ -139,6 +139,20 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.FatPartDiets)
       .HasForeignKey (bc => bc.DietId);
 
+
+    modelBuilder.Entity<PlanDetail> ()
+      .HasKey (bc => new { bc.PlanDateId, bc.FoodId });
+    modelBuilder.Entity<PlanDetail> ()
+      .HasOne (bc => bc.PlanDate)
+      .WithMany (b => b.PlanDetails)
+      .HasForeignKey (bc => bc.PlanDateId);
+    modelBuilder.Entity<PlanDetail> ()
+      .HasOne (bc => bc.Food)
+      .WithMany (b => b.PlanDetails)
+      .HasForeignKey (bc => bc.FoodId);
+
+
+
     //*****************
     modelBuilder.Entity<Group> ().HasOne (x => x.Parent)
       .WithMany (x => x.Childrens)
@@ -181,5 +195,8 @@ public class BarnamaConntext : DbContext {
   public DbSet<SleepRate> SleepRates { get; set; }
   public DbSet<WaterRate> WaterRates { get; set; }
   public DbSet<Recipe> Recipes { get; set; }
+   public DbSet<Plan> Plans { get; set; }
+   public DbSet<PlanDate> PlanDates { get; set; }
+   public DbSet<PlanDetail> PlanDetails { get; set; }
 
 }

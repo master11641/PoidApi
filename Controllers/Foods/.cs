@@ -30,7 +30,7 @@ namespace LeitnerApi.Controllers.Foods {
             var dataString = this.HttpContext.GetJsonDataFromQueryString ();
             var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
 
-            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit).Include(x=>x.SicknessFoods).ThenInclude(x=>x.Sickness);
+            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit).Include (x => x.SicknessFoods).ThenInclude (x => x.Sickness);
             return list.AsQueryable ()
                 .ToDataSourceResult (5, request.Skip, request.Sort, request.Filter);
         }
@@ -53,6 +53,7 @@ namespace LeitnerApi.Controllers.Foods {
                         if (row.AllocatedCells[j].ValueType != CellValueType.Null) {
 
                             if (j == 0 && rowCount != 0) {
+                                Console.WriteLine(row.AllocatedCells[j].Value.ToString ());
                                 addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().RemoveDigits ().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
 
                                     , double.Parse (row.AllocatedCells[14].Value.ToString ()), double.Parse (row.AllocatedCells[15].Value.ToString ()), double.Parse (row.AllocatedCells[16].Value.ToString ())
@@ -94,6 +95,7 @@ namespace LeitnerApi.Controllers.Foods {
                     _context.FoodUnits.RemoveRange (foodUnits);
                     _context.SaveChanges ();
                 }
+                //  food.FoodUnits.Clear();
 
             }
             FoodUnit foodUnit = new FoodUnit ();
@@ -114,6 +116,23 @@ namespace LeitnerApi.Controllers.Foods {
             foodUnit.Upfa = Upfa;
             foodUnit.Sfa = Sfa;
             foodUnit.Tfa = Tfa;
+            if (unit.Title.Contains ("گرم")) {
+                foodUnit.Calorie = calorie / 100;
+                foodUnit.Protein = Protein / 100;
+                foodUnit.Carbohydrate = Carbohydrate / 100;
+                foodUnit.Fat = Fat / 100;
+                foodUnit.Sugar = Sugar / 100;
+                foodUnit.Sodium = Sodium / 100;
+                foodUnit.Potassium = Potassium / 100;
+                foodUnit.Magnesium = Magnesium / 100;
+                foodUnit.Calcium = Calcium / 100;
+                foodUnit.Phosphor = Phosphor / 100;
+                foodUnit.Iron = Iron / 100;
+                foodUnit.Umfa = Umfa / 100;
+                foodUnit.Upfa = Upfa / 100;
+                foodUnit.Sfa = Sfa / 100;
+                foodUnit.Tfa = Tfa / 100;
+            }
             _context.FoodUnits.Add (foodUnit);
             _context.SaveChanges ();
 
@@ -206,8 +225,8 @@ namespace LeitnerApi.Controllers.Foods {
             var SelectedImages = _context.FoodImages.Where (x => x.FoodId == id).Select (x => x.ImageUrl).ToList ();
             ViewData["SelectedImages"] = SelectedImages;
 
-                   var SelectedSicks = _context.SicknessFoods.Where (x => x.FoodId == id).Select (x => x.SicknessId).ToList ();
-            ViewData["SelectedSicks"] = SelectedSicks; 
+            var SelectedSicks = _context.SicknessFoods.Where (x => x.FoodId == id).Select (x => x.SicknessId).ToList ();
+            ViewData["SelectedSicks"] = SelectedSicks;
 
             return View (food);
         }
@@ -220,7 +239,7 @@ namespace LeitnerApi.Controllers.Foods {
                 try {
 
                     var model = _context.Foods
-                        .Include (x => x.FoodMeels).Include (x => x.FoodNutrients).Include (x => x.FoodUnits).Include (x => x.FoodImages).Include (x=>x.SicknessFoods)
+                        .Include (x => x.FoodMeels).Include (x => x.FoodNutrients).Include (x => x.FoodUnits).Include (x => x.FoodImages).Include (x => x.SicknessFoods)
                         .FirstOrDefault (x => x.Id == id);
 
                     model.FoodMeels.Clear ();

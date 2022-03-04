@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeitnerApi.Migrations
 {
     [DbContext(typeof(BarnamaConntext))]
-    partial class BarnamaConntextModelSnapshot : ModelSnapshot
+    [Migration("20220304042617_plan")]
+    partial class plan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -490,9 +492,6 @@ namespace LeitnerApi.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Percent")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -551,7 +550,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("DietId");
 
-                    b.ToTable("Plans");
+                    b.ToTable("Plan");
                 });
 
             modelBuilder.Entity("PlanDate", b =>
@@ -571,7 +570,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("PlanId");
 
-                    b.ToTable("PlanDates");
+                    b.ToTable("PlanDate");
                 });
 
             modelBuilder.Entity("PlanDetail", b =>
@@ -581,9 +580,6 @@ namespace LeitnerApi.Migrations
 
                     b.Property<int>("FoodId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Calorie")
-                        .HasColumnType("float");
 
                     b.Property<string>("FailDescription")
                         .HasColumnType("nvarchar(max)");
@@ -608,7 +604,7 @@ namespace LeitnerApi.Migrations
 
                     b.HasIndex("UnitId");
 
-                    b.ToTable("PlanDetails");
+                    b.ToTable("PlanDetail");
                 });
 
             modelBuilder.Entity("Protein", b =>

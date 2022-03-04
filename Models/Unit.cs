@@ -12,5 +12,6 @@ public class Unit {
     public ICollection<FoodUnit> FoodUnits { get; set; }
      [Display(Name="تصویر (غیر ضروری)")]
     public string ImageUrl { get; set; }
+      public ICollection<PlanDetail> PlanDetails { get; set; }
 
 }

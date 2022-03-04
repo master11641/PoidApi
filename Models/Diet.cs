@@ -18,6 +18,9 @@ public class Diet {
     public ICollection<BadHabitDiet> BadHabitDiets { get; set; }
     public ICollection<SicknessDiet> SicknessDiets { get; set; }
     public ICollection<FatPartDiet> FatPartDiets { get; set; }
+    public int? PlanId { get; set; }
+    [ForeignKey("PlanId")]
+    public Plan Plan { get; set; }
 
     public int? GenderId { get; set; }
 

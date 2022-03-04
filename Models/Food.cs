@@ -27,5 +27,6 @@ public class Food {
   public ICollection<FoodUnit> FoodUnits { get; set; } //many to many
     [Display (Name = "بیماری های مرتبط")]
   public ICollection<SicknessFood> SicknessFoods { get; set; } //many to many
+    public ICollection<PlanDetail> PlanDetails { get; set; }//many to many
 
 }
