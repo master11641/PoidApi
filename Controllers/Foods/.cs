@@ -53,7 +53,7 @@ namespace LeitnerApi.Controllers.Foods {
                         if (row.AllocatedCells[j].ValueType != CellValueType.Null) {
 
                             if (j == 0 && rowCount != 0) {
-                                Console.WriteLine(row.AllocatedCells[j].Value.ToString ());
+                                Console.WriteLine (row.AllocatedCells[j].Value.ToString ());
                                 addFood (row.AllocatedCells[j].Value.ToString ().Trim (), row.AllocatedCells[1].Value.ToString ().RemoveDigits ().Trim (), double.Parse (row.AllocatedCells[2].Value.ToString ()), double.Parse (row.AllocatedCells[3].Value.ToString ()), double.Parse (row.AllocatedCells[4].Value.ToString ()), double.Parse (row.AllocatedCells[5].Value.ToString ()), double.Parse (row.AllocatedCells[6].Value.ToString ()), double.Parse (row.AllocatedCells[7].Value.ToString ()), double.Parse (row.AllocatedCells[8].Value.ToString ()), double.Parse (row.AllocatedCells[9].Value.ToString ()), double.Parse (row.AllocatedCells[10].Value.ToString ()), double.Parse (row.AllocatedCells[11].Value.ToString ()), double.Parse (row.AllocatedCells[12].Value.ToString ()), double.Parse (row.AllocatedCells[13].Value.ToString ())
 
                                     , double.Parse (row.AllocatedCells[14].Value.ToString ()), double.Parse (row.AllocatedCells[15].Value.ToString ()), double.Parse (row.AllocatedCells[16].Value.ToString ())
@@ -241,7 +241,7 @@ namespace LeitnerApi.Controllers.Foods {
                     var model = _context.Foods
                         .Include (x => x.FoodMeels).Include (x => x.FoodNutrients).Include (x => x.FoodUnits).Include (x => x.FoodImages).Include (x => x.SicknessFoods)
                         .FirstOrDefault (x => x.Id == id);
-
+                    model.GroupId = groupId;
                     model.FoodMeels.Clear ();
                     foreach (int meelId in MeelIds) {
                         FoodMeel foodMeel = new FoodMeel { MeelId = meelId, Food = model };
@@ -261,10 +261,15 @@ namespace LeitnerApi.Controllers.Foods {
                         model.SicknessFoods.Add (sicknessFood);
                     }
 
-                    model.FoodUnits.Clear ();
+                    //model.FoodUnits.Clear ();
                     foreach (int unitId in UnitIds) {
-                        FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };
-                        model.FoodUnits.Add (foodUnit);
+                        if (!_context.FoodUnits.Any (x => x.UnitId == unitId && x.FoodId == model.Id)) {
+                           FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };
+                           model.FoodUnits.Add (foodUnit);
+                        }
+
+                        //FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };
+                        // model.FoodUnits.Add (foodUnit);
                     }
                     model.FoodImages.Clear ();
                     foreach (string image in foodImages) {

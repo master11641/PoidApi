@@ -46,23 +46,52 @@ namespace Barnama.Controllers {
                         x.Calorie,
                         meelTitle = x.Meel.Title,
                         x.UnitValue,
-                        unitTitle = x.Unit.Title
+                        unitTitle = x.Unit.Title,
+                        x.UnitId,
+                        x.FoodId,
+                        x.MeelId,
+
                 }));
             }
-            PlanDate.PlanDetails.Clear ();
+            //  PlanDate.PlanDetails.Clear ();
             //گرفتن کلیه وعده های غذایی تعریف شده
             List<Meel> Meels = _context.Meels.Include (x => x.FoodMeels).ToList ();
             //گرفتن تمامی غذایهایی که حداقل یک واحد سنجش دارند
             List<Food> AllFoods = _context.Foods.Include (x => x.FoodMeels).Include (x => x.FoodUnits)
                 .ThenInclude (x => x.Unit).Where (x => x.FoodUnits.Any (x => x.Calorie != null)).ToList ();
             foreach (var CurrentMeel in Meels) {
-                var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
-                var CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
-                while (IsFoodAcceprt(CurrentFood.Id,PlanDate.PlanDetails.ToList(),AllFoods)==false)
-                {
+
+                SavePlanDetailsForFood(AllFoods:AllFoods ,CurrentMeel:CurrentMeel,PlanDate:PlanDate,TotalCallory:TotalCallory);
+            }
+            // _context.SaveChanges();
+            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
+            return Ok (result.PlanDetails.Select (x => new {
+                foodTitle = x.Food.Title,
+                    x.Calorie,
+                    meelTitle = x.Meel.Title,
+                    x.UnitValue,
+                    unitTitle = x.Unit.Title,
+                    x.UnitId,
+                    x.FoodId,
+                    x.MeelId,
+            }));
+
+        }
+        bool IsFoodAcceprt (int foodId, List<PlanDetail> planDetails, List<Food> allFoods) {
+            if (planDetails.Any (x => x.FoodId == foodId)) {
+                allFoods.RemoveAll (x => x.Id == foodId);
+                return false;
+            }
+            return true;
+        }
+         void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
+            var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
+            var CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+            for (int i = 0; i < 2; i++) {
+                while (IsFoodAcceprt (CurrentFood.Id, PlanDate.PlanDetails.ToList (), AllFoods) == false) {
                     CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
                 }
-                double meelCallory = TotalCallory * CurrentMeel.Percent / 100;
+                double meelCallory = (TotalCallory * (CurrentMeel.Percent*1/2) / 100);
                 double tempCalorieCounter = 0;
                 double UnitValue = 0;
                 PlanDetail PlanDetail = new PlanDetail ();
@@ -78,30 +107,11 @@ namespace Barnama.Controllers {
                 }
                 PlanDetail.Calorie = tempCalorieCounter;
                 PlanDate.PlanDetails.Add (PlanDetail);
-                //  _context.PlanDetails.Add(PlanDetail);
-                _context.SaveChanges ();
             }
-            // _context.SaveChanges();
-            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
-            return Ok (result.PlanDetails.Select (x => new {
-                foodTitle = x.Food.Title,
-                    x.Calorie,
-                    meelTitle = x.Meel.Title,
-                    x.UnitValue,
-                    unitTitle = x.Unit.Title
-            }));
 
+            //  _context.PlanDetails.Add(PlanDetail);
+            _context.SaveChanges ();
         }
-        bool IsFoodAcceprt (int foodId, List<PlanDetail> planDetails,List<Food> allFoods) {
-            if(planDetails.Any(x=>x.FoodId == foodId) ){
-                allFoods.RemoveAll(x=>x.Id==foodId);
-                return false;
-            }
-            return true;
-        }
-        
-
-
     }
 
 }
