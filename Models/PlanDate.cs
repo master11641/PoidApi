@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 using Barnama.Models;
 
 public class PlanDate {
+   public PlanDate(){
+        PlanDetails=new List<PlanDetail> ();
+    }
     public int Id { get; set; }
     public DateTime CurrentDate { get; set; }
     public int PlanId { get; set; }

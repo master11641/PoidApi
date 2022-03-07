@@ -61,7 +61,7 @@ namespace Barnama.Controllers {
                 .ThenInclude (x => x.Unit).Where (x => x.FoodUnits.Any (x => x.Calorie != null)).ToList ();
             foreach (var CurrentMeel in Meels) {
 
-                SavePlanDetailsForFood(AllFoods:AllFoods ,CurrentMeel:CurrentMeel,PlanDate:PlanDate,TotalCallory:TotalCallory);
+                SavePlanDetailsForFood (AllFoods: AllFoods, CurrentMeel: CurrentMeel, PlanDate: PlanDate, TotalCallory: TotalCallory);
             }
             // _context.SaveChanges();
             PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
@@ -84,14 +84,17 @@ namespace Barnama.Controllers {
             }
             return true;
         }
-         void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
+        void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
             var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
             var CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
             for (int i = 0; i < 2; i++) {
-                while (IsFoodAcceprt (CurrentFood.Id, PlanDate.PlanDetails.ToList (), AllFoods) == false) {
-                    CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+                if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
+                    while (IsFoodAcceprt (CurrentFood.Id, PlanDate.PlanDetails.ToList (), AllFoods) == false) {
+                        CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+                    }
                 }
-                double meelCallory = (TotalCallory * (CurrentMeel.Percent*1/2) / 100);
+
+                double meelCallory = (TotalCallory * (CurrentMeel.Percent * 1 / 2) / 100);
                 double tempCalorieCounter = 0;
                 double UnitValue = 0;
                 PlanDetail PlanDetail = new PlanDetail ();
