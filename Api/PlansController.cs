@@ -115,6 +115,7 @@ namespace Barnama.Controllers {
             //  _context.PlanDetails.Add(PlanDetail);
             _context.SaveChanges ();
         }
+        
     }
 
 }

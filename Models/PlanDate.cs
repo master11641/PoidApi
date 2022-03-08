@@ -15,5 +15,7 @@ public class PlanDate {
     [ForeignKey("PlanId")]
     public Plan Plan { get; set; }
     public ICollection<PlanDetail> PlanDetails { get; set; }
+    public string VoiceUserUrl { get; set; }
+
 
 }
