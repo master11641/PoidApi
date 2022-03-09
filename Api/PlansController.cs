@@ -50,6 +50,7 @@ namespace Barnama.Controllers {
                         x.UnitId,
                         x.FoodId,
                         x.MeelId,
+                        OrderId = x.Meel.OrderId
 
                 }));
             }
@@ -74,6 +75,7 @@ namespace Barnama.Controllers {
                     x.UnitId,
                     x.FoodId,
                     x.MeelId,
+                    OrderId = x.Meel.OrderId
             }));
 
         }
@@ -115,7 +117,7 @@ namespace Barnama.Controllers {
             //  _context.PlanDetails.Add(PlanDetail);
             _context.SaveChanges ();
         }
-        
+
     }
 
 }

@@ -16,5 +16,6 @@ public class Meel {
   public string ImageUrl { get; set; }
   public int Percent { get; set; }
   public ICollection<PlanDetail> PlanDetails { get; set; }
+  public int OrderId { get; set; }
 
 }
