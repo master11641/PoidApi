@@ -13,6 +13,17 @@ namespace Barnama.Controllers {
             _context = context;;
         }
 
+        [HttpPost ("AddVoiceDate")]
+        public IActionResult AddVoiceDate (int UserId,DateTime CurrentDate, string VoiceUserUrl) {
+            PlanDate PlanDate = _context.PlanDates.Include(x=>x.Plan).ThenInclude(x=>x.Diet).Where (x=>x.CurrentDate.Date==CurrentDate.Date && x.Plan.Diet.UserId==UserId).FirstOrDefault();
+            if (PlanDate == null) {
+                return BadRequest ("رژیم مربوطه یافت نشد");
+            }
+            PlanDate.VoiceUserUrl = VoiceUserUrl;
+            _context.SaveChanges ();
+            return Ok (PlanDate.Id);
+        }
+
         [HttpPost ("GetPlanByDate")]
         public IActionResult GetPlanByDate (int DietId, DateTime CurrentDate) {
             Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).FirstOrDefault ();
