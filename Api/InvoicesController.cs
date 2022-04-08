@@ -40,16 +40,41 @@ namespace Barnama.Controllers {
             return Ok (invoice.Id);
         }
 
-        [HttpGet ("GetInvoiceUser")]
+  [HttpGet ("GetInvoiceUser")]
         public IActionResult GetInvoiceUser (int userId) {
-            var response = _context.Invoices.Where (x => x.UserId == userId).Include (x => x.ServicePackage).Select (x => new {
+            var response = _context.Invoices.Where (x => x.UserId == userId ).Include (x => x.ServicePackage).Select (x => new {
                 x.Id,
                     x.Amount,
                     x.RegisterDate,
                     x.IsConfirm,
                     x.ServicePackage.Title,
-                    package=x.ServicePackage
+                    package = x.ServicePackage
             }).ToList ().OrderByDescending (x => x.RegisterDate);
+            if (response.Count () == 0) {
+                int ServicePackageId = _context.ServicePackages.Where (x => x.IsTimed == false && x.ExpireAfterBuyInDays==30).FirstOrDefault ().Id;
+                Invoice invoice = new Invoice {
+                    RegisterDate = DateTime.Now,
+                    PaymentDate = DateTime.Now,
+                    ServicePackageId = ServicePackageId,
+                    Amount = 0,
+                    Authority = "Authority",
+                    UserId = userId,
+                    IsConfirm = true,
+                    RefId = "Gift"
+                };
+                _context.Add (invoice);
+                _context.SaveChanges ();
+                 response = _context.Invoices.Where (x => x.UserId == userId  ).Include (x => x.ServicePackage).Select (x => new {
+                    x.Id,
+                        x.Amount,
+                        x.RegisterDate,
+                        x.IsConfirm,
+                        x.ServicePackage.Title,
+                        package = x.ServicePackage,
+
+                }).ToList ().OrderByDescending (x => x.RegisterDate);
+
+            }
             return Ok (response);
         }
    

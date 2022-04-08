@@ -22,7 +22,10 @@ namespace LeitnerApi.Controllers.Questions
         {
             return View(await _context.Questions.ToListAsync());
         }
-
+         [HttpGet]
+        public List<Question> GetQuestions () {
+            return _context.Questions.ToList ();
+        }
         // GET: Question/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -114,9 +114,7 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.SicknessDiets)
       .HasForeignKey (bc => bc.DietId);
 
-
-
- modelBuilder.Entity<SicknessFood> ()
+    modelBuilder.Entity<SicknessFood> ()
       .HasKey (bc => new { bc.SicknessId, bc.FoodId });
     modelBuilder.Entity<SicknessFood> ()
       .HasOne (bc => bc.Sickness)
@@ -126,7 +124,6 @@ public class BarnamaConntext : DbContext {
       .HasOne (bc => bc.Food)
       .WithMany (b => b.SicknessFoods)
       .HasForeignKey (bc => bc.FoodId);
-
 
     modelBuilder.Entity<FatPartDiet> ()
       .HasKey (bc => new { bc.FatPartId, bc.DietId });
@@ -139,7 +136,6 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.FatPartDiets)
       .HasForeignKey (bc => bc.DietId);
 
-
     modelBuilder.Entity<PlanDetail> ()
       .HasKey (bc => new { bc.PlanDateId, bc.FoodId });
     modelBuilder.Entity<PlanDetail> ()
@@ -151,7 +147,51 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.PlanDetails)
       .HasForeignKey (bc => bc.FoodId);
 
+    modelBuilder.Entity<SportMuscle> ()
+      .HasKey (bc => new { bc.SportId, bc.MuscleId });
+    modelBuilder.Entity<SportMuscle> ()
+      .HasOne (bc => bc.Sport)
+      .WithMany (b => b.SportMuscles)
+      .HasForeignKey (bc => bc.SportId);
+    modelBuilder.Entity<SportMuscle> ()
+      .HasOne (bc => bc.Muscle)
+      .WithMany (b => b.SportMuscles)
+      .HasForeignKey (bc => bc.MuscleId);
 
+    // modelBuilder.Entity<SportItemImage> ()
+    //   .HasKey (bc => new { bc.SportItemId, bc.SImageId });
+    // modelBuilder.Entity<SportItemImage> ()
+    //   .HasOne (bc => bc.SportItem)
+    //   .WithMany (b => b.SportItemImages)
+    //   .HasForeignKey (bc => bc.SportItemId);
+    // modelBuilder.Entity<SportItemImage> ()
+    //   .HasOne (bc => bc.SImage)
+    //   .WithMany (b => b.SportItemImages)
+    //   .HasForeignKey (bc => bc.SImageId);
+
+    modelBuilder.Entity<PodcastQuestion> ()
+      .HasKey (bc => new { bc.PodcastId, bc.QuestionId });
+    modelBuilder.Entity<PodcastQuestion> ()
+      .HasOne (bc => bc.Podcast)
+      .WithMany (b => b.PodcastQuestions)
+      .HasForeignKey (bc => bc.PodcastId);
+    modelBuilder.Entity<PodcastQuestion> ()
+      .HasOne (bc => bc.Question)
+      .WithMany (b => b.PodcastQuestions)
+      .HasForeignKey (bc => bc.QuestionId);
+
+  modelBuilder.Entity<PodcastSickness> ()
+      .HasKey (bc => new { bc.PodcastId, bc.SicknessId });
+    modelBuilder.Entity<PodcastSickness> ()
+      .HasOne (bc => bc.Podcast)
+      .WithMany (b => b.PodcastSicknesses)
+      .HasForeignKey (bc => bc.PodcastId);
+    modelBuilder.Entity<PodcastSickness> ()
+      .HasOne (bc => bc.Sickness)
+      .WithMany (b => b.PodcastSicknesses)
+      .HasForeignKey (bc => bc.SicknessId);
+
+      
 
     //*****************
     modelBuilder.Entity<Group> ().HasOne (x => x.Parent)
@@ -195,8 +235,19 @@ public class BarnamaConntext : DbContext {
   public DbSet<SleepRate> SleepRates { get; set; }
   public DbSet<WaterRate> WaterRates { get; set; }
   public DbSet<Recipe> Recipes { get; set; }
-   public DbSet<Plan> Plans { get; set; }
-   public DbSet<PlanDate> PlanDates { get; set; }
-   public DbSet<PlanDetail> PlanDetails { get; set; }
-
+  public DbSet<Plan> Plans { get; set; }
+  public DbSet<PlanDate> PlanDates { get; set; }
+  public DbSet<PlanDetail> PlanDetails { get; set; }
+  //**************
+  public DbSet<Muscle> Muscles { get; set; }
+  public DbSet<Podcast> Podcasts { get; set; }
+  public DbSet<PodcastGroup> PodcastGroups { get; set; }
+  public DbSet<SImage> SImages { get; set; }
+  public DbSet<Sport> Sports { get; set; }
+  public DbSet<SportGroup> SportGroups { get; set; }
+  public DbSet<SportItem> SportItems { get; set; }
+  // public DbSet<SportItemImage> SportItemImages { get; set; }
+  public DbSet<SportMuscle> SportMuscles { get; set; }
+ public DbSet<PodcastSickness> PodcastSicknesses { get; set; }
+  public DbSet<PodcastQuestion> PodcastQuestions { get; set; }
 }

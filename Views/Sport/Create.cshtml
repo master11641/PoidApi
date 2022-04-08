@@ -1,0 +1,36 @@
+@model Sport
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+<h1>Create</h1>
+
+<h4>Sport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" id="Frm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                @Html.EditorFor(x=>x.ImageUrl)
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SportGroupId" class="control-label"></label>
+                <select asp-for="SportGroupId" class="form-control" asp-items="ViewBag.SportGroupId"></select>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Create","sport")' forsendform="#Frm"
+                    method="POST" record="false">ثبت تغییرات</a>
+            </div>
+        </form>
+    </div>
+</div>

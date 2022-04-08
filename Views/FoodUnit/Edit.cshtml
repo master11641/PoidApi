@@ -92,6 +92,11 @@
                 <input asp-for="Tfa" class="form-control" />
                 <span asp-validation-for="Tfa" class="text-danger"></span>
             </div>
+                     <div class="form-group">
+                <label asp-for="IsDefault" class="control-label"></label>
+                <input asp-for="IsDefault"  />
+                <span asp-validation-for="IsDefault" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <a class="btn btn-primary btn-lg  tjax"
                     href='@Url.Action("Edit","FoodUnit", new {  foodId=Model.FoodId , unitId=Model.UnitId  })'

@@ -14,7 +14,7 @@ namespace Barnama
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://localhost:5001","http://192.168.1.105");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://localhost:5001");
                 });
                
     }

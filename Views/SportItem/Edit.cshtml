@@ -1,0 +1,120 @@
+@model SportItem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SportItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" id="Frm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="DescriptionAudio" class="control-label"></label>
+                 @Html.EditorFor(x=>x.DescriptionAudio)
+                <span asp-validation-for="DescriptionAudio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionVideo" class="control-label"></label>
+                @Html.EditorFor(x=>x.DescriptionVideo)
+                <span asp-validation-for="DescriptionVideo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SportId" class="control-label"></label>
+                <select asp-for="SportId" class="form-control" asp-items="ViewBag.SportId"></select>
+                <span asp-validation-for="SportId" class="text-danger"></span>
+            </div>
+                 <div class="form-group">
+                <label asp-for="SImages" class="control-label"></label>
+                <div id='imageShow'></div>
+                <input id="SportImagesInput" class="form-control ImageSrc" type="file" accept="image/*" />
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script >
+     $(document).ready(function () {
+          var files = [];//SelectedImages
+
+    @foreach (var d in ViewBag.SelectedImages)
+    {
+        @:files.push({ name: '@d', size: 525, extension: '.doc' });
+        @:$('#Frm').append("<input type='text' value='@d'  name='images'   id='images' style='visibility: hidden; ' />");
+        @:$( document ).ready(function() {
+        @:    $('span').each(function () {
+        @:            if ($(this).html() == '@d') {
+        @:              $(this).parent().append("<image  src='/uploads/@d'  class='img img-thumbnail' style='height:100px;' />");
+        @:            }
+        @:        });
+        @:});
+   
+   
+   
+   
+    }
+
+            $("#SportImagesInput").kendoUpload({
+                name: "files",
+                files: files,
+                showFileList: true,
+                async: {
+                    saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+                    removeUrl: "@Url.Action("SaveTemp", "Upload")",
+                    autoUpload: true
+                },
+                select: function (e) {                   
+                    console.log('File selected.');
+                },      // function for when a file is selected
+                success: onFileSuccess,
+                remove: onRemove, // function that returns response after upload
+                // function after success
+                // function for when a file is removed
+            });
+        function onFileSuccess(e) {
+            if (e.response.length != 0) {
+                $('#Frm').append("<input type='text' value='"+ e.response+"'  name='images'   id='images' style='visibility: hidden;' />");
+                console.log(e.response);
+                $('span').each(function () {
+                    if ($(this).html() == e.response) {
+                      $(this).parent().append("<image  src='/uploads/"+e.response+"' class='img img-thumbnail'  style='height:100px;' />");
+                    }
+                });
+            }
+
+        }
+        
+        function onRemove(e) {
+            console.log(e);
+            //alert(e.files[0].name);
+            $('input[type=text]').each(function () {
+                if ($(this).val() === e.files[0].name) {
+                    $(this).remove();
+                }
+            });
+        }
+     });//ready
+</script>
+

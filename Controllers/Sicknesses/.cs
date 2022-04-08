@@ -18,7 +18,7 @@ namespace LeitnerApi.Controllers.Sicknesses {
         public async Task<IActionResult> Index () {
             return View (await _context.Sicknesses.ToListAsync ());
         }
-
+  
         [HttpGet]
         public List<Sickness> GetSicks () {
             return _context.Sicknesses.ToList ();

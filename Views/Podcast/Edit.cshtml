@@ -1,0 +1,104 @@
+@model Podcast
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = null;
+}
+
+<h1>Edit</h1>
+
+<h4>Podcast</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" id="Frm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PodcastGroupId" class="control-label"></label>
+                <select asp-for="PodcastGroupId" class="form-control" asp-items="ViewBag.PodcastGroupId"></select>
+                <span asp-validation-for="PodcastGroupId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PodcastAudio" class="control-label"></label>
+                @Html.EditorFor(x=>x.PodcastAudio)
+                <span asp-validation-for="PodcastAudio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PodcastQuestions" class="control-label"></label>
+                <select id="QuestionIds" name="QuestionIds" multiple="multiple" data-placeholder="Select Questions...">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PodcastSicknesses" class="control-label"></label>
+                <select id="SicknessIds" name="SicknessIds" multiple="multiple" data-placeholder="Select Sicknesses...">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <a class="btn btn-primary btn-lg  tjax" href='@Url.Action("Edit","Podcast")' forsendform="#Frm"
+                    method="POST" record="false">ثبت تغییرات</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var selectedQuestionIdsArray = [];
+    @foreach (var d in ViewBag.QuestionIds)
+    {
+        @:selectedQuestionIdsArray.push("@d");
+    }
+             var questionIds = $("#QuestionIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            value: selectedQuestionIdsArray,
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetQuestions", "Question")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+    var selectedSicknessIdsArray = [];
+    @foreach (var d in ViewBag.SicknessIds)
+    {
+        @:selectedSicknessIdsArray.push("@d");
+    }
+   $("#SicknessIds").kendoMultiSelect({
+            autoBind: true,
+            autoClose: false,
+            dataTextField: "title",
+            dataValueField: "id",
+            value: selectedSicknessIdsArray,
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetSicks", "Sickness")",
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        type: 'GET'
+                    }
+                }
+            }
+        });
+
+
+
+    });
+
+
+</script>

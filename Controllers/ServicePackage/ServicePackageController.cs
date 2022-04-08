@@ -78,7 +78,7 @@ namespace Barnama.Controllers {
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit (int Id, string Title, string Desciption, string ImageUrl, int Price, DateTime? StartTime, DateTime? EndTime, bool IsAdviserType, int ExpireAfterBuyInDays, Int32? DiscountId, string BazarProductId) {
+        public async Task<IActionResult> Edit (int Id, string Title, string Desciption, string ImageUrl, int Price, DateTime? StartTime, DateTime? EndTime, bool IsTimed, int ExpireAfterBuyInDays, Int32? DiscountId, string BazarProductId) {
             var package = _context.ServicePackages.Find (Id);
             if (package == null) {
                 return NotFound ();
@@ -93,7 +93,7 @@ namespace Barnama.Controllers {
                 package.StartTime=StartTime;
                 package.EndTime=EndTime;
                 package.Price=Price;
-                package.IsAdviserType=IsAdviserType;
+                package.IsTimed=IsTimed;
 
                 _context.Update (package);
                 await _context.SaveChangesAsync ();

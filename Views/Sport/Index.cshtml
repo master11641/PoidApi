@@ -1,0 +1,107 @@
+@model IEnumerable<Sport>
+
+@{
+    ViewData["Title"] = "ورزش ها";
+
+}
+
+@section contentheader {
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">ورزش ها</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>خانه</a></li>
+                    <li class="breadcrumb-item active">پادکست ها </li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+}
+<div class="alert alert-info">
+    ابتدا ورزش ها را ثبت و سپس حرکات ورزشی را برای هر ورزش ثبت کنید 
+</div>
+<!--نحوه‌ی راست به چپ سازی گرید-->
+<div class="k-rtl">
+  <div class="k-header k-grid-toolbar">
+          <a href="/sport/create" class="k-button fa fa-add  tjax" popup="true">ورزش جدید</a>
+</div>
+    <div id="report-grid"></div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+    $(function () {
+        var productsDataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetSports", "Sport")",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    type: 'GET'
+                },
+                parameterMap: function (options) {
+                    return kendo.stringify(options);
+                }
+            },
+            schema: {
+                data: "data",
+                total: "total",
+                model: {
+                    fields: {
+                        "id": { type: "number" }, //تعیین نوع فیلد برای جستجوی پویا مهم است
+                        "title": { type: "string" },
+
+                    }
+                }
+            },
+            error: function (e) {
+                alert(e.errorThrown);
+            },
+
+            pageSize: 5,
+            sort: { field: "id", dir: "desc" },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#report-grid").kendoGrid({
+            dataSource: productsDataSource,
+            autoBind: true,
+            scrollable: false,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            reorderable: true,
+            columnMenu: true,
+            columns: [
+                { field: "id", title: "شماره", width: "130px" },
+                { field: "title", title: "عنوان ورزش",  },
+
+                {
+                    field: "id", title: "عملیات",
+                    template: '<a  href="/sport/edit/#=id#" class="k-button fa fa-edit tjax" popup="true" >ویرایش و ثبت حرکات</a>  <a  href="/sport/delete/#=id#" class="k-button fa fa-remove tjax"  popup="true" >حذف</a>'
+                }
+
+            ],
+         
+        });
+        $(document).ready(function () {
+    
+        });// $(document).ready(function () {
+
+
+
+    });
+    function completeHandler(sender, response) {
+        $('#tjaxModal').modal('hide');
+        $("#report-grid").data("kendoGrid").dataSource.read();
+        //productsDataSource.read();
+    }
+</script>
+
+}

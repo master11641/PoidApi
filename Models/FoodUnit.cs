@@ -47,5 +47,7 @@ public class FoodUnit {
   public double? Sfa { get; set; } //Saturated fatty acids  اسيد چرب اشباع
    [Display (Name = "اسيد چرب ترانس( گرم)")]
   public double? Tfa { get; set; } //Trans fatty acids    اسيد چرب ترانس
+     [Display (Name = "واحد پیش فرض")]
+  public bool IsDefault { get; set; }//وعده غذایی پیش فرض برای غذای جاری در محاسبات
 
 }

@@ -10,7 +10,7 @@ public class Question {
     [Display(Name="عنوان")]
     public string Title { get; set; }
   public ICollection<QuestionDiet> QuestionDiets { get; set; }
-  
+   public ICollection<PodcastQuestion> PodcastQuestions { get; set; }
  
 
 }

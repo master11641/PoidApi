@@ -344,6 +344,9 @@ namespace LeitnerApi.Migrations
                     b.Property<double?>("Iron")
                         .HasColumnType("float");
 
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
                     b.Property<double?>("Magnesium")
                         .HasColumnType("float");
 
@@ -504,6 +507,24 @@ namespace LeitnerApi.Migrations
                     b.ToTable("Meels");
                 });
 
+            modelBuilder.Entity("Muscle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Muscles");
+                });
+
             modelBuilder.Entity("Nutrient", b =>
                 {
                     b.Property<int>("Id")
@@ -620,6 +641,74 @@ namespace LeitnerApi.Migrations
                     b.ToTable("PlanDetails");
                 });
 
+            modelBuilder.Entity("Podcast", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PodcastAudio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PodcastGroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PodcastGroupId");
+
+                    b.ToTable("Podcasts");
+                });
+
+            modelBuilder.Entity("PodcastGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PodcastGroups");
+                });
+
+            modelBuilder.Entity("PodcastQuestion", b =>
+                {
+                    b.Property<int>("PodcastId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PodcastId", "QuestionId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("PodcastQuestions");
+                });
+
+            modelBuilder.Entity("PodcastSickness", b =>
+                {
+                    b.Property<int>("PodcastId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SicknessId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PodcastId", "SicknessId");
+
+                    b.HasIndex("SicknessId");
+
+                    b.ToTable("PodcastSicknesses");
+                });
+
             modelBuilder.Entity("Protein", b =>
                 {
                     b.Property<int>("Id")
@@ -727,6 +816,26 @@ namespace LeitnerApi.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("SImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SportItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SportItemId");
+
+                    b.ToTable("SImages");
+                });
+
             modelBuilder.Entity("ServicePackage", b =>
                 {
                     b.Property<int>("Id")
@@ -752,7 +861,7 @@ namespace LeitnerApi.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdviserType")
+                    b.Property<bool>("IsTimed")
                         .HasColumnType("bit");
 
                     b.Property<int>("Price")
@@ -832,6 +941,91 @@ namespace LeitnerApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SleepRates");
+                });
+
+            modelBuilder.Entity("Sport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SportGroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SportGroupId");
+
+                    b.ToTable("Sports");
+                });
+
+            modelBuilder.Entity("SportGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SportGroups");
+                });
+
+            modelBuilder.Entity("SportItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAudio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionVideo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SportId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SportId");
+
+                    b.ToTable("SportItems");
+                });
+
+            modelBuilder.Entity("SportMuscle", b =>
+                {
+                    b.Property<int>("SportId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MuscleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SportId", "MuscleId");
+
+                    b.HasIndex("MuscleId");
+
+                    b.ToTable("SportMuscles");
                 });
 
             modelBuilder.Entity("Unit", b =>
@@ -1190,6 +1384,55 @@ namespace LeitnerApi.Migrations
                     b.Navigation("Unit");
                 });
 
+            modelBuilder.Entity("Podcast", b =>
+                {
+                    b.HasOne("PodcastGroup", "PodcastGroup")
+                        .WithMany("Podcasts")
+                        .HasForeignKey("PodcastGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PodcastGroup");
+                });
+
+            modelBuilder.Entity("PodcastQuestion", b =>
+                {
+                    b.HasOne("Podcast", "Podcast")
+                        .WithMany("PodcastQuestions")
+                        .HasForeignKey("PodcastId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Question", "Question")
+                        .WithMany("PodcastQuestions")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Podcast");
+
+                    b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("PodcastSickness", b =>
+                {
+                    b.HasOne("Podcast", "Podcast")
+                        .WithMany("PodcastSicknesses")
+                        .HasForeignKey("PodcastId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sickness", "Sickness")
+                        .WithMany("PodcastSicknesses")
+                        .HasForeignKey("SicknessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Podcast");
+
+                    b.Navigation("Sickness");
+                });
+
             modelBuilder.Entity("ProteinDiet", b =>
                 {
                     b.HasOne("Diet", "Diet")
@@ -1239,6 +1482,17 @@ namespace LeitnerApi.Migrations
                     b.Navigation("Food");
                 });
 
+            modelBuilder.Entity("SImage", b =>
+                {
+                    b.HasOne("SportItem", "SportItem")
+                        .WithMany("SImages")
+                        .HasForeignKey("SportItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SportItem");
+                });
+
             modelBuilder.Entity("ServicePackage", b =>
                 {
                     b.HasOne("Discount", "Discount")
@@ -1284,6 +1538,47 @@ namespace LeitnerApi.Migrations
                     b.Navigation("Food");
 
                     b.Navigation("Sickness");
+                });
+
+            modelBuilder.Entity("Sport", b =>
+                {
+                    b.HasOne("SportGroup", "SportGroup")
+                        .WithMany("Sports")
+                        .HasForeignKey("SportGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SportGroup");
+                });
+
+            modelBuilder.Entity("SportItem", b =>
+                {
+                    b.HasOne("Sport", "Sport")
+                        .WithMany("sportItems")
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sport");
+                });
+
+            modelBuilder.Entity("SportMuscle", b =>
+                {
+                    b.HasOne("Muscle", "Muscle")
+                        .WithMany("SportMuscles")
+                        .HasForeignKey("MuscleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sport", "Sport")
+                        .WithMany("SportMuscles")
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Muscle");
+
+                    b.Navigation("Sport");
                 });
 
             modelBuilder.Entity("UserRole", b =>
@@ -1369,6 +1664,11 @@ namespace LeitnerApi.Migrations
                     b.Navigation("PlanDetails");
                 });
 
+            modelBuilder.Entity("Muscle", b =>
+                {
+                    b.Navigation("SportMuscles");
+                });
+
             modelBuilder.Entity("Nutrient", b =>
                 {
                     b.Navigation("FoodNutrients");
@@ -1384,6 +1684,18 @@ namespace LeitnerApi.Migrations
                     b.Navigation("PlanDetails");
                 });
 
+            modelBuilder.Entity("Podcast", b =>
+                {
+                    b.Navigation("PodcastQuestions");
+
+                    b.Navigation("PodcastSicknesses");
+                });
+
+            modelBuilder.Entity("PodcastGroup", b =>
+                {
+                    b.Navigation("Podcasts");
+                });
+
             modelBuilder.Entity("Protein", b =>
                 {
                     b.Navigation("ProteinDiets");
@@ -1391,6 +1703,8 @@ namespace LeitnerApi.Migrations
 
             modelBuilder.Entity("Question", b =>
                 {
+                    b.Navigation("PodcastQuestions");
+
                     b.Navigation("QuestionDiets");
                 });
 
@@ -1401,9 +1715,28 @@ namespace LeitnerApi.Migrations
 
             modelBuilder.Entity("Sickness", b =>
                 {
+                    b.Navigation("PodcastSicknesses");
+
                     b.Navigation("SicknessDiets");
 
                     b.Navigation("SicknessFoods");
+                });
+
+            modelBuilder.Entity("Sport", b =>
+                {
+                    b.Navigation("sportItems");
+
+                    b.Navigation("SportMuscles");
+                });
+
+            modelBuilder.Entity("SportGroup", b =>
+                {
+                    b.Navigation("Sports");
+                });
+
+            modelBuilder.Entity("SportItem", b =>
+                {
+                    b.Navigation("SImages");
                 });
 
             modelBuilder.Entity("Unit", b =>

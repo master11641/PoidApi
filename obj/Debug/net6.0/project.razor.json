@@ -16490,6 +16490,11 @@
   "RootNamespace": "LeitnerApi",
   "Documents": [
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Create.cshtml",
+      "TargetPath": "Views\\Sport\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Delete.cshtml",
       "TargetPath": "Views\\User\\Delete.cshtml",
       "FileKind": "mvc"
@@ -16505,6 +16510,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Index.cshtml",
+      "TargetPath": "Views\\Sport\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Edit.cshtml",
       "TargetPath": "Views\\BadHabit\\Edit.cshtml",
       "FileKind": "mvc"
@@ -16512,6 +16522,21 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Edit.cshtml",
       "TargetPath": "Views\\Invoice\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Edit.cshtml",
+      "TargetPath": "Views\\Sport\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Create.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Details.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16635,6 +16660,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Edit.cshtml",
       "TargetPath": "Views\\Goal\\Edit.cshtml",
       "FileKind": "mvc"
@@ -16690,8 +16720,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Index.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Delete.cshtml",
       "TargetPath": "Views\\BadHabit\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16705,8 +16745,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Edit.cshtml",
+      "TargetPath": "Views\\SportGroup\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Delete.cshtml",
+      "TargetPath": "Views\\SportItem\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Edit.cshtml",
       "TargetPath": "Views\\Gender\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Delete.cshtml",
+      "TargetPath": "Views\\Muscle\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16715,8 +16775,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Create.cshtml",
+      "TargetPath": "Views\\SImage\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Delete.cshtml",
       "TargetPath": "Views\\UserRole\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Delete.cshtml",
+      "TargetPath": "Views\\SportGroup\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Details.cshtml",
+      "TargetPath": "Views\\SportItem\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16727,6 +16802,26 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Details.cshtml",
       "TargetPath": "Views\\FoodUnit\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Create.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Index.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16767,6 +16862,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Index.cshtml",
+      "TargetPath": "Views\\SportItem\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16850,13 +16950,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Create.cshtml",
+      "TargetPath": "Views\\SportGroup\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Index.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Details.cshtml",
       "TargetPath": "Views\\Unit\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Index.cshtml",
+      "TargetPath": "Views\\SImage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Index.cshtml",
       "TargetPath": "Views\\User\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Details.cshtml",
+      "TargetPath": "Views\\Muscle\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Index.cshtml",
+      "TargetPath": "Views\\SportGroup\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16910,6 +17035,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Create.cshtml",
+      "TargetPath": "Views\\SportItem\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Create.cshtml",
       "TargetPath": "Views\\Goal\\Create.cshtml",
       "FileKind": "mvc"
@@ -16922,6 +17052,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Index.cshtml",
       "TargetPath": "Views\\Unit\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Delete.cshtml",
+      "TargetPath": "Views\\SImage\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16990,8 +17125,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Details.cshtml",
+      "TargetPath": "Views\\Sport\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Create.cshtml",
       "TargetPath": "Views\\User\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Details.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17015,6 +17160,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Edit.cshtml",
+      "TargetPath": "Views\\Podcast\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Details.cshtml",
       "TargetPath": "Views\\BadHabit\\Details.cshtml",
       "FileKind": "mvc"
@@ -17035,6 +17185,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Details.cshtml",
+      "TargetPath": "Views\\SportGroup\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Edit.cshtml",
+      "TargetPath": "Views\\Muscle\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Index.cshtml",
       "TargetPath": "Views\\FatPart\\Index.cshtml",
       "FileKind": "mvc"
@@ -17045,8 +17205,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Create.cshtml",
+      "TargetPath": "Views\\Podcast\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Delete.cshtml",
+      "TargetPath": "Views\\Sport\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Details.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Pages\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Edit.cshtml",
+      "TargetPath": "Views\\SportItem\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Details.cshtml",
+      "TargetPath": "Views\\Podcast\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17070,6 +17255,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Create.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Index.cshtml",
+      "TargetPath": "Views\\Muscle\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Create.cshtml",
       "TargetPath": "Views\\SicknessFood\\Create.cshtml",
       "FileKind": "mvc"
@@ -17082,6 +17277,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Delete.cshtml",
       "TargetPath": "Views\\Question\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Index.cshtml",
+      "TargetPath": "Views\\Podcast\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17160,6 +17360,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Create.cshtml",
+      "TargetPath": "Views\\Muscle\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Delete.cshtml",
       "TargetPath": "Views\\FatPart\\Delete.cshtml",
       "FileKind": "mvc"
@@ -17195,6 +17400,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Details.cshtml",
+      "TargetPath": "Views\\SImage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Edit.cshtml",
+      "TargetPath": "Views\\SImage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Login.cshtml",
       "TargetPath": "Views\\User\\Login.cshtml",
       "FileKind": "mvc"
@@ -17207,6 +17427,11 @@
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Details.cshtml",
       "TargetPath": "Views\\Food\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Delete.cshtml",
+      "TargetPath": "Views\\Podcast\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

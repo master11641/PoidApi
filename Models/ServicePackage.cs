@@ -34,8 +34,8 @@ public class ServicePackage {
     [NotMapped]
     [DatabaseGenerated (DatabaseGeneratedOption.None)]
     public string PersianEndTime { get { return EndTime?.ToPersianDateTime ().ToPersianDateString (); } private set { } }
-    [Display (Name = "پکیج مشاوره ای باشد")]
-    public bool IsAdviserType { get; set; }
+    [Display (Name = "پکیج زمان دار ای باشد")]
+    public bool IsTimed { get; set; }
     [Display (Name = "مدت زمان اعتبار بعد از خرید بر حسب روز")]
     public int ExpireAfterBuyInDays { get; set; }
 

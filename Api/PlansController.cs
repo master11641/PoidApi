@@ -10,7 +10,7 @@ namespace Barnama.Controllers {
     public class PlansController : Controller {
         private BarnamaConntext _context;
         public PlansController (BarnamaConntext context) {
-            _context = context;;
+            _context = context;
         }
 
         [HttpPost ("AddVoiceDate")]

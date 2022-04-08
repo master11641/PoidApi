@@ -6,12 +6,14 @@ using System.Text.Json.Serialization;
 using Barnama.Models;
 
 public class Sickness {
-    public int Id { get; set; }
-    [Display(Name="عنوان")]
-    public string Title { get; set; }
-  
+  public int Id { get; set; }
+
+  [Display (Name = "عنوان")]
+  public string Title { get; set; }
+
   public ICollection<SicknessDiet> SicknessDiets { get; set; }
-  
-  public ICollection<SicknessFood>  SicknessFoods { get; set; }
+
+  public ICollection<SicknessFood> SicknessFoods { get; set; }
+  public ICollection<PodcastSickness> PodcastSicknesses { get; set; }
 
 }
