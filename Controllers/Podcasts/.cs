@@ -47,7 +47,7 @@ namespace LeitnerApi.Controllers.Podcasts {
 
         // GET: Podcast/Create
         public IActionResult Create () {
-            ViewData["PodcastGroupId"] = new SelectList (_context.PodcastGroups, "Id", "Id");
+            ViewData["PodcastGroupId"] = new SelectList (_context.PodcastGroups, "Id", "Title");
 
             return View ();
         }
@@ -60,7 +60,7 @@ namespace LeitnerApi.Controllers.Podcasts {
                 await _context.SaveChangesAsync ();
                 return RedirectToAction (nameof (Index));
             }
-            ViewData["PodcastGroupId"] = new SelectList (_context.PodcastGroups, "Id", "Id", podcast.PodcastGroupId);
+            ViewData["PodcastGroupId"] = new SelectList (_context.PodcastGroups, "Id", "Title", podcast.PodcastGroupId);
             return View (podcast);
         }
 

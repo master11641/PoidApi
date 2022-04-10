@@ -15,10 +15,12 @@ dotnet add package Swashbuckle.AspNetCore   => SWAGGER
  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design =>Scaaffolding
  dotnet add package System.Composition      =>Scaaffolding
 dotnet add package Microsoft.Composition =>Scaaffolding
-dotnet aspnet-codegenerator controller -m Lesson -dc BarnamaConntext -outDir Controllers\Lessons    => layout=null
+dotnet aspnet-codegenerator controller -m Lesson -dc BarnamaConntext -outDir Contdotnet ef migrations add InitialCreate --context BarnamaConntext --output-dir Migrations –IgnoreChangesrollers\Lessons    => layout=null
 dotnet aspnet-codegenerator controller -m Partition -dc BarnamaConntext -outDir Controllers\Partitions -udl  =>Use default layout
 dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 dotnet ef database update
 dotnet ef migrations add  Four.two
 dotnet add package kavenegar --version 1.2.4
 dotnet publish -c Release   
+dotnet ef migrations remove  => حذف آخرین میگریشن
+dotnet ef migrations add InitialCreate --context BarnamaConntext --output-dir Migrations

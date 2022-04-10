@@ -671,6 +671,9 @@ namespace LeitnerApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -1554,7 +1557,7 @@ namespace LeitnerApi.Migrations
             modelBuilder.Entity("SportItem", b =>
                 {
                     b.HasOne("Sport", "Sport")
-                        .WithMany("sportItems")
+                        .WithMany("SportItems")
                         .HasForeignKey("SportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1724,7 +1727,7 @@ namespace LeitnerApi.Migrations
 
             modelBuilder.Entity("Sport", b =>
                 {
-                    b.Navigation("sportItems");
+                    b.Navigation("SportItems");
 
                     b.Navigation("SportMuscles");
                 });

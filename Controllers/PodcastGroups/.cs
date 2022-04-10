@@ -52,7 +52,7 @@ namespace LeitnerApi.Controllers.PodcastGroups
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title")] PodcastGroup podcastGroup)
+        public async Task<IActionResult> Create([Bind("Id,Title,ImageUrl")] PodcastGroup podcastGroup)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace LeitnerApi.Controllers.PodcastGroups
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title")] PodcastGroup podcastGroup)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ImageUrl")] PodcastGroup podcastGroup)
         {
             if (id != podcastGroup.Id)
             {

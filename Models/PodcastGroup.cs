@@ -11,6 +11,9 @@ public class PodcastGroup {
     [Display (Name = "عنوان گروه")]
     public string Title { get; set; }
 
+    [UIHint ("ImageUpload")]
+    [Display (Name = "آپلود تصویر")]
+    public string ImageUrl { get; set; }
     public ICollection<Podcast> Podcasts { get; set; }
 
 }
