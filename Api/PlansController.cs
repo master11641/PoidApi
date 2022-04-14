@@ -38,6 +38,9 @@ namespace Barnama.Controllers {
                 // CurrentDiet.PlanId = 
                 Plan.Id = _context.SaveChanges ();
             }
+            if(DateTime.Now > CurrentDiet.Plan.EndDate){
+                return BadRequest("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
+            }
             PlanDate PlanDate = _context.PlanDates.Include (x => x.PlanDetails).ThenInclude (x => x.Food)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Meel)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Unit)

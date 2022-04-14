@@ -77,7 +77,7 @@ namespace LeitnerApi.Controllers.Foods {
         void addFood (string title, string unitTitle, double? calorie, double? Protein, double? Carbohydrate, double? Fat, double? Sugar, double? Sodium, double? Potassium, double? Magnesium, double? Calcium, double? Phosphor, double? Iron, double? Umfa, double? Upfa, double? Sfa, double? Tfa) {
 
             var food = _context.Foods.Where (x => x.Title == title).Include (x => x.FoodUnits).FirstOrDefault ();
-            var unit = _context.Units.Where (x => x.Title == unitTitle).FirstOrDefault ();
+            var unit = _context.Units.Where (x => x.Title.Trim() == unitTitle.Trim()).FirstOrDefault ();
             if (unit == null) {
                 unit = new Unit ();
                 unit.Title = unitTitle;
