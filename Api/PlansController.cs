@@ -14,8 +14,8 @@ namespace Barnama.Controllers {
         }
 
         [HttpPost ("AddVoiceDate")]
-        public IActionResult AddVoiceDate (int UserId,DateTime CurrentDate, string VoiceUserUrl) {
-            PlanDate PlanDate = _context.PlanDates.Include(x=>x.Plan).ThenInclude(x=>x.Diet).Where (x=>x.CurrentDate.Date==CurrentDate.Date && x.Plan.Diet.UserId==UserId).FirstOrDefault();
+        public IActionResult AddVoiceDate (int UserId, DateTime CurrentDate, string VoiceUserUrl) {
+            PlanDate PlanDate = _context.PlanDates.Include (x => x.Plan).ThenInclude (x => x.Diet).Where (x => x.CurrentDate.Date == CurrentDate.Date && x.Plan.Diet.UserId == UserId).FirstOrDefault ();
             if (PlanDate == null) {
                 return BadRequest ("رژیم مربوطه یافت نشد");
             }
@@ -38,8 +38,8 @@ namespace Barnama.Controllers {
                 // CurrentDiet.PlanId = 
                 Plan.Id = _context.SaveChanges ();
             }
-            if(DateTime.Now > CurrentDiet.Plan.EndDate){
-                return BadRequest("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
+            if (DateTime.Now > CurrentDiet.Plan.EndDate) {
+                return BadRequest ("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
             }
             PlanDate PlanDate = _context.PlanDates.Include (x => x.PlanDetails).ThenInclude (x => x.Food)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Meel)
@@ -64,6 +64,8 @@ namespace Barnama.Controllers {
                         x.UnitId,
                         x.FoodId,
                         x.MeelId,
+                        x.IsDone,
+                        x.PlanDateId,
                         OrderId = x.Meel.OrderId
 
                 }));
@@ -93,6 +95,29 @@ namespace Barnama.Controllers {
             }));
 
         }
+        //غداهای جایگزین برای کاربر بر می گرداند
+        [HttpPost ("GetReplaceFood")]
+        public IActionResult GetReplaceFood (int planDateId, int foodId) {
+            PlanDetail planDetail = _context.PlanDetails.FirstOrDefault (x => x.FoodId == foodId && x.PlanDateId == planDateId);
+            if (planDetail == null) {
+                return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
+            }
+            //گرفتن غذاهایی که در وعده  غذای قبلی قرار دارند
+            List<Food> AllFoods = _context.Foods.Include (x => x.FoodMeels)
+                .Where (x => x.FoodMeels.Any (x => x.MeelId == planDetail.MeelId)).ToList ();
+            return Ok (AllFoods.Select (x => new { x.Title }));
+        }
+
+        [HttpPost ("ConfirmFood")]
+        public IActionResult confirmFood (int planDateId, int foodId) {
+            PlanDetail planDetail = _context.PlanDetails.FirstOrDefault (x => x.FoodId == foodId && x.PlanDateId == planDateId);
+            if (planDetail == null) {
+                return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
+            }
+            planDetail.IsDone = !planDetail.IsDone;
+            _context.SaveChanges ();
+            return Ok ();
+        }
         bool IsFoodAcceprt (int foodId, List<PlanDetail> planDetails, List<Food> allFoods) {
             if (planDetails.Any (x => x.FoodId == foodId)) {
                 allFoods.RemoveAll (x => x.Id == foodId);
@@ -100,6 +125,7 @@ namespace Barnama.Controllers {
             }
             return true;
         }
+
         void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
             var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
             var CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
@@ -131,7 +157,26 @@ namespace Barnama.Controllers {
             //  _context.PlanDetails.Add(PlanDetail);
             _context.SaveChanges ();
         }
+        //با گرفتن شناسه واحد سنجش جدید تغییرات لازم یعنی
+        //کالری و واحد جدیدو یونیت ولیو را جایگزین پلن دیتیل کرده و بر می گرداند 
+        ReplaceFood changeUnitPlanDetail (int FoodId ,double Calorie,int UnitId) {          
+            //ابتدا فود یونیت را برای استفاده از فیلد کالری آن بدست می آوریم
+           FoodUnit foodUnit = _context.FoodUnits.FirstOrDefault(x=>x.UnitId == UnitId && x.FoodId == FoodId );
+            double tempCalorieCounter = 0;
+             double UnitValue = 0;
+             while (tempCalorieCounter <= Calorie) {
+                    UnitValue++;                  
+                    tempCalorieCounter += foodUnit.Calorie ?? 0;
+                }
+                ReplaceFood ReplaceFood = new ReplaceFood{
+                    Calorie = tempCalorieCounter,
+                    UnitId = UnitId,
+                    UnitValue = UnitValue,
+                    FoodId = FoodId
 
+                };              
+              return ReplaceFood;           
+        }
     }
 
 }
