@@ -159,23 +159,54 @@ namespace Barnama.Controllers {
         }
         //با گرفتن شناسه واحد سنجش جدید تغییرات لازم یعنی
         //کالری و واحد جدیدو یونیت ولیو را جایگزین پلن دیتیل کرده و بر می گرداند 
-        ReplaceFood changeUnitPlanDetail (int FoodId ,double Calorie,int UnitId) {          
+        ReplaceFood GetReplaceUnitAndCalorie (int FoodId, double Calorie, int UnitId) {
             //ابتدا فود یونیت را برای استفاده از فیلد کالری آن بدست می آوریم
-           FoodUnit foodUnit = _context.FoodUnits.FirstOrDefault(x=>x.UnitId == UnitId && x.FoodId == FoodId );
+            FoodUnit foodUnit = _context.FoodUnits.Include (x => x.Unit).Include (x => x.Food).FirstOrDefault (x => x.UnitId == UnitId && x.FoodId == FoodId);
             double tempCalorieCounter = 0;
-             double UnitValue = 0;
-             while (tempCalorieCounter <= Calorie) {
-                    UnitValue++;                  
-                    tempCalorieCounter += foodUnit.Calorie ?? 0;
+            double UnitValue = 0;
+            while (tempCalorieCounter <= Calorie) {
+                //  UnitValue++;
+                // tempCalorieCounter += foodUnit.Calorie ?? 0;
+                //    UnitValue +=  (tempCalorieCounter+foodUnit.Calorie ) > Calorie ? GetCaloriePercent(foodUnit.Calorie ?? 0,Calorie  ) : 1;
+                //    tempCalorieCounter += (tempCalorieCounter+foodUnit.Calorie ) > Calorie ? GetCaloriePercent(foodUnit.Calorie ?? 0,Calorie  )*foodUnit.Calorie ?? 0 : foodUnit.Calorie  ?? 0;
+                if (tempCalorieCounter + foodUnit.Calorie > Calorie) {
+                    double pecrcent = GetCaloriePercent (Calorie-tempCalorieCounter,(double) foodUnit.Calorie);
+                    UnitValue += pecrcent;
+                    tempCalorieCounter += pecrcent * (double) foodUnit.Calorie;
+                    break;
+                } else {
+                    UnitValue++;
+                    tempCalorieCounter += (double) foodUnit.Calorie;
                 }
-                ReplaceFood ReplaceFood = new ReplaceFood{
-                    Calorie = tempCalorieCounter,
-                    UnitId = UnitId,
-                    UnitValue = UnitValue,
-                    FoodId = FoodId
 
-                };              
-              return ReplaceFood;           
+            }
+            ReplaceFood ReplaceFood = new ReplaceFood {
+                Calorie = tempCalorieCounter,
+                UnitId = UnitId,
+                UnitTitle = foodUnit.Unit.Title,
+                FoodTitle = foodUnit.Food.Title,
+                UnitValue = UnitValue,
+                FoodId = FoodId
+
+            };
+            return ReplaceFood;
+        }
+        double GetCaloriePercent (double tempCalorieCounter, double calorie) {
+            double result = tempCalorieCounter/calorie ;
+            return result;
+
+        }
+
+        [HttpPost ("GetAllUnitPlanByFood")]
+        public IActionResult GetAllUnitPlanByFood (double calorie, int foodId) {
+            List<FoodUnit> foodUnits = _context.FoodUnits.Where (x => x.FoodId == foodId).ToList ();
+            List<ReplaceFood> replaceFoods = new List<ReplaceFood> ();
+            foreach (var item in foodUnits) {
+                ReplaceFood temp = GetReplaceUnitAndCalorie (item.FoodId, calorie, item.UnitId);
+                replaceFoods.Add (temp);
+
+            }
+            return Ok (replaceFoods);
         }
     }
 
