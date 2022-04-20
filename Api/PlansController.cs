@@ -55,7 +55,7 @@ namespace Barnama.Controllers {
                 Console.WriteLine (temp);
 
             } else if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
-                return Ok (PlanDate.PlanDetails.Select (x => new {
+                return Ok (PlanDate.PlanDetails.Where(x=>x.ReplacePlanDetailId == null).Select (x => new {
                     foodTitle = x.Food.Title,
                         x.Calorie,
                         meelTitle = x.Meel.Title,
@@ -81,8 +81,8 @@ namespace Barnama.Controllers {
                 SavePlanDetailsForFood (AllFoods: AllFoods, CurrentMeel: CurrentMeel, PlanDate: PlanDate, TotalCallory: TotalCallory);
             }
             // _context.SaveChanges();
-            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
-            return Ok (result.PlanDetails.Select (x => new {
+            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date ).FirstOrDefault ();
+            return Ok (result.PlanDetails.Where(x=>x.ReplacePlanDetailId == null).Select (x => new {
                 foodTitle = x.Food.Title,
                     x.Calorie,
                     meelTitle = x.Meel.Title,
@@ -105,17 +105,43 @@ namespace Barnama.Controllers {
             //گرفتن غذاهایی که در وعده  غذای قبلی قرار دارند
             List<Food> AllFoods = _context.Foods.Include (x => x.FoodMeels)
                 .Where (x => x.FoodMeels.Any (x => x.MeelId == planDetail.MeelId)).ToList ();
-            return Ok (AllFoods.Select (x => new { x.Title }));
+            return Ok (AllFoods.Select (x => new { x.Title, x.Id }));
         }
 
         [HttpPost ("ConfirmFood")]
-        public IActionResult confirmFood (int planDateId, int foodId) {
+        public IActionResult confirmFood (int planDateId, int foodId, int unitId, double unitValue) {
             PlanDetail planDetail = _context.PlanDetails.FirstOrDefault (x => x.FoodId == foodId && x.PlanDateId == planDateId);
             if (planDetail == null) {
                 return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
             }
+            planDetail.UnitId = unitId;
+            planDetail.UnitValue = unitValue;
             planDetail.IsDone = !planDetail.IsDone;
             _context.SaveChanges ();
+            return Ok ();
+        }
+
+        [HttpPost ("ReplaceFood")]
+        public IActionResult ReplaceFood (int planDateId, int oldFoodId, int unitId, double unitValue, int newFoodId) {
+            PlanDetail planDetail = _context.PlanDetails.FirstOrDefault (x => x.FoodId == oldFoodId && x.PlanDateId == planDateId);
+            if (planDetail == null) {
+                return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
+            }
+            planDetail.IsDone = false;
+             planDetail.ReplacePlanDetailId = newFoodId;
+            PlanDetail newPlanDetail = new PlanDetail {
+                FoodId = newFoodId,
+                PlanDateId = planDateId,
+                UnitId = unitId,
+                UnitValue = unitValue,
+                MeelId = planDetail.MeelId,
+                Calorie = planDetail.Calorie,
+                IsDone = false,
+
+            };
+            _context.PlanDetails.Add (newPlanDetail);
+           _context.SaveChanges ();         
+        
             return Ok ();
         }
         bool IsFoodAcceprt (int foodId, List<PlanDetail> planDetails, List<Food> allFoods) {
@@ -170,7 +196,7 @@ namespace Barnama.Controllers {
                 //    UnitValue +=  (tempCalorieCounter+foodUnit.Calorie ) > Calorie ? GetCaloriePercent(foodUnit.Calorie ?? 0,Calorie  ) : 1;
                 //    tempCalorieCounter += (tempCalorieCounter+foodUnit.Calorie ) > Calorie ? GetCaloriePercent(foodUnit.Calorie ?? 0,Calorie  )*foodUnit.Calorie ?? 0 : foodUnit.Calorie  ?? 0;
                 if (tempCalorieCounter + foodUnit.Calorie > Calorie) {
-                    double pecrcent = GetCaloriePercent (Calorie-tempCalorieCounter,(double) foodUnit.Calorie);
+                    double pecrcent = GetCaloriePercent (Calorie - tempCalorieCounter, (double) foodUnit.Calorie);
                     UnitValue += pecrcent;
                     tempCalorieCounter += pecrcent * (double) foodUnit.Calorie;
                     break;
@@ -192,11 +218,12 @@ namespace Barnama.Controllers {
             return ReplaceFood;
         }
         double GetCaloriePercent (double tempCalorieCounter, double calorie) {
-            double result = tempCalorieCounter/calorie ;
+            double result = tempCalorieCounter / calorie;
             return result;
 
         }
-
+        //لیستی از واحدهای سنجش برای یک غذا
+        //به میزان کالری مشخص بر می گرداند
         [HttpPost ("GetAllUnitPlanByFood")]
         public IActionResult GetAllUnitPlanByFood (double calorie, int foodId) {
             List<FoodUnit> foodUnits = _context.FoodUnits.Where (x => x.FoodId == foodId).ToList ();

@@ -24,6 +24,6 @@ public class PlanDetail {
     public bool IsDone { get; set; }
     public string FailDescription { get; set; }
    public double Calorie { get; set; }
-   public int? ReplacePlanDetailId { get; set; }
+   public int? ReplacePlanDetailId { get; set; } //=>شناسه غذای جدید را نگهداری می کند بهتر است نامش تغییر کند
 
 }
