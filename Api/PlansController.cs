@@ -114,9 +114,10 @@ namespace Barnama.Controllers {
             if (planDetail == null) {
                 return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
             }
+             planDetail.IsDone =planDetail.UnitId== unitId ?  !planDetail.IsDone : true;
             planDetail.UnitId = unitId;
             planDetail.UnitValue = unitValue;
-            planDetail.IsDone = !planDetail.IsDone;
+           
             _context.SaveChanges ();
             return Ok ();
         }
@@ -144,6 +145,7 @@ namespace Barnama.Controllers {
         
             return Ok ();
         }
+        //غذا در برنامه روز جاری تکراری نباشد
         bool IsFoodAcceprt (int foodId, List<PlanDetail> planDetails, List<Food> allFoods) {
             if (planDetails.Any (x => x.FoodId == foodId)) {
                 allFoods.RemoveAll (x => x.Id == foodId);
@@ -154,8 +156,35 @@ namespace Barnama.Controllers {
 
         void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
             var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
-            var CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+             Food CurrentFood ;
+             int repeatCountByMeel = 0;
+             switch (CurrentMeel.Id)
+             {
+                 case 1://صبحانه
+                     repeatCountByMeel = 2;
+                     break;
+                 case 2://نهار
+                  repeatCountByMeel = 3;
+                  break;
+                 case 3://شام
+                  repeatCountByMeel = 4;
+                  break;
+                   case 4://میان وعده صبح
+                  repeatCountByMeel = 3;
+                  break;
+                   case 5://میان وعده عصر
+                  repeatCountByMeel = 3;
+                  break;
+                   case 6://میان وعده آخر شب
+                  repeatCountByMeel = 3;
+                  break;
+                  
+                 default: 
+                 repeatCountByMeel = 2;
+                 break;
+             }     
             for (int i = 0; i < 2; i++) {
+                  CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
                 if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
                     while (IsFoodAcceprt (CurrentFood.Id, PlanDate.PlanDetails.ToList (), AllFoods) == false) {
                         CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
@@ -183,6 +212,11 @@ namespace Barnama.Controllers {
             //  _context.PlanDetails.Add(PlanDetail);
             _context.SaveChanges ();
         }
+        // Food getFoodByMeel(List<Food> AllFoods , Meel CurrentMeel){
+        //      Food CurrentFood ;
+
+        //      return CurrentFood;
+        // }
         //با گرفتن شناسه واحد سنجش جدید تغییرات لازم یعنی
         //کالری و واحد جدیدو یونیت ولیو را جایگزین پلن دیتیل کرده و بر می گرداند 
         ReplaceFood GetReplaceUnitAndCalorie (int FoodId, double Calorie, int UnitId) {
@@ -235,6 +269,58 @@ namespace Barnama.Controllers {
             }
             return Ok (replaceFoods);
         }
+      [HttpPost ("GetFoodAndUnitsById")]
+        public IActionResult GetFoodAndUnitsById (int foodId) {
+           Food food = _context.Foods.Include(x=>x.FoodUnits).ThenInclude(x=>x.Unit).FirstOrDefault(x=>x.Id == foodId);
+           if(food == null ){
+             return BadRequest("غذای مورد نظر پیدا نشد");
+           }
+        //    var result = food.FoodUnits.Select(x =>new{
+        //              x.Calcium,
+        //              x.Calorie,
+        //              x.Carbohydrate,
+        //              FoodTitle = x.Food.Title,
+        //              UnitId = x.Unit.Id,
+        //              UnitName = x.Unit.Title,
+        //              x.Fat,
+        //              x.Iron,
+        //              x.IsDefault,
+        //              x.Magnesium,
+        //              x.Phosphor,
+        //              x.Potassium,
+        //              x.Protein,
+        //              x.Sfa,
+        //              x.Sodium,
+        //              x.Sugar,
+        //              x.Tfa,
+        //              x.Umfa,
+        //              x.Upfa
+        //    });
+            return Ok (food.FoodUnits.Select(x =>new{
+                     x.Calcium,
+                     x.Calorie,
+                     x.Carbohydrate,
+                     FoodTitle = x.Food.Title,
+                     UnitId = x.Unit.Id,
+                     UnitName = x.Unit.Title,
+                     x.Fat,
+                     x.Iron,
+                     x.IsDefault,
+                     x.Magnesium,
+                     x.Phosphor,
+                     x.Potassium,
+                     x.Protein,
+                     x.Sfa,
+                     x.Sodium,
+                     x.Sugar,
+                     x.Tfa,
+                     x.Umfa,
+                     x.Upfa
+           }));
+        }
+
+
+        
     }
 
 }

@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" id="frm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -36,6 +36,11 @@
                 <label asp-for="SportId" class="control-label"></label>
                 <select asp-for="SportId" class ="form-control" asp-items="ViewBag.SportId"></select>
             </div>
+                <div class="form-group">
+                <label asp-for="SImages" class="control-label"></label>
+                <input id="images" class="form-control ImageSrc" type="file" accept="image/*" />
+                </select>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -44,4 +49,44 @@
 </div>
 
 
+<script>
+    $(document).ready(function () {
+                $("#images").kendoUpload({
+            name: "files",
+            async: {
+                saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+                removeUrl: "@Url.Action("SaveTemp", "Upload")",
+                autoUpload: true
+            },
+            select: function () {
+                console.log('File selected.');
+            },      // function for when a file is selected
+            success: onFileSuccess,
+            remove: onRemove,   // function that returns response after upload
+            // function after success
+            // function for when a file is removed
+        });
+        function onFileSuccess(e) {
+            if (e.response.length != 0) {
+                $('#frm').append("<input type='text' value='" + e.response + "'  name='images'   id='images' style='visibility: hidden;' />");
+                console.log(e.response);
+                $('span').each(function () {
+                    if ($(this).html() == e.response) {
+                        $(this).parent().append("<image  src='/uploads/" + e.response + "' class='img img-thumbnail'  style='height:100px;' />");
+                    }
+                });
+            }
 
+        }
+
+        function onRemove(e) {
+            console.log(e);
+            //alert(e.files[0].name);
+            $('input[type=text]').each(function () {
+                if ($(this).val() === e.files[0].name) {
+                    $(this).remove();
+                }
+            });
+        }
+    });
+</script>

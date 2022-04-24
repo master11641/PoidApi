@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 using Barnama.Models;
 
 public class SportItem {
+    public  SportItem(){
+        SImages = new List<SImage>();
+    }
     public int Id { get; set; }
 
     [Display (Name = "عنوان حرکت")]

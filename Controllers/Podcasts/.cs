@@ -58,7 +58,7 @@ namespace LeitnerApi.Controllers.Podcasts {
             if (ModelState.IsValid) {
                 _context.Add (podcast);
                 await _context.SaveChangesAsync ();
-                return RedirectToAction (nameof (Index));
+               return Json ("ok");
             }
             ViewData["PodcastGroupId"] = new SelectList (_context.PodcastGroups, "Id", "Title", podcast.PodcastGroupId);
             return View (podcast);

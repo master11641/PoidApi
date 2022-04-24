@@ -47,8 +47,18 @@ namespace LeitnerApi.Controllers.SportItems {
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind ("Id,Title,Description,DescriptionAudio,DescriptionVideo,SportId")] SportItem sportItem) {
+        public async Task<IActionResult> Create ([Bind ("Id,Title,Description,DescriptionAudio,DescriptionVideo,SportId")] SportItem sportItem, List<string> images) {
             if (ModelState.IsValid) {
+                foreach (var imageUrl in images)
+                {
+                    sportItem.SImages.Add(
+                    new SImage{
+                        ImageUrl =  imageUrl,
+                        
+                    }
+                );
+                }
+                
                 _context.Add (sportItem);
                 await _context.SaveChangesAsync ();
                 return RedirectToAction (nameof (Index));

@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 using Barnama.Models;
 
 public class Food {
+  public Food(){
+    FoodUnits =new List<FoodUnit>();
+  }
   public int Id { get; set; }
 
   [Display (Name = "غذا")]
