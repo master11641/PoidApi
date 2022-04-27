@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 using Barnama.Models;
 
 public class Diet {
+    public Diet(){
+        Weights =new List<Weight>();
+    }
     public int Id { get; set; }
     public int UserId { get; set; }
 
@@ -18,6 +21,7 @@ public class Diet {
     public ICollection<BadHabitDiet> BadHabitDiets { get; set; }
     public ICollection<SicknessDiet> SicknessDiets { get; set; }
     public ICollection<FatPartDiet> FatPartDiets { get; set; }
+    public ICollection<Weight> Weights { get; set; }
     public int? PlanId { get; set; }
     [ForeignKey("PlanId")]
     public Plan Plan { get; set; }
@@ -47,7 +51,7 @@ public class Diet {
     public double? Height { get; set; }
     public double? Waist { get; set; }//کمر
     public double? Wrist { get; set; }//مچ
-    public double? Weight { get; set; }
+    // public double? Weight { get; set; }
     public String SicknessDescription { get; set; }
     public String AllergyDescription { get; set; }
     public String ActivityRateDescription { get; set; }

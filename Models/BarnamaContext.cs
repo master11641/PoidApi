@@ -7,11 +7,14 @@ public class BarnamaConntext : DbContext {
   // public BarnamaConntext () { }
   public static bool isMigration = true;
   protected override void OnConfiguring (DbContextOptionsBuilder options) {
-    options.UseSqlServer ("Data Source=(local);Initial Catalog=PoidsDb;Integrated Security = true;MultipleActiveResultSets=true");
+    options.UseSqlServer ("Data Source=(local);Initial Catalog=nasoomDB;Integrated Security = true;MultipleActiveResultSets=true");
     // options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
 
   }
   protected override void OnModelCreating (ModelBuilder modelBuilder) {
+    foreach (var et in modelBuilder.Model.GetEntityTypes ()) {
+      et.SetSchema ("dbo");
+    }
     //many_to_many config
 
     //Next Config
@@ -180,7 +183,7 @@ public class BarnamaConntext : DbContext {
       .WithMany (b => b.PodcastQuestions)
       .HasForeignKey (bc => bc.QuestionId);
 
-  modelBuilder.Entity<PodcastSickness> ()
+    modelBuilder.Entity<PodcastSickness> ()
       .HasKey (bc => new { bc.PodcastId, bc.SicknessId });
     modelBuilder.Entity<PodcastSickness> ()
       .HasOne (bc => bc.Podcast)
@@ -190,8 +193,6 @@ public class BarnamaConntext : DbContext {
       .HasOne (bc => bc.Sickness)
       .WithMany (b => b.PodcastSicknesses)
       .HasForeignKey (bc => bc.SicknessId);
-
-      
 
     //*****************
     modelBuilder.Entity<Group> ().HasOne (x => x.Parent)
@@ -248,6 +249,7 @@ public class BarnamaConntext : DbContext {
   public DbSet<SportItem> SportItems { get; set; }
   // public DbSet<SportItemImage> SportItemImages { get; set; }
   public DbSet<SportMuscle> SportMuscles { get; set; }
- public DbSet<PodcastSickness> PodcastSicknesses { get; set; }
+  public DbSet<PodcastSickness> PodcastSicknesses { get; set; }
   public DbSet<PodcastQuestion> PodcastQuestions { get; set; }
+  public DbSet<Weight> Weights { get; set; }
 }

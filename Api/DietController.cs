@@ -20,11 +20,12 @@ namespace Barnama.Controllers {
 
         [HttpPost ("GetBmiUser")]
         public IActionResult GetBmiUser (int userId) {
-            var diet = _context.Diets.Include (x => x.User).Where (x => x.RequestComplete == true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            var bmi = diet.Weight / ((diet.Height / 100) * (diet.Height / 100));
+            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             if (bmi < 18.5) {
                 description = "لاغر-دچار کمبود وزن";
@@ -49,11 +50,12 @@ namespace Barnama.Controllers {
         [HttpPost ("GetFatUser")]
         public IActionResult GetFatUser (int userId) {
 
-            var diet = _context.Diets.Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            var bmi = diet.Weight / ((diet.Height / 100) * (diet.Height / 100));
+            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             int g = 0;
             if (diet.Gender.Title.Contains ("مرد")) {
@@ -82,11 +84,12 @@ namespace Barnama.Controllers {
         [HttpPost ("GetCalleryUser")]
         public IActionResult GetCalleryUser (int userId) {
 
-            var diet = _context.Diets.Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            var bmi = diet.Weight / ((diet.Height / 100) * (diet.Height / 100));
+            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             double g = 0;
 
@@ -105,10 +108,10 @@ namespace Barnama.Controllers {
                 coefficient = 24;
             }
             if (bmi < 25) {
-                callery = (double) (1.1 * 1.3 * 24 * g * diet.Weight);
+                callery = (double) (1.1 * 1.3 * 24 * g * weight);
             } else {
                 double weightNormal = (double) (coefficient * ((diet.Height / 100) * (diet.Height / 100)));
-                double ibw = (double) (weightNormal + ((diet.Weight - weightNormal) * 0.25));
+                double ibw = (double) (weightNormal + ((weight - weightNormal) * 0.25));
                 callery = 1.1 * 1.3 * 24 * g * ibw;
             }
 
@@ -191,7 +194,12 @@ namespace Barnama.Controllers {
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
-            diet.Weight = weight;
+            Weight temp = new Weight {
+                DietId = diet.Id,
+                UserWeight = weight,
+
+            };
+            _context.Weights.Add (temp);
             _context.SaveChanges ();
             return Ok (weight);
         }
@@ -255,6 +263,16 @@ namespace Barnama.Controllers {
             return Ok (currentDiet);
 
         } //GetNotCompletedDietUser
+        [HttpPost ("SetCompleteDiet")]
+        public IActionResult SetCompleteDiet (int dietId) {
+
+            var currentDiet = _context.Diets.FirstOrDefault (x => x.Id == dietId);
+            currentDiet.RequestComplete = true;
+            _context.SaveChanges ();
+            return Ok (dietId);
+
+        } //SetCompleteDiet
+
         [HttpPost ("AddParts")]
         public IActionResult AddParts (int userId, List<int> id) {
             var diet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
