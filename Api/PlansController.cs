@@ -25,7 +25,7 @@ namespace Barnama.Controllers {
         }
         //محاسبه انرژی کل بدن برای کاربر
         //که در اکشن متدها استفاده می شود
-        public double GetCallerieForUser (int userId) {
+         double GetCallerieForUser (int userId) {
             var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
             double weight = diet.Weights.LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));

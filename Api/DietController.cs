@@ -80,9 +80,6 @@ namespace Barnama.Controllers {
             };
             return Ok (result);
         }
-          
-     
-
 
         [HttpPost ("GetCalleryUser")]
         public IActionResult GetCalleryUser (int userId) {
@@ -206,6 +203,7 @@ namespace Barnama.Controllers {
             _context.SaveChanges ();
             return Ok (weight);
         }
+
         //اگر رژیم تکمیل نشده ای داشت مراحل آن را محاسبه و بر می گرداند 
         //در غیر اینصورت مقدار 6 به معنای تکمیل شده را بر می گرداند
         [HttpPost ("GeStepCompleteCountUser")]
@@ -247,6 +245,17 @@ namespace Barnama.Controllers {
                 }
             }
             return Ok (step);
+        }
+             [HttpPost ("GetLastCompletedDietUser")]
+        //آخرین شناسه رژِیم کامل شده کاربر را بر می گرداند
+        public IActionResult GetLastCompletedDietUser (int userId) {
+            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete == true ).OrderByDescending (x => x.Id).FirstOrDefault ();
+           
+            if (currentDiet == null) {
+
+                return BadRequest ("اطلاعات رژیمی کاربر یافت نشد");
+            }
+            return Ok (currentDiet.Id);
         }
 
         [HttpGet ("GetNotCompletedDietUser")]
