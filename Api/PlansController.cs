@@ -23,11 +23,48 @@ namespace Barnama.Controllers {
             _context.SaveChanges ();
             return Ok (PlanDate.Id);
         }
+        //محاسبه انرژی کل بدن برای کاربر
+        //که در اکشن متدها استفاده می شود
+        public double GetCallerieForUser (int userId) {
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
+            string description = "";
+            double g = 0;
+
+            if (diet.Gender.Title.Contains ("مرد")) {
+                g = 1; //مرد
+            } else {
+                g = 0.95; //زن
+            }
+            double callery = 0;
+            int coefficient = 0;
+            if (diet.Age < 30) {
+                coefficient = 21;
+            } else if (diet.Age < 50) {
+                coefficient = 23;
+            } else {
+                coefficient = 24;
+            }
+            if (bmi < 25) {
+                callery = (double) (1.1 * 1.3 * 24 * g * weight);
+            } else {
+                double weightNormal = (double) (coefficient * ((diet.Height / 100) * (diet.Height / 100)));
+                double ibw = (double) (weightNormal + ((weight - weightNormal) * 0.25));
+                callery = 1.1 * 1.3 * 24 * g * ibw;
+            }
+
+            var result = new {
+                fat = callery,
+                description = description
+            };
+            return result.fat;
+        }
 
         [HttpPost ("GetPlanByDate")]
         public IActionResult GetPlanByDate (int DietId, DateTime CurrentDate) {
             Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).FirstOrDefault ();
-            double TotalCallory = 2700;
+            double TotalCallory = GetCallerieForUser (CurrentDiet.UserId);
             if (CurrentDiet.Plan == null) {
                 Plan Plan = new Plan ();
                 Plan.CreationDate = DateTime.Now;
@@ -55,7 +92,7 @@ namespace Barnama.Controllers {
                 Console.WriteLine (temp);
 
             } else if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
-                return Ok (PlanDate.PlanDetails.Where(x=>x.ReplacePlanDetailId == null).Select (x => new {
+                return Ok (PlanDate.PlanDetails.Where (x => x.ReplacePlanDetailId == null).Select (x => new {
                     foodTitle = x.Food.Title,
                         x.Calorie,
                         meelTitle = x.Meel.Title,
@@ -81,8 +118,9 @@ namespace Barnama.Controllers {
                 SavePlanDetailsForFood (AllFoods: AllFoods, CurrentMeel: CurrentMeel, PlanDate: PlanDate, TotalCallory: TotalCallory);
             }
             // _context.SaveChanges();
-            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date ).FirstOrDefault ();
-            return Ok (result.PlanDetails.Where(x=>x.ReplacePlanDetailId == null).Select (x => new {
+            PlanDate result = _context.PlanDates.Include (x => x.PlanDetails).Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
+            //  Console.WriteLine (result.PlanDetails.Sum(x=>x.Calorie));
+            return Ok (result.PlanDetails.Where (x => x.ReplacePlanDetailId == null).Select (x => new {
                 foodTitle = x.Food.Title,
                     x.Calorie,
                     meelTitle = x.Meel.Title,
@@ -114,10 +152,10 @@ namespace Barnama.Controllers {
             if (planDetail == null) {
                 return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
             }
-             planDetail.IsDone =planDetail.UnitId== unitId ?  !planDetail.IsDone : true;
+            planDetail.IsDone = planDetail.UnitId == unitId ? !planDetail.IsDone : true;
             planDetail.UnitId = unitId;
             planDetail.UnitValue = unitValue;
-           
+
             _context.SaveChanges ();
             return Ok ();
         }
@@ -129,7 +167,7 @@ namespace Barnama.Controllers {
                 return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
             }
             planDetail.IsDone = false;
-             planDetail.ReplacePlanDetailId = newFoodId;
+            planDetail.ReplacePlanDetailId = newFoodId;
             PlanDetail newPlanDetail = new PlanDetail {
                 FoodId = newFoodId,
                 PlanDateId = planDateId,
@@ -141,8 +179,8 @@ namespace Barnama.Controllers {
 
             };
             _context.PlanDetails.Add (newPlanDetail);
-           _context.SaveChanges ();         
-        
+            _context.SaveChanges ();
+
             return Ok ();
         }
         //غذا در برنامه روز جاری تکراری نباشد
@@ -153,65 +191,237 @@ namespace Barnama.Controllers {
             }
             return true;
         }
-
+        ///این تابع برای هر وعده غذایی یک بار صدا زده می  شود
         void SavePlanDetailsForFood (List<Food> AllFoods, Meel CurrentMeel, PlanDate PlanDate, double TotalCallory) {
             var FoodMeels = AllFoods.Where (x => x.FoodMeels.Any (y => y.MeelId == CurrentMeel.Id)).ToList ();
-             Food CurrentFood ;
-             int repeatCountByMeel = 0;
-             switch (CurrentMeel.Id)
-             {
-                 case 1://صبحانه
-                     repeatCountByMeel = 2;
-                     break;
-                 case 2://نهار
-                  repeatCountByMeel = 3;
-                  break;
-                 case 3://شام
-                  repeatCountByMeel = 4;
-                  break;
-                   case 4://میان وعده صبح
-                  repeatCountByMeel = 3;
-                  break;
-                   case 5://میان وعده عصر
-                  repeatCountByMeel = 3;
-                  break;
-                   case 6://میان وعده آخر شب
-                  repeatCountByMeel = 3;
-                  break;
-                  
-                 default: 
-                 repeatCountByMeel = 2;
-                 break;
-             }     
-            for (int i = 0; i < 2; i++) {
-                  CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+            Food CurrentFood;
+
+            List<MeelProgram> programs = new List<MeelProgram> ();
+            switch (CurrentMeel.Id) {
+                case 1: //صبحانه
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 65 / 100,
+                                CategoryIndexes = { 3 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 25 / 100,
+                                CategoryIndexes = { 10 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 10 / 100,
+                                CategoryIndexes = { 5, 4, 11, 6 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = 0,
+                                CategoryIndexes = { 13 },
+                        }
+                    );
+                    break;
+                case 2: //نهار
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 45 / 100,
+                                CategoryIndexes = { 3 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 35 / 100,
+                                CategoryIndexes = { 12, 1 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 10 / 100,
+                                CategoryIndexes = { 4 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 10 / 100,
+                                CategoryIndexes = { 10, 6 },
+                        }
+                    );
+                    break;
+                case 3: //شام
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 15 / 100,
+                                CategoryIndexes = { 3 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 35 / 100,
+                                CategoryIndexes = { 1 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 30 / 100,
+                                CategoryIndexes = { 4 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 20 / 100,
+                                CategoryIndexes = { 10, 6 },
+                        }
+                    );
+                    break;
+                case 4: //میان وعده صبح
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 70 / 100,
+                                CategoryIndexes = { 5 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 30 / 100,
+                                CategoryIndexes = { 10, 6, 4 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = 0,
+                                CategoryIndexes = { 13 },
+                        }
+                    );
+                    break;
+                case 5: //میان وعده عصر
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 20 / 100,
+                                CategoryIndexes = { 3 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 20 / 100,
+                                CategoryIndexes = { 1 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 50 / 100,
+                                CategoryIndexes = { 5 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 10 / 100,
+                                CategoryIndexes = { 11, 6 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = 0,
+                                CategoryIndexes = { 13 },
+                        }
+                    );
+                    break;
+                case 6: //میان وعده آخر شب
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 70 / 100,
+                                CategoryIndexes = { 10 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 20 / 100,
+                                CategoryIndexes = { 5 },
+                        }
+                    );
+                    programs.Add (
+                        new MeelProgram {
+                            Calorie = (TotalCallory * CurrentMeel.Percent / 100) * 10 / 100,
+                                CategoryIndexes = { 11, 6 }, //چربی ، قند ساده
+                        }
+                    );
+                    break;
+
+                default:
+
+                    break;
+            }
+            foreach (var program in programs) {
+                var tempFoods = FoodMeels.Where (x => program.CategoryIndexes.Contains (x.GroupId)).ToList ();
+                CurrentFood = tempFoods[new Random ().Next (0, tempFoods.Count - 1)];
                 if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
                     while (IsFoodAcceprt (CurrentFood.Id, PlanDate.PlanDetails.ToList (), AllFoods) == false) {
-                        CurrentFood = FoodMeels[new Random ().Next (0, FoodMeels.Count - 1)];
+                        CurrentFood = tempFoods[new Random ().Next (0, tempFoods.Count - 1)];
                     }
                 }
 
-                double meelCallory = (TotalCallory * (CurrentMeel.Percent * 1 / 2) / 100);
-                double tempCalorieCounter = 0;
-                double UnitValue = 0;
+                double meelCallory = program.Calorie;
+                // double tempCalorieCounter = 0;
+                // double UnitValue = 0;
                 PlanDetail PlanDetail = new PlanDetail ();
-                FoodUnit CurrentFoodUnit = CurrentFood.FoodUnits.FirstOrDefault ();
+                FoodUnit CurrentFoodUnit = CurrentFood.FoodUnits.FirstOrDefault (x => x.IsDefault == true) ?? CurrentFood.FoodUnits.FirstOrDefault ();
                 PlanDetail.Meel = CurrentMeel;
                 PlanDetail.PlanDateId = PlanDate.Id;
                 PlanDetail.UnitId = CurrentFoodUnit.UnitId;
                 PlanDetail.FoodId = CurrentFood.Id;
-                while (tempCalorieCounter <= meelCallory) {
-                    UnitValue++;
-                    PlanDetail.UnitValue = UnitValue;
-                    tempCalorieCounter += CurrentFoodUnit.Calorie ?? 0;
+                // while (tempCalorieCounter <= meelCallory) {
+                //     UnitValue++;
+                //     PlanDetail.UnitValue = UnitValue;
+                //     tempCalorieCounter += CurrentFoodUnit.Calorie ?? 0;
+                // }
+                // PlanDetail.Calorie = tempCalorieCounter;
+                if (meelCallory == 0) {
+                    PlanDetail.Calorie = 0;
+                    PlanDetail.UnitValue = 1;
+                } else {
+                    ReplaceFood replaceFood = GetReplaceUnitAndCalorie (CurrentFood.Id, meelCallory, CurrentFoodUnit.UnitId);
+                    PlanDetail.Calorie = meelCallory;
+                    PlanDetail.UnitValue = replaceFood.UnitValue;
+
                 }
-                PlanDetail.Calorie = tempCalorieCounter;
+
                 PlanDate.PlanDetails.Add (PlanDetail);
             }
 
             //  _context.PlanDetails.Add(PlanDetail);
             _context.SaveChanges ();
         }
+        //         ReplaceFood GeCalorieForProgram (int FoodId, double Calorie, int UnitId) {
+        //     //ابتدا فود یونیت را برای استفاده از فیلد کالری آن بدست می آوریم
+        //     FoodUnit foodUnit = _context.FoodUnits.Include (x => x.Unit).Include (x => x.Food).FirstOrDefault (x => x.UnitId == UnitId && x.FoodId == FoodId);
+        //     double tempCalorieCounter = 0;
+        //     double UnitValue = 0;
+        //     while (tempCalorieCounter <= Calorie) {
+
+        //         if (tempCalorieCounter + foodUnit.Calorie > Calorie) {
+        //             double pecrcent = GetCaloriePercent (Calorie - tempCalorieCounter, (double) foodUnit.Calorie);
+        //             UnitValue += pecrcent;
+        //             tempCalorieCounter += pecrcent * (double) foodUnit.Calorie;
+        //             break;
+        //         } else {
+        //             UnitValue++;
+        //             tempCalorieCounter += (double) foodUnit.Calorie;
+        //         }
+
+        //     }
+        //     ReplaceFood ReplaceFood = new ReplaceFood {
+        //         Calorie = tempCalorieCounter,
+        //         UnitId = UnitId,
+        //         UnitTitle = foodUnit.Unit.Title,
+        //         FoodTitle = foodUnit.Food.Title,
+        //         UnitValue = UnitValue,
+        //         FoodId = FoodId
+
+        //     };
+        //     return ReplaceFood;
+        // }
         // Food getFoodByMeel(List<Food> AllFoods , Meel CurrentMeel){
         //      Food CurrentFood ;
 
@@ -269,58 +479,57 @@ namespace Barnama.Controllers {
             }
             return Ok (replaceFoods);
         }
-      [HttpPost ("GetFoodAndUnitsById")]
+
+        [HttpPost ("GetFoodAndUnitsById")]
         public IActionResult GetFoodAndUnitsById (int foodId) {
-           Food food = _context.Foods.Include(x=>x.FoodUnits).ThenInclude(x=>x.Unit).FirstOrDefault(x=>x.Id == foodId);
-           if(food == null ){
-             return BadRequest("غذای مورد نظر پیدا نشد");
-           }
-        //    var result = food.FoodUnits.Select(x =>new{
-        //              x.Calcium,
-        //              x.Calorie,
-        //              x.Carbohydrate,
-        //              FoodTitle = x.Food.Title,
-        //              UnitId = x.Unit.Id,
-        //              UnitName = x.Unit.Title,
-        //              x.Fat,
-        //              x.Iron,
-        //              x.IsDefault,
-        //              x.Magnesium,
-        //              x.Phosphor,
-        //              x.Potassium,
-        //              x.Protein,
-        //              x.Sfa,
-        //              x.Sodium,
-        //              x.Sugar,
-        //              x.Tfa,
-        //              x.Umfa,
-        //              x.Upfa
-        //    });
-            return Ok (food.FoodUnits.Select(x =>new{
-                     x.Calcium,
-                     x.Calorie,
-                     x.Carbohydrate,
-                     FoodTitle = x.Food.Title,
-                     UnitId = x.Unit.Id,
-                     UnitName = x.Unit.Title,
-                     x.Fat,
-                     x.Iron,
-                     x.IsDefault,
-                     x.Magnesium,
-                     x.Phosphor,
-                     x.Potassium,
-                     x.Protein,
-                     x.Sfa,
-                     x.Sodium,
-                     x.Sugar,
-                     x.Tfa,
-                     x.Umfa,
-                     x.Upfa
-           }));
+            Food food = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit).FirstOrDefault (x => x.Id == foodId);
+            if (food == null) {
+                return BadRequest ("غذای مورد نظر پیدا نشد");
+            }
+            //    var result = food.FoodUnits.Select(x =>new{
+            //              x.Calcium,
+            //              x.Calorie,
+            //              x.Carbohydrate,
+            //              FoodTitle = x.Food.Title,
+            //              UnitId = x.Unit.Id,
+            //              UnitName = x.Unit.Title,
+            //              x.Fat,
+            //              x.Iron,
+            //              x.IsDefault,
+            //              x.Magnesium,
+            //              x.Phosphor,
+            //              x.Potassium,
+            //              x.Protein,
+            //              x.Sfa,
+            //              x.Sodium,
+            //              x.Sugar,
+            //              x.Tfa,
+            //              x.Umfa,
+            //              x.Upfa
+            //    });
+            return Ok (food.FoodUnits.Select (x => new {
+                x.Calcium,
+                    x.Calorie,
+                    x.Carbohydrate,
+                    FoodTitle = x.Food.Title,
+                    UnitId = x.Unit.Id,
+                    UnitName = x.Unit.Title,
+                    x.Fat,
+                    x.Iron,
+                    x.IsDefault,
+                    x.Magnesium,
+                    x.Phosphor,
+                    x.Potassium,
+                    x.Protein,
+                    x.Sfa,
+                    x.Sodium,
+                    x.Sugar,
+                    x.Tfa,
+                    x.Umfa,
+                    x.Upfa
+            }));
         }
 
-
-        
     }
 
 }

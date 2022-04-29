@@ -80,6 +80,9 @@ namespace Barnama.Controllers {
             };
             return Ok (result);
         }
+          
+     
+
 
         [HttpPost ("GetCalleryUser")]
         public IActionResult GetCalleryUser (int userId) {
