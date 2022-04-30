@@ -13,15 +13,25 @@ namespace Barnama.Controllers {
         }
 
         [HttpGet ("GetPodcastGroups")]
-        public IActionResult GetPodcastGroups () {          
-            return Ok (_context.PodcastGroups.Select(x=>new{
+        public IActionResult GetPodcastGroups () {
+            return Ok (_context.PodcastGroups.Select (x => new {
                 x.Id,
-                x.Title,
-                x.ImageUrl,               
+                    x.Title,
+                    x.ImageUrl,
+
             }));
 
         }
 
+        [HttpPost ("GetPodcastByGroupId")]
+        public IActionResult GetPodcastByGroupId (int groupId) {
+            return Ok (_context.Podcasts.Where (x => x.PodcastGroupId == groupId).Select (x => new {
+                x.Id,
+                    x.Title,
+                    x.PodcastAudio
+            }));
+
+        }
     }
 
 }
