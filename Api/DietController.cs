@@ -20,7 +20,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("GetBmiUser")]
         public IActionResult GetBmiUser (int userId) {
-            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
@@ -246,11 +246,12 @@ namespace Barnama.Controllers {
             }
             return Ok (step);
         }
-             [HttpPost ("GetLastCompletedDietUser")]
+
+        [HttpPost ("GetLastCompletedDietUser")]
         //آخرین شناسه رژِیم کامل شده کاربر را بر می گرداند
         public IActionResult GetLastCompletedDietUser (int userId) {
-            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete == true ).OrderByDescending (x => x.Id).FirstOrDefault ();
-           
+            var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
+
             if (currentDiet == null) {
 
                 return BadRequest ("اطلاعات رژیمی کاربر یافت نشد");
@@ -470,5 +471,20 @@ namespace Barnama.Controllers {
             int dietId = _context.SaveChanges ();
             return Ok (dietId);
         }
+
+        [HttpPost ("GetWeightChartData")]
+        public IActionResult GetWeightChartData (int userId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
+            List<Weight> weights = _context.Weights.Where (x => x.DietId == diet.Id).ToList ();
+            // List<IGrouping<DateTime, Weight>> timedVisits = weights.GroupBy(x=>x.RegisterDate.Date).ToList();
+            List<WeightChartResponse> result = new List<WeightChartResponse> ();
+
+            return Ok (weights.Select (x => new WeightChartResponse {
+                Weight = x.UserWeight,
+                    PersianDate = x.RegisterDate.ToPersianDigitalDateTimeString ().Split (" ") [0]
+            }));
+        } //U
+
     }
+
 }

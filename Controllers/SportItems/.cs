@@ -78,7 +78,7 @@ namespace LeitnerApi.Controllers.SportItems {
                 return NotFound ();
             }
             ViewData["SportId"] = new SelectList (_context.Sports, "Id", "Title", sportItem.SportId);
-            var SelectedImages = _context.SImages.Select (x => x.ImageUrl).ToList ();
+            var SelectedImages = _context.SImages.Where(x=>x.SportItemId==id).Select (x => x.ImageUrl).ToList ();
             ViewData["SelectedImages"] = SelectedImages;
             return View (sportItem);
         }

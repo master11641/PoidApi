@@ -43,7 +43,7 @@ public class UsersApiController : ControllerBase {
         var rand = new Random ();
         var uid = rand.Next (10000, 99999);
         //String newPassword = uid.ToString ();
-        String newPassword ="12345";
+        String newPassword = "12345";
         // string token = "";
         if (user == null) {
             User addUser = new User () {
@@ -104,7 +104,7 @@ public class UsersApiController : ControllerBase {
             return BadRequest ("کاربری شما نامعتبر است");
         }
         user.ImageProfileUrl = imageUrl;
-        _context.SaveChanges();
+        _context.SaveChanges ();
         return Ok (imageUrl);
     }
 
@@ -143,8 +143,8 @@ public class UsersApiController : ControllerBase {
         }
         var rand = new Random ();
         var uid = rand.Next (1000, 9999);
-      //  String newPassword = uid.ToString ();
-      String newPassword="12345";
+        //  String newPassword = uid.ToString ();
+        String newPassword = "12345";
         user.Password = newPassword;
         _context.SaveChanges ();
         new SmsUtil ().Send (phone, user.Password);
@@ -222,6 +222,41 @@ public class UsersApiController : ControllerBase {
     public ActionResult GetAdvisers () {
         var users = _context.Users.Include (x => x.UserRoles).Where (x => x.UserRoles.Count > 0).Select (x => new { x.Name, x.Family, x.Id, x.ImageProfileUrl, x.PhoneNumber }).ToList ();
         return Ok (users);
+    }
+
+    [HttpGet ("GetReminderServiceInDate")]
+
+    public ActionResult GetReminderServiceInDate (int userId) {
+        var currentDiet = _context.Diets.Include (x => x.Weights).Include (x => x.FatPartDiets)
+        .Include (x=>x.SicknessDiets).ThenInclude(x=>x.Sickness)
+        .Where (x => x.UserId == userId && x.RequestComplete == true ).OrderByDescending (x => x.Id).FirstOrDefault ();
+        var invoice = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == userId).FirstOrDefault ();
+        if (invoice == null) {
+            return Ok (0);
+        }
+       var diffInDays = (DateTime.Now -(DateTime) invoice.PaymentDate ).Days;
+        int remindInDays = invoice.ServicePackage.ExpireAfterBuyInDays - diffInDays;
+    //    //
+        double weight = currentDiet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((currentDiet.Height / 100) * (currentDiet.Height / 100));
+            string description = "";
+            if (bmi < 18.5) {
+                description = "لاغر-دچار کمبود وزن";
+            } else if (bmi > 18.5 && bmi < 25) {
+                description = "وزن نرمال";
+            } else if (bmi >= 25 && bmi < 30) {
+                description = "اضافه وزن";
+            } else if (bmi >= 30 && bmi < 35) {
+                description = "چاقی درجه یک";
+            } else if (bmi >= 35 && bmi < 40) {
+                description = "چاقی درجه دو";
+            } else {
+                description = "چاقی درجه سه";
+            }
+        return Ok ( new { remindInDays = remindInDays,allInDays = invoice.ServicePackage.ExpireAfterBuyInDays
+        ,description = description,diseases=currentDiet.SicknessDiets.Select(x=>x.Sickness.Title)
+        
+        });
     }
 
 }

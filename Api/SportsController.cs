@@ -30,12 +30,13 @@ namespace Barnama.Controllers {
         }//GetSports
         [HttpPost ("GetSportItems")]
         public IActionResult GetSportItems (int SportId) {
-            return Ok (_context.SportItems.Where(x=>x.SportId==SportId).Select (x => new {
+            return Ok (_context.SportItems.Include(x=>x.SImages).Where(x=>x.SportId==SportId).Select (x => new {
                    x.Id,
                     x.Title,
               x.Description,
               x.DescriptionAudio,
-              x.DescriptionVideo
+              x.DescriptionVideo,
+             imageUrls = x.SImages.Select(x=>x.ImageUrl)
             }));
         }//GetSportItems
 
