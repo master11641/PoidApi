@@ -189,14 +189,27 @@ namespace Barnama.Controllers {
         }
 
         [HttpPost ("SetWeightUser")]
-        public IActionResult SetWeightUser (int userId, double weight) {
+        public IActionResult SetWeightUser (int userId, double weight, DateTime? registerDate) {
+            if (registerDate == null) {
+                registerDate = DateTime.Now;
+            }
             var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
+            //اگر برای کاربر در روز جاری قبلا داده ای ثبت شده
+            //همان را ویرایش می کنیم
+            Weight weightCurrentDay = _context.Weights.Where (x => x.DietId == diet.Id && x.RegisterDate.Date == registerDate).FirstOrDefault ();
+            if (weightCurrentDay != null) {
+                weightCurrentDay.UserWeight = weight;
+                _context.SaveChanges ();
+                return Ok (weight);
+            }
+            //در غیر اینصورت وزن جدید را ثبت می کنیم
             Weight temp = new Weight {
                 DietId = diet.Id,
                 UserWeight = weight,
+                RegisterDate = (DateTime) registerDate,
 
             };
             _context.Weights.Add (temp);
@@ -209,7 +222,7 @@ namespace Barnama.Controllers {
         [HttpPost ("GeStepCompleteCountUser")]
         public IActionResult GeStepCompleteCountUser (int userId) {
             var step = 0;
-            var diets = _context.Diets.Include (x => x.User).Include (x => x.User).Include (x => x.Gender).Where (x => x.UserId == userId)
+            var diets = _context.Diets.Include (x => x.User).Include (x => x.Gender).Where (x => x.UserId == userId)
                 .Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
                 .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).
 
@@ -247,6 +260,12 @@ namespace Barnama.Controllers {
             return Ok (step);
         }
 
+        IActionResult DietsStatusUser (int userId) {
+            var diets = _context.Diets.Include (x => x.User).Where (x => x.UserId == userId);
+            var diet = diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            return Ok ();
+        }
+
         [HttpPost ("GetLastCompletedDietUser")]
         //آخرین شناسه رژِیم کامل شده کاربر را بر می گرداند
         public IActionResult GetLastCompletedDietUser (int userId) {
@@ -263,7 +282,7 @@ namespace Barnama.Controllers {
         public IActionResult GetNotCompletedDietUser (int userId) {
 
             var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
-                .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).Where (x => x.UserId == userId && x.RequestComplete != true).OrderByDescending (x => x.Id).FirstOrDefault ();
+                .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);
@@ -279,12 +298,62 @@ namespace Barnama.Controllers {
         [HttpPost ("SetCompleteDiet")]
         public IActionResult SetCompleteDiet (int dietId) {
 
-            var currentDiet = _context.Diets.FirstOrDefault (x => x.Id == dietId);
+            var currentDiet = _context.Diets.Include (x => x.Plan).FirstOrDefault (x => x.Id == dietId);
+            var invoices = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == currentDiet.UserId).ToList ();
+
+            if (currentDiet.Plan == null) {
+                double TotalCallory = GetCallerieForUser (currentDiet.UserId);
+                Plan Plan = new Plan ();
+                Plan.CreationDate = DateTime.Now;
+                Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) : DateTime.Now.AddDays (invoices.Last ().ServicePackage.ExpireAfterBuyInDays);
+                Plan.DietId = dietId;
+                Plan.Calorie = TotalCallory;
+                currentDiet.Plan = Plan;
+                // CurrentDiet.PlanId = 
+                _context.SaveChanges ();
+            }
             currentDiet.RequestComplete = true;
             _context.SaveChanges ();
             return Ok (dietId);
 
         } //SetCompleteDiet
+        //محاسبه انرژی کل بدن برای کاربر
+        //که در اکشن متدها استفاده می شود
+        double GetCallerieForUser (int userId) {
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
+            string description = "";
+            double g = 0;
+
+            if (diet.Gender.Title.Contains ("مرد")) {
+                g = 1; //مرد
+            } else {
+                g = 0.95; //زن
+            }
+            double callery = 0;
+            int coefficient = 0;
+            if (diet.Age < 30) {
+                coefficient = 21;
+            } else if (diet.Age < 50) {
+                coefficient = 23;
+            } else {
+                coefficient = 24;
+            }
+            if (bmi < 25) {
+                callery = (double) (1.1 * 1.3 * 24 * g * weight);
+            } else {
+                double weightNormal = (double) (coefficient * ((diet.Height / 100) * (diet.Height / 100)));
+                double ibw = (double) (weightNormal + ((weight - weightNormal) * 0.25));
+                callery = 1.1 * 1.3 * 24 * g * ibw;
+            }
+
+            var result = new {
+                fat = callery,
+                description = description
+            };
+            return result.fat;
+        }
 
         [HttpPost ("AddParts")]
         public IActionResult AddParts (int userId, List<int> id) {

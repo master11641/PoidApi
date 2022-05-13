@@ -64,18 +64,19 @@ namespace Barnama.Controllers {
         [HttpPost ("GetPlanByDate")]
         public IActionResult GetPlanByDate (int DietId, DateTime CurrentDate) {
             Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).FirstOrDefault ();
+            var invoices = _context.Invoices.Where(x=>x.UserId == CurrentDiet.UserId).ToList(); 
             double TotalCallory = GetCallerieForUser (CurrentDiet.UserId);
             if (CurrentDiet.Plan == null) {
                 Plan Plan = new Plan ();
                 Plan.CreationDate = DateTime.Now;
-                Plan.EndDate = DateTime.Now.AddDays (30);
+                Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) :  ((DateTime)invoices.Last().PaymentDate).AddDays(invoices.Last().ServicePackage.ExpireAfterBuyInDays);
                 Plan.DietId = DietId;
                 Plan.Calorie = TotalCallory;
                 CurrentDiet.Plan = Plan;
                 // CurrentDiet.PlanId = 
                 Plan.Id = _context.SaveChanges ();
             }
-            if (DateTime.Now > CurrentDiet.Plan.EndDate) {
+            if (CurrentDate > CurrentDiet.Plan.EndDate) {
                 return BadRequest ("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
             }
             PlanDate PlanDate = _context.PlanDates.Include (x => x.PlanDetails).ThenInclude (x => x.Food)
@@ -486,27 +487,7 @@ namespace Barnama.Controllers {
             if (food == null) {
                 return BadRequest ("غذای مورد نظر پیدا نشد");
             }
-            //    var result = food.FoodUnits.Select(x =>new{
-            //              x.Calcium,
-            //              x.Calorie,
-            //              x.Carbohydrate,
-            //              FoodTitle = x.Food.Title,
-            //              UnitId = x.Unit.Id,
-            //              UnitName = x.Unit.Title,
-            //              x.Fat,
-            //              x.Iron,
-            //              x.IsDefault,
-            //              x.Magnesium,
-            //              x.Phosphor,
-            //              x.Potassium,
-            //              x.Protein,
-            //              x.Sfa,
-            //              x.Sodium,
-            //              x.Sugar,
-            //              x.Tfa,
-            //              x.Umfa,
-            //              x.Upfa
-            //    });
+       
             return Ok (food.FoodUnits.Select (x => new {
                 x.Calcium,
                     x.Calorie,

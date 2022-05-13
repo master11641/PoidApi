@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WfByMsjZ1VODmBYP4UF5qOyYs7ZEulUfcZglb7duhhw=",
+  "Hash": "VLRcWX8LuNfbaSrxvDSX5gZhtwilhahEYj8ze8HpBEU=",
   "Source": "LeitnerApi",
   "BasePath": "_content/LeitnerApi",
   "Mode": "Default",
@@ -33728,6 +33728,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\download.jpg"
     },
     {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\e1bb1a1f-bcf2-4907-9265-49444fb7e196.png",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/e1bb1a1f-bcf2-4907-9265-49444fb7e196.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e1bb1a1f-bcf2-4907-9265-49444fb7e196.png"
+    },
+    {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\e7b9c136-b121-4229-8a1b-20320aeea015.mp3",
       "SourceId": "LeitnerApi",
       "SourceType": "Discovered",
@@ -33813,6 +33830,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\f9dd430a-5aad-48ab-b922-580e737e6cfa.png"
     },
     {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\fd134adf-fd47-430c-bd23-a8cd0ee461ad.png",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/fd134adf-fd47-430c-bd23-a8cd0ee461ad.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fd134adf-fd47-430c-bd23-a8cd0ee461ad.png"
+    },
+    {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\fd8b04ef-5c9e-4c89-83bc-505476fefc9b.png",
       "SourceId": "LeitnerApi",
       "SourceType": "Discovered",
@@ -33879,6 +33913,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Longhair2.png"
+    },
+    {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\noimage.png",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/noimage.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\noimage.png"
     },
     {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\pahlu.jpg",

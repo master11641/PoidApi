@@ -52,26 +52,39 @@ public class UsersApiController : ControllerBase {
             RegisterDate = DateTime.Now,
             Name = name,
             Family = family,
-            ImageProfileUrl = "/uploads/noimage.png"
+            ImageProfileUrl = "noimage.png"
 
             };
-            if (introducedUserPhone != null) {
-                var userIntroduce = _context.Users.Where (x => x.PhoneNumber == introducedUserPhone).ToList ();
-                if (userIntroduce.Count != 0 && introducedUserPhone != null) {
-                    addUser.IntroducedUserPhone = introducedUserPhone;
-                    Discount discount = new Discount ();
-                    discount.Title = "تخفیف معرف";
-                    discount.Percentage = 5;
-                    discount.Code = "Planiverse" + rand.Next (1000, 9999).ToString ();
-                    discount.UserNames = introducedUserPhone;
-                    _context.Discounts.Add (discount);
-                    new SmsUtil ().Send (introducedUserPhone, String.Format ("کد تخفیف {0} برای استفاده در نرم افزار پلنیورس برای شما ایجاد گردید .", discount.Code)); //کد تخفیف برای کاربر ارسال گردد
-                }
-            }
+            // if (introducedUserPhone != null) {
+            //     var userIntroduce = _context.Users.Where (x => x.PhoneNumber == introducedUserPhone).ToList ();
+            //     if (userIntroduce.Count != 0 && introducedUserPhone != null) {
+            //         addUser.IntroducedUserPhone = introducedUserPhone;
+            //         Discount discount = new Discount ();
+            //         discount.Title = "تخفیف معرف";
+            //         discount.Percentage = 5;
+            //         discount.Code = "Planiverse" + rand.Next (1000, 9999).ToString ();
+            //         discount.UserNames = introducedUserPhone;
+            //         _context.Discounts.Add (discount);
+            //         new SmsUtil ().Send (introducedUserPhone, String.Format ("کد تخفیف {0} برای استفاده در نرم افزار پلنیورس برای شما ایجاد گردید .", discount.Code)); //کد تخفیف برای کاربر ارسال گردد
+            //     }
+            // }
 
             _context.Users.Add (addUser);
             _context.SaveChanges ();
+
             user = addUser;
+            ServicePackage freePackage = _context.ServicePackages.Where (x => x.Price == 0).FirstOrDefault ();
+            _context.Invoices.Add (new Invoice {
+                Amount = 0,
+                    PaymentDate = DateTime.Now,
+                    IsConfirm = true,
+                    RegisterDate = DateTime.Now,
+                    ServicePackageId = freePackage.Id,
+                    UserId = user.Id,
+                    RefId = "free package",
+                    Authority = "free package",
+            });
+            _context.SaveChanges ();
         } else {
             // return NotFound ("شماره همراه از قبل وجود دارد");
             user.Name = name;
@@ -228,34 +241,34 @@ public class UsersApiController : ControllerBase {
 
     public ActionResult GetReminderServiceInDate (int userId) {
         var currentDiet = _context.Diets.Include (x => x.Weights).Include (x => x.FatPartDiets)
-        .Include (x=>x.SicknessDiets).ThenInclude(x=>x.Sickness)
-        .Where (x => x.UserId == userId && x.RequestComplete == true ).OrderByDescending (x => x.Id).FirstOrDefault ();
+            .Include (x => x.SicknessDiets).ThenInclude (x => x.Sickness)
+            .Where (x => x.UserId == userId && x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
         var invoice = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == userId).FirstOrDefault ();
         if (invoice == null) {
             return Ok (0);
         }
-       var diffInDays = (DateTime.Now -(DateTime) invoice.PaymentDate ).Days;
+        var diffInDays = (DateTime.Now - (DateTime) invoice.PaymentDate).Days;
         int remindInDays = invoice.ServicePackage.ExpireAfterBuyInDays - diffInDays;
-    //    //
+        //    //
         double weight = currentDiet.Weights.LastOrDefault ().UserWeight;
-            var bmi = weight / ((currentDiet.Height / 100) * (currentDiet.Height / 100));
-            string description = "";
-            if (bmi < 18.5) {
-                description = "لاغر-دچار کمبود وزن";
-            } else if (bmi > 18.5 && bmi < 25) {
-                description = "وزن نرمال";
-            } else if (bmi >= 25 && bmi < 30) {
-                description = "اضافه وزن";
-            } else if (bmi >= 30 && bmi < 35) {
-                description = "چاقی درجه یک";
-            } else if (bmi >= 35 && bmi < 40) {
-                description = "چاقی درجه دو";
-            } else {
-                description = "چاقی درجه سه";
-            }
-        return Ok ( new { remindInDays = remindInDays,allInDays = invoice.ServicePackage.ExpireAfterBuyInDays
-        ,description = description,diseases=currentDiet.SicknessDiets.Select(x=>x.Sickness.Title)
-        
+        var bmi = weight / ((currentDiet.Height / 100) * (currentDiet.Height / 100));
+        string description = "";
+        if (bmi < 18.5) {
+            description = "لاغر-دچار کمبود وزن";
+        } else if (bmi > 18.5 && bmi < 25) {
+            description = "وزن نرمال";
+        } else if (bmi >= 25 && bmi < 30) {
+            description = "اضافه وزن";
+        } else if (bmi >= 30 && bmi < 35) {
+            description = "چاقی درجه یک";
+        } else if (bmi >= 35 && bmi < 40) {
+            description = "چاقی درجه دو";
+        } else {
+            description = "چاقی درجه سه";
+        }
+        return Ok (new {
+            remindInDays = remindInDays, allInDays = invoice.ServicePackage.ExpireAfterBuyInDays, description = description, diseases = currentDiet.SicknessDiets.Select (x => x.Sickness.Title)
+
         });
     }
 
