@@ -193,13 +193,13 @@ namespace Barnama.Controllers {
             if (registerDate == null) {
                 registerDate = DateTime.Now;
             }
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).OrderByDescending(x=>x.Id).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
             //اگر برای کاربر در روز جاری قبلا داده ای ثبت شده
             //همان را ویرایش می کنیم
-            Weight weightCurrentDay = _context.Weights.Where (x => x.DietId == diet.Id && x.RegisterDate.Date == registerDate).FirstOrDefault ();
+            Weight weightCurrentDay = _context.Weights.Where (x => x.DietId == diet.Id && x.RegisterDate.Date == ((DateTime)registerDate).Date).FirstOrDefault ();
             if (weightCurrentDay != null) {
                 weightCurrentDay.UserWeight = weight;
                 _context.SaveChanges ();
