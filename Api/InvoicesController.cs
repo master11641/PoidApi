@@ -29,10 +29,13 @@ namespace Barnama.Controllers {
 
         [HttpPost ("ConfirmInvoice")]
         public IActionResult ConfirmInvoice (int invoiceId, string refId, DateTime paymentDate) {
-            Invoice invoice = _context.Invoices.Find (invoiceId);
+            Invoice invoice = _context.Invoices.Include(x=>x.ServicePackage).FirstOrDefault (x=>x.Id == invoiceId);
             if (invoice == null) {
                 return NotFound ();
             }
+            var currentDiet = _context.Diets.Include(x=>x.Plan)
+               .Where (x => x.UserId == invoice.UserId).OrderByDescending (x => x.Id).FirstOrDefault ();
+               currentDiet.Plan.EndDate = currentDiet.Plan.EndDate.AddDays(invoice.ServicePackage.ExpireAfterBuyInDays);
             invoice.RefId = refId;
             invoice.PaymentDate = paymentDate;
             invoice.IsConfirm = true;

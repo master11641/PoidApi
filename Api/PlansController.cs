@@ -17,7 +17,8 @@ namespace Barnama.Controllers {
         public IActionResult AddVoiceDate (int UserId, DateTime CurrentDate, string VoiceUserUrl) {
             PlanDate PlanDate = _context.PlanDates.Include (x => x.Plan).ThenInclude (x => x.Diet).Where (x => x.CurrentDate.Date == CurrentDate.Date && x.Plan.Diet.UserId == UserId).FirstOrDefault ();
             if (PlanDate == null) {
-                return BadRequest ("رژیم مربوطه یافت نشد");
+                return BadRequest ("ابتدا برنامه رژیمی امروز خود را مشاهده کنید و سپس نظر خود را ارسال کنید ");
+                // Plandate
             }
             PlanDate.VoiceUserUrl = VoiceUserUrl;
             _context.SaveChanges ();
@@ -25,7 +26,7 @@ namespace Barnama.Controllers {
         }
         //محاسبه انرژی کل بدن برای کاربر
         //که در اکشن متدها استفاده می شود
-         double GetCallerieForUser (int userId) {
+        double GetCallerieForUser (int userId) {
             var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
             double weight = diet.Weights.LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
@@ -64,17 +65,18 @@ namespace Barnama.Controllers {
         [HttpPost ("GetPlanByDate")]
         public IActionResult GetPlanByDate (int DietId, DateTime CurrentDate) {
             Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).FirstOrDefault ();
-            var invoices = _context.Invoices.Where(x=>x.UserId == CurrentDiet.UserId).ToList(); 
+            var invoices = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == CurrentDiet.UserId).ToList ();
             double TotalCallory = GetCallerieForUser (CurrentDiet.UserId);
             if (CurrentDiet.Plan == null) {
                 Plan Plan = new Plan ();
                 Plan.CreationDate = DateTime.Now;
-                Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) :  ((DateTime)invoices.Last().PaymentDate).AddDays(invoices.Last().ServicePackage.ExpireAfterBuyInDays);
+                Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) : ((DateTime) invoices.Last ().PaymentDate).AddDays (invoices.Last ().ServicePackage.ExpireAfterBuyInDays);
                 Plan.DietId = DietId;
                 Plan.Calorie = TotalCallory;
                 CurrentDiet.Plan = Plan;
                 // CurrentDiet.PlanId = 
-                Plan.Id = _context.SaveChanges ();
+                _context.SaveChanges ();
+                CurrentDiet.PlanId = Plan.Id;
             }
             if (CurrentDate > CurrentDiet.Plan.EndDate) {
                 return BadRequest ("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
@@ -82,15 +84,15 @@ namespace Barnama.Controllers {
             PlanDate PlanDate = _context.PlanDates.Include (x => x.PlanDetails).ThenInclude (x => x.Food)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Meel)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Unit)
-                .Where (x => x.CurrentDate.Date == CurrentDate.Date).FirstOrDefault ();
+                .Where (x => x.CurrentDate.Date == CurrentDate.Date && x.PlanId==CurrentDiet.PlanId).FirstOrDefault ();
 
             if (PlanDate == null) {
                 PlanDate = new PlanDate ();
                 PlanDate.CurrentDate = CurrentDate;
-                PlanDate.PlanId = CurrentDiet.PlanId ?? 0;
-                _context.PlanDates.Add (PlanDate);
-                int temp = _context.SaveChanges ();
-                Console.WriteLine (temp);
+                  PlanDate.PlanId =(int) CurrentDiet.PlanId ;
+                  _context.PlanDates.Add (PlanDate);
+               // CurrentDiet.Plan.PlanDates.Add (PlanDate);
+                _context.SaveChanges ();
 
             } else if (PlanDate.PlanDetails != null && PlanDate.PlanDetails.Count != 0) {
                 return Ok (PlanDate.PlanDetails.Where (x => x.ReplacePlanDetailId == null).Select (x => new {
@@ -487,7 +489,7 @@ namespace Barnama.Controllers {
             if (food == null) {
                 return BadRequest ("غذای مورد نظر پیدا نشد");
             }
-       
+
             return Ok (food.FoodUnits.Select (x => new {
                 x.Calcium,
                     x.Calorie,

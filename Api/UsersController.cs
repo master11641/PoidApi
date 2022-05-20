@@ -242,8 +242,8 @@ public class UsersApiController : ControllerBase {
     public ActionResult GetReminderServiceInDate (int userId) {
         var currentDiet = _context.Diets.Include (x => x.Weights).Include (x => x.FatPartDiets)
             .Include (x => x.SicknessDiets).ThenInclude (x => x.Sickness)
-            .Where (x => x.UserId == userId && x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
-        var invoice = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == userId).FirstOrDefault ();
+            .Where (x => x.UserId == userId ).OrderByDescending (x => x.Id).FirstOrDefault ();
+        var invoice = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == userId && x.IsConfirm == true).OrderByDescending(x=>x.Id).FirstOrDefault ();
         if (invoice == null) {
             return Ok (0);
         }

@@ -13,7 +13,8 @@ namespace Barnama.Controllers {
         ///پکیج هایی را بر می گرداند که مربوط به بازار نباشند و کد تخفیف هم نداشته باشند
         [HttpGet ("GetPackages")]
         public IActionResult Index () {
-            var barnamaConntext = _context.ServicePackages.Include (x => x.Discount).Where (x => String.IsNullOrWhiteSpace (x.BazarProductId) && String.IsNullOrWhiteSpace (x.Discount.Code));
+            var barnamaConntext = _context.ServicePackages.Include (x => x.Discount).Where (x => 
+            String.IsNullOrWhiteSpace (x.BazarProductId) && String.IsNullOrWhiteSpace (x.Discount.Code)  && x.Price!=0);
             return Ok (barnamaConntext.ToList ());
         }
         ///در صورتی که کد تخفیف درست باشد آن را روی پکیج لحاظ می کند

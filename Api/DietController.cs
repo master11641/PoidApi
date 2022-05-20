@@ -20,11 +20,11 @@ namespace Barnama.Controllers {
 
         [HttpPost ("GetBmiUser")]
         public IActionResult GetBmiUser (int userId) {
-            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).OrderByDescending (x => x.Id).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             if (bmi < 18.5) {
@@ -54,7 +54,7 @@ namespace Barnama.Controllers {
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             int g = 0;
@@ -88,7 +88,7 @@ namespace Barnama.Controllers {
             if (diet == null) {
                 return BadRequest ("اطلاعات شما کامل نیست");
             }
-            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             double g = 0;
@@ -321,7 +321,7 @@ namespace Barnama.Controllers {
         //که در اکشن متدها استفاده می شود
         double GetCallerieForUser (int userId) {
             var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
-            double weight = diet.Weights.LastOrDefault ().UserWeight;
+            double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";
             double g = 0;
@@ -548,7 +548,7 @@ namespace Barnama.Controllers {
             // List<IGrouping<DateTime, Weight>> timedVisits = weights.GroupBy(x=>x.RegisterDate.Date).ToList();
             List<WeightChartResponse> result = new List<WeightChartResponse> ();
 
-            return Ok (weights.Select (x => new WeightChartResponse {
+            return Ok (weights.OrderBy(x=>x.RegisterDate).Select (x => new WeightChartResponse {
                 Weight = x.UserWeight,
                     PersianDate = x.RegisterDate.ToPersianDigitalDateTimeString ().Split (" ") [0]
             }));
