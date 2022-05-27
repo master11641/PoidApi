@@ -7,7 +7,7 @@ public class BarnamaConntext : DbContext {
   // public BarnamaConntext () { }
   public static bool isMigration = true;
   protected override void OnConfiguring (DbContextOptionsBuilder options) {
-    options.UseSqlServer ("Data Source=(local);Initial Catalog=nasoomDB;Integrated Security = true;MultipleActiveResultSets=true");
+    options.UseSqlServer ("Data Source=(local);Initial Catalog=nesooomDb;Integrated Security = true;MultipleActiveResultSets=true");
     // options.UseSqlServer ("server=45.139.102.219\\MSSQLSERVER2017;database=nasoomDB;user=master11641;password=Aserfg1@;");
 
   }

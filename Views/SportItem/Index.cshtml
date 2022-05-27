@@ -1,59 +1,99 @@
 @model IEnumerable<SportItem>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "حرکات ورزشی";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescriptionAudio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescriptionVideo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sport)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescriptionAudio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescriptionVideo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sport.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@section contentheader {
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">غذا ها</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>خانه</a></li>
+                    <li class="breadcrumb-item active">حرکات ورزشی </li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
 }
-    </tbody>
-</table>
+  <a asp-action="Create">رکورد جدید</a>
+<div class="k-rtl">
+    <div id="report-grid"></div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+    $(function () {
+        var productsDataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetSportItems", "SportItem")",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    type: 'GET'
+                },
+                parameterMap: function (options) {
+                    return kendo.stringify(options);
+                }
+            },
+            schema: {
+                data: "data",
+                total: "total",
+                model: {
+                    fields: {
+                        "id": { type: "number" }, //تعیین نوع فیلد برای جستجوی پویا مهم است
+                        "title": { type: "number" },
+                        "description": { type: "description" },
+
+
+
+                    }
+                }
+            },
+            error: function (e) {
+                alert(e.errorThrown);
+            },
+            pageSize: 20,
+            group: [{ field: "sport.sportGroup.title", title: "گروه" }, { field: "sport.title", title: "ورزش مربوطه" },],
+            sort: { field: "id", dir: "desc" },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#report-grid").kendoGrid({
+            dataSource: productsDataSource,
+            autoBind: true,
+            scrollable: false,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            reorderable: true,
+            editable: false,
+            columnMenu: true,
+            columns: [
+                { field: "id", title: "شماره", width: "130px" },
+                { field: "title", title: "عنوان" },
+                { field: "description", title: "توضیحات" },
+                {
+                    field: "id", title: "عملیات",
+                    template: '<a  href="/sportItem/edit/#=id#" class="k-button" >ویرایش</a>  <a  href="/sportItem/delete/#=id#" class="k-button" >حذف</a>'
+                }
+            ],
+     
+        });
+    });
+
+
+
+</script>
+<script id="persianDateTemplate" type="text/x-kendo-template">
+        #if( paymentDate ) {#
+           #=moment(paymentDate).format('jYYYY/jMM/jDD')#
+        #}#
+    </script>
+}

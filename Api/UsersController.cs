@@ -42,8 +42,9 @@ public class UsersApiController : ControllerBase {
         var user = _userService.GetByUserName (phoneNumber);
         var rand = new Random ();
         var uid = rand.Next (10000, 99999);
-        //String newPassword = uid.ToString ();
-        String newPassword = "12345";
+        String newPassword = uid.ToString ();
+        new SmsUtil ().Send (phoneNumber, newPassword);
+        //String newPassword = "12345";
         // string token = "";
         if (user == null) {
             User addUser = new User () {
@@ -156,11 +157,11 @@ public class UsersApiController : ControllerBase {
         }
         var rand = new Random ();
         var uid = rand.Next (1000, 9999);
-        //  String newPassword = uid.ToString ();
-        String newPassword = "12345";
+          String newPassword = uid.ToString ();
+       // String newPassword = "12345";
         user.Password = newPassword;
         _context.SaveChanges ();
-        new SmsUtil ().Send (phone, user.Password);
+        new SmsUtil ().Send (phone, newPassword);
         return Ok (user.Password);
     }
 

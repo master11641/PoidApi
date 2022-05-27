@@ -226,7 +226,7 @@ namespace Barnama.Controllers {
                 .Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
                 .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).
 
-            OrderByDescending (x => x.Id);
+            OrderByDescending (x => x.Id).ToList();
             Diet currentDiet;
             if (diets.Count () > 0) {
                 currentDiet = diets.Where (x => x.RequestComplete != true).FirstOrDefault ();
@@ -300,7 +300,21 @@ namespace Barnama.Controllers {
 
             var currentDiet = _context.Diets.Include (x => x.Plan).FirstOrDefault (x => x.Id == dietId);
             var invoices = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == currentDiet.UserId).ToList ();
-
+             if(invoices.Count == 0){
+                  int ServicePackageId = _context.ServicePackages.Where (x =>  x.Price == 0).FirstOrDefault ().Id;
+                  Invoice invoice = new Invoice {
+                    RegisterDate = DateTime.Now,
+                    PaymentDate = DateTime.Now,
+                    ServicePackageId = ServicePackageId,
+                    Amount = 0,
+                    Authority = "Authority",
+                    UserId = currentDiet.UserId,
+                    IsConfirm = true,
+                    RefId = "Gift"
+                };
+                _context.Invoices.Add (invoice);
+                invoices.Add(invoice);
+             }
             if (currentDiet.Plan == null) {
                 double TotalCallory = GetCallerieForUser (currentDiet.UserId);
                 Plan Plan = new Plan ();
@@ -320,7 +334,7 @@ namespace Barnama.Controllers {
         //محاسبه انرژی کل بدن برای کاربر
         //که در اکشن متدها استفاده می شود
         double GetCallerieForUser (int userId) {
-            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Where (x => x.RequestComplete == true).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.Weights).Include (x => x.User).Include (x => x.User).Include (x => x.Gender).FirstOrDefault ();
             double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
             string description = "";

@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kendo.DynamicLinq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace LeitnerApi.Controllers.SportItems {
     public class SportItemController : Controller {
@@ -19,7 +21,14 @@ namespace LeitnerApi.Controllers.SportItems {
             var barnamaConntext = _context.SportItems.Include (s => s.Sport);
             return View (await barnamaConntext.ToListAsync ());
         }
+        public DataSourceResult GetSportItems () {
+            var dataString = this.HttpContext.GetJsonDataFromQueryString ();
+            var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
 
+            var list = _context.SportItems.Include (x => x.Sport).ThenInclude(x=>x.SportGroup);
+            return list.AsQueryable ()
+                .ToDataSourceResult (request.Take, request.Skip, request.Sort, request.Filter);
+        }
         // GET: SportItem/Details/5
         public async Task<IActionResult> Details (int? id) {
             if (id == null) {
@@ -49,16 +58,15 @@ namespace LeitnerApi.Controllers.SportItems {
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create ([Bind ("Id,Title,Description,DescriptionAudio,DescriptionVideo,SportId")] SportItem sportItem, List<string> images) {
             if (ModelState.IsValid) {
-                foreach (var imageUrl in images)
-                {
-                    sportItem.SImages.Add(
-                    new SImage{
-                        ImageUrl =  imageUrl,
-                        
-                    }
-                );
+                foreach (var imageUrl in images) {
+                    sportItem.SImages.Add (
+                        new SImage {
+                            ImageUrl = imageUrl,
+
+                        }
+                    );
                 }
-                
+
                 _context.Add (sportItem);
                 await _context.SaveChangesAsync ();
                 return RedirectToAction (nameof (Index));
@@ -78,7 +86,7 @@ namespace LeitnerApi.Controllers.SportItems {
                 return NotFound ();
             }
             ViewData["SportId"] = new SelectList (_context.Sports, "Id", "Title", sportItem.SportId);
-            var SelectedImages = _context.SImages.Where(x=>x.SportItemId==id).Select (x => x.ImageUrl).ToList ();
+            var SelectedImages = _context.SImages.Where (x => x.SportItemId == id).Select (x => x.ImageUrl).ToList ();
             ViewData["SelectedImages"] = SelectedImages;
             return View (sportItem);
         }
@@ -100,7 +108,7 @@ namespace LeitnerApi.Controllers.SportItems {
                     model.DescriptionAudio = DescriptionAudio;
                     model.DescriptionVideo = DescriptionVideo;
                     model.SportId = SportId;
-                    model.SImages.Clear ();                    
+                    model.SImages.Clear ();
                     foreach (string image in images) {
 
                         SImage foodImage = new SImage { ImageUrl = image, SportItem = model };
