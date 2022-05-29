@@ -282,7 +282,7 @@ namespace Barnama.Controllers {
         public IActionResult GetNotCompletedDietUser (int userId) {
 
             var currentDiet = _context.Diets.Include (x => x.FatPartDiets).Include (x => x.SicknessDiets).Include (x => x.AllergyDiets)
-                .Include (x => x.BadHabitDiets).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
+                .Include (x => x.BadHabitDiets).Include(x=>x.Weights).Include (x => x.ProteinDiets).Include (x => x.QuestionDiets).Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
             if (currentDiet != null) {
 
                 return Ok (currentDiet);

@@ -26,6 +26,14 @@ namespace LeitnerApi.Controllers.Foods {
             var barnamaConntext = _context.Foods.Include (f => f.Group);
             return View (await barnamaConntext.ToListAsync ());
         }
+
+         public IActionResult FoodSickness () {
+         
+            return View ();
+        }
+
+
+        
         public DataSourceResult GetFoods () {
             var dataString = this.HttpContext.GetJsonDataFromQueryString ();
             var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
@@ -34,7 +42,14 @@ namespace LeitnerApi.Controllers.Foods {
             return list.AsQueryable ()
                 .ToDataSourceResult (5, request.Skip, request.Sort, request.Filter);
         }
+        public DataSourceResult GetFoodSicks () {
+            var dataString = this.HttpContext.GetJsonDataFromQueryString ();
+            var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
 
+            var list = _context.Foods.Include (x => x.SicknessFoods).ThenInclude (x => x.Sickness);
+            return list.AsQueryable ()
+                .ToDataSourceResult (5, request.Skip, request.Sort, request.Filter);
+        }
         public IActionResult ReadExcell (string fileName) {
             SpreadsheetInfo.SetLicense ("FREE-LIMITED-KEY");
             string path = Path.Combine (this._env.WebRootPath, "uploads\\") + fileName;
@@ -77,7 +92,7 @@ namespace LeitnerApi.Controllers.Foods {
         void addFood (string title, string unitTitle, double? calorie, double? Protein, double? Carbohydrate, double? Fat, double? Sugar, double? Sodium, double? Potassium, double? Magnesium, double? Calcium, double? Phosphor, double? Iron, double? Umfa, double? Upfa, double? Sfa, double? Tfa) {
 
             var food = _context.Foods.Where (x => x.Title == title).Include (x => x.FoodUnits).FirstOrDefault ();
-            var unit = _context.Units.Where (x => x.Title.Trim() == unitTitle.Trim()).FirstOrDefault ();
+            var unit = _context.Units.Where (x => x.Title.Trim () == unitTitle.Trim ()).FirstOrDefault ();
             if (unit == null) {
                 unit = new Unit ();
                 unit.Title = unitTitle;
@@ -264,8 +279,8 @@ namespace LeitnerApi.Controllers.Foods {
                     //model.FoodUnits.Clear ();
                     foreach (int unitId in UnitIds) {
                         if (!_context.FoodUnits.Any (x => x.UnitId == unitId && x.FoodId == model.Id)) {
-                           FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };
-                           model.FoodUnits.Add (foodUnit);
+                            FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };
+                            model.FoodUnits.Add (foodUnit);
                         }
 
                         //FoodUnit foodUnit = new FoodUnit { UnitId = unitId, Food = model };

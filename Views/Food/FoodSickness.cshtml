@@ -1,0 +1,156 @@
+@model IEnumerable<Food>
+
+@{
+    ViewData["Title"] = "غذاها";
+
+}
+<style>
+    .badge {
+        .close {
+            padding-right: $badge-padding-x;
+            padding-left: $badge-padding-x;
+            margin-right: -$badge-padding-x;
+            font-size: inherit;
+            color: inherit;
+            text-shadow: none;
+        }
+    }
+</style>
+@section contentheader {
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">غذا ها</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>خانه</a></li>
+                    <li class="breadcrumb-item active">غذاها </li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+}
+<h5>ثبت اطلاعات از طریق فایل اکسل</h5>
+<!--نحوه‌ی راست به چپ سازی گرید-->
+<div class="k-rtl">
+    <input id="importFile" class="form-control " type="file" accept="*/*" />
+    <div id="report-grid"></div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+    $(function () {
+        var productsDataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetFoodSicks", "Food")",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    type: 'GET'
+                },
+                parameterMap: function (options) {
+                    return kendo.stringify(options);
+                }
+            },
+            schema: {
+                data: "data",
+                total: "total",
+                model: {
+                    fields: {
+                        "id": { type: "number" }, //تعیین نوع فیلد برای جستجوی پویا مهم است
+                        "title": { type: "string" },
+
+                    }
+                }
+            },
+            error: function (e) {
+                alert(e.errorThrown);
+            },
+
+            pageSize: 5,
+            sort: { field: "id", dir: "desc" },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#report-grid").kendoGrid({
+            dataSource: productsDataSource,
+            autoBind: true,
+            scrollable: false,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            reorderable: true,
+            columnMenu: true,
+            columns: [
+                { field: "id", title: "شماره", width: "130px" },
+                { field: "title", title: "عنوان غذا", template: kendo.template($("#titleTemplate").html()) },
+
+                {
+                    field: "id", title: "عملیات",
+                    template: '<a  href="/food/edit/#=id#" class="k-button fa fa-edit tjax" popup="true" >ویرایش</a>  <a  href="/food/delete/#=id#" class="k-button fa fa-remove tjax"  popup="true" >حذف</a>'
+                }
+
+            ],
+            toolbar: [
+                { template: kendo.template($("#toolbarTemplate").html()) }
+            ]
+        });
+        $(document).ready(function () {
+            $("#importFile").kendoUpload({
+                name: "files",
+                showFileList: true,
+                async: {
+                    saveUrl: "@Url.Action("SaveTemp", "Upload")", // the url to save a file is '/save'
+                    removeUrl: "@Url.Action("SaveTemp", "Upload")",
+                    autoUpload: true
+                },
+                select: function (e) {
+                    console.log('File selected.');
+                },      // function for when a file is selected
+                success: onFileSuccess,
+
+                // function after success
+                // function for when a file is removed
+            });
+            function onFileSuccess(e) {
+                if (e.response.length != 0) {
+                    //alert(e.response);
+                    $.post("@Url.Action("ReadExcell", "Food")", { fileName: e.response }, function (result,status,xhr) {                       
+                            $("#report-grid").data("kendoGrid").dataSource.read();                       
+                            alert('اطلاعات با موفقیت بارگذاری شد');
+                    });
+                }
+
+            }
+        });// $(document).ready(function () {
+
+
+
+    });
+    function completeHandler(sender, response) {
+        $('#tjaxModal').modal('hide');
+        $("#report-grid").data("kendoGrid").dataSource.read();
+        //productsDataSource.read();
+    }
+</script>
+<script id="toolbarTemplate" type="text/x-kendo-template">
+          <a href="/Food/create" class="k-button fa fa-add  tjax" popup="true" >غذای جدید</a>
+</script>
+<script type="text/x-kendo-tmpl" id="titleTemplate">
+    <div class="subscriberFunction">
+        <h3>${title}</h3>     
+    
+     <ul class="list-inline">
+            #for (var i=0,len=sicknessFoods.length; i<len; i++){#
+                <li class="list-inline-item"> <a href="/SicknessFood/Edit?foodId=${sicknessFoods[i].foodId}&sickId=${sicknessFoods[i].sicknessId}" class="badge badge-danger tjax"  popup="true" style="padding: 5px;"  >  ${ sicknessFoods[i].sickness.title }  </a> </li>
+            # } #
+        </ul>
+
+
+    </div>
+</script>
+}

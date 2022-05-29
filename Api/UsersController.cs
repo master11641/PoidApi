@@ -56,24 +56,10 @@ public class UsersApiController : ControllerBase {
             ImageProfileUrl = "noimage.png"
 
             };
-            // if (introducedUserPhone != null) {
-            //     var userIntroduce = _context.Users.Where (x => x.PhoneNumber == introducedUserPhone).ToList ();
-            //     if (userIntroduce.Count != 0 && introducedUserPhone != null) {
-            //         addUser.IntroducedUserPhone = introducedUserPhone;
-            //         Discount discount = new Discount ();
-            //         discount.Title = "تخفیف معرف";
-            //         discount.Percentage = 5;
-            //         discount.Code = "Planiverse" + rand.Next (1000, 9999).ToString ();
-            //         discount.UserNames = introducedUserPhone;
-            //         _context.Discounts.Add (discount);
-            //         new SmsUtil ().Send (introducedUserPhone, String.Format ("کد تخفیف {0} برای استفاده در نرم افزار پلنیورس برای شما ایجاد گردید .", discount.Code)); //کد تخفیف برای کاربر ارسال گردد
-            //     }
-            // }
-
+       
             _context.Users.Add (addUser);
             _context.SaveChanges ();
-
-            user = addUser;
+           // user = addUser;
             ServicePackage freePackage = _context.ServicePackages.Where (x => x.Price == 0).FirstOrDefault ();
             _context.Invoices.Add (new Invoice {
                 Amount = 0,
@@ -81,7 +67,7 @@ public class UsersApiController : ControllerBase {
                     IsConfirm = true,
                     RegisterDate = DateTime.Now,
                     ServicePackageId = freePackage.Id,
-                    UserId = user.Id,
+                    UserId = addUser.Id,
                     RefId = "free package",
                     Authority = "free package",
             });
