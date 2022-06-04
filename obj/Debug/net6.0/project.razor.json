@@ -12,7 +12,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1164726698,
+        "HashCode": -953601082,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -89,7 +89,7 @@
         }
       },
       {
-        "HashCode": -682455858,
+        "HashCode": 1435394490,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -167,7 +167,7 @@
         }
       },
       {
-        "HashCode": 2113581620,
+        "HashCode": -711000348,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -198,7 +198,7 @@
         }
       },
       {
-        "HashCode": -1536968520,
+        "HashCode": -2090897129,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -230,7 +230,7 @@
         }
       },
       {
-        "HashCode": -1929891806,
+        "HashCode": -1073398613,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -249,7 +249,7 @@
         }
       },
       {
-        "HashCode": 1238777603,
+        "HashCode": -1192981749,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -269,7 +269,7 @@
         }
       },
       {
-        "HashCode": -2044368348,
+        "HashCode": 327047489,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -365,7 +365,7 @@
         }
       },
       {
-        "HashCode": -76229244,
+        "HashCode": -1895570719,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -462,7 +462,7 @@
         }
       },
       {
-        "HashCode": -1577277777,
+        "HashCode": 933600358,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -493,7 +493,7 @@
         }
       },
       {
-        "HashCode": -785575313,
+        "HashCode": -253448926,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -525,7 +525,7 @@
         }
       },
       {
-        "HashCode": 878560147,
+        "HashCode": -981769351,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -556,7 +556,7 @@
         }
       },
       {
-        "HashCode": 117508688,
+        "HashCode": -1509288846,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.NotAuthorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -588,7 +588,7 @@
         }
       },
       {
-        "HashCode": 387560959,
+        "HashCode": 995743833,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -619,7 +619,7 @@
         }
       },
       {
-        "HashCode": 1813733794,
+        "HashCode": -1069395378,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorized",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -651,7 +651,7 @@
         }
       },
       {
-        "HashCode": -522434646,
+        "HashCode": 455355812,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -670,7 +670,7 @@
         }
       },
       {
-        "HashCode": 1971448372,
+        "HashCode": -339293869,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeView.Authorizing",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -690,7 +690,7 @@
         }
       },
       {
-        "HashCode": 643492886,
+        "HashCode": 764853260,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -718,7 +718,7 @@
         }
       },
       {
-        "HashCode": 1726077185,
+        "HashCode": -1714646441,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -747,7 +747,7 @@
         }
       },
       {
-        "HashCode": -1359751348,
+        "HashCode": 236447030,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -766,7 +766,7 @@
         }
       },
       {
-        "HashCode": 1016753770,
+        "HashCode": 2095298791,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
@@ -786,7 +786,7 @@
         }
       },
       {
-        "HashCode": -1777475046,
+        "HashCode": 1159531122,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -855,7 +855,7 @@
         }
       },
       {
-        "HashCode": -2086994924,
+        "HashCode": 119863391,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -925,7 +925,7 @@
         }
       },
       {
-        "HashCode": 1573287606,
+        "HashCode": 1222883605,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -944,7 +944,7 @@
         }
       },
       {
-        "HashCode": 294135582,
+        "HashCode": -2110362916,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -964,7 +964,7 @@
         }
       },
       {
-        "HashCode": 725776753,
+        "HashCode": -1530619083,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.DynamicComponent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1002,7 +1002,7 @@
         }
       },
       {
-        "HashCode": 1276044817,
+        "HashCode": -271722142,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.DynamicComponent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1041,7 +1041,7 @@
         }
       },
       {
-        "HashCode": 1203120103,
+        "HashCode": 536197240,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.LayoutView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1079,7 +1079,7 @@
         }
       },
       {
-        "HashCode": 457415208,
+        "HashCode": 965045746,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.LayoutView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1118,7 +1118,7 @@
         }
       },
       {
-        "HashCode": 1725178292,
+        "HashCode": -1902086761,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.LayoutView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1137,7 +1137,7 @@
         }
       },
       {
-        "HashCode": 106498843,
+        "HashCode": 1548021123,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.LayoutView.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1157,7 +1157,7 @@
         }
       },
       {
-        "HashCode": -87398792,
+        "HashCode": -1219042288,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.RouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1195,7 +1195,7 @@
         }
       },
       {
-        "HashCode": 640181774,
+        "HashCode": 1963986784,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.RouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1234,7 +1234,7 @@
         }
       },
       {
-        "HashCode": -1013062932,
+        "HashCode": -14041596,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1333,7 +1333,7 @@
         }
       },
       {
-        "HashCode": -1228436988,
+        "HashCode": 411719249,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1433,7 +1433,7 @@
         }
       },
       {
-        "HashCode": 1877594178,
+        "HashCode": 1438731332,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.NotFound",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1452,7 +1452,7 @@
         }
       },
       {
-        "HashCode": 2052849756,
+        "HashCode": 424179982,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.NotFound",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1472,7 +1472,7 @@
         }
       },
       {
-        "HashCode": 900285416,
+        "HashCode": 680770762,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Found",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1503,7 +1503,7 @@
         }
       },
       {
-        "HashCode": -716825237,
+        "HashCode": 719760551,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Found",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1535,7 +1535,7 @@
         }
       },
       {
-        "HashCode": -1302112760,
+        "HashCode": -991105646,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Navigating",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1554,7 +1554,7 @@
         }
       },
       {
-        "HashCode": -2051105442,
+        "HashCode": 1496225921,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.Router.Navigating",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -1574,7 +1574,7 @@
         }
       },
       {
-        "HashCode": -613088120,
+        "HashCode": -644681721,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator",
         "AssemblyName": "Microsoft.AspNetCore.Components.Forms",
@@ -1591,7 +1591,7 @@
         }
       },
       {
-        "HashCode": 671016887,
+        "HashCode": 1730945488,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator",
         "AssemblyName": "Microsoft.AspNetCore.Components.Forms",
@@ -1609,7 +1609,7 @@
         }
       },
       {
-        "HashCode": -272322780,
+        "HashCode": -265698347,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1705,7 +1705,7 @@
         }
       },
       {
-        "HashCode": 1278235379,
+        "HashCode": -588622791,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1802,7 +1802,7 @@
         }
       },
       {
-        "HashCode": -481484813,
+        "HashCode": 210639578,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1833,7 +1833,7 @@
         }
       },
       {
-        "HashCode": 1756236643,
+        "HashCode": -2135786063,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.EditForm.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1865,7 +1865,7 @@
         }
       },
       {
-        "HashCode": -1828915822,
+        "HashCode": -1144095255,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1930,7 +1930,7 @@
         }
       },
       {
-        "HashCode": -1055311214,
+        "HashCode": 875820015,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -1996,7 +1996,7 @@
         }
       },
       {
-        "HashCode": -570544765,
+        "HashCode": -758273529,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2095,7 +2095,7 @@
         }
       },
       {
-        "HashCode": 226003130,
+        "HashCode": -1495846227,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2195,7 +2195,7 @@
         }
       },
       {
-        "HashCode": -1959577178,
+        "HashCode": 708913925,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputFile",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2233,7 +2233,7 @@
         }
       },
       {
-        "HashCode": -1209652382,
+        "HashCode": 1124960456,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputFile",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2272,7 +2272,7 @@
         }
       },
       {
-        "HashCode": 81123245,
+        "HashCode": 1405753550,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2361,7 +2361,7 @@
         }
       },
       {
-        "HashCode": 1513476144,
+        "HashCode": 1295440299,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2451,7 +2451,7 @@
         }
       },
       {
-        "HashCode": -1103714458,
+        "HashCode": 1724720566,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadio<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2510,7 +2510,7 @@
         }
       },
       {
-        "HashCode": 1460720133,
+        "HashCode": 976213441,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadio<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2570,7 +2570,7 @@
         }
       },
       {
-        "HashCode": 592114971,
+        "HashCode": -719131089,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2669,7 +2669,7 @@
         }
       },
       {
-        "HashCode": 128925261,
+        "HashCode": -1016672702,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2769,7 +2769,7 @@
         }
       },
       {
-        "HashCode": 557727962,
+        "HashCode": -1467499356,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2788,7 +2788,7 @@
         }
       },
       {
-        "HashCode": 947063591,
+        "HashCode": -1736965299,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2808,7 +2808,7 @@
         }
       },
       {
-        "HashCode": -1652301025,
+        "HashCode": 442449490,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2898,7 +2898,7 @@
         }
       },
       {
-        "HashCode": 91989556,
+        "HashCode": 1571317585,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -2989,7 +2989,7 @@
         }
       },
       {
-        "HashCode": 638785491,
+        "HashCode": -939214333,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3008,7 +3008,7 @@
         }
       },
       {
-        "HashCode": -667177322,
+        "HashCode": 707847409,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3028,7 +3028,7 @@
         }
       },
       {
-        "HashCode": 837163839,
+        "HashCode": 599919081,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3093,7 +3093,7 @@
         }
       },
       {
-        "HashCode": 254332582,
+        "HashCode": -533403750,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3159,7 +3159,7 @@
         }
       },
       {
-        "HashCode": 1559995876,
+        "HashCode": 1033593616,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3224,7 +3224,7 @@
         }
       },
       {
-        "HashCode": -696345616,
+        "HashCode": -1287349935,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3290,7 +3290,7 @@
         }
       },
       {
-        "HashCode": 1787724738,
+        "HashCode": 1901741704,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationMessage<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3340,7 +3340,7 @@
         }
       },
       {
-        "HashCode": -1354541934,
+        "HashCode": 1562399798,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationMessage<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3391,7 +3391,7 @@
         }
       },
       {
-        "HashCode": 1596896291,
+        "HashCode": 208194967,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationSummary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3428,7 +3428,7 @@
         }
       },
       {
-        "HashCode": 221103001,
+        "HashCode": -2080374482,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Forms.ValidationSummary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3466,7 +3466,7 @@
         }
       },
       {
-        "HashCode": -2023275648,
+        "HashCode": 1542981974,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.FocusOnNavigate",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3503,7 +3503,7 @@
         }
       },
       {
-        "HashCode": 340230519,
+        "HashCode": -982974245,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.FocusOnNavigate",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3541,7 +3541,7 @@
         }
       },
       {
-        "HashCode": 981347236,
+        "HashCode": -810443873,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3598,7 +3598,7 @@
         }
       },
       {
-        "HashCode": -1256676186,
+        "HashCode": -1157103086,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3656,7 +3656,7 @@
         }
       },
       {
-        "HashCode": 184990617,
+        "HashCode": 757389604,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3675,7 +3675,7 @@
         }
       },
       {
-        "HashCode": -1774632481,
+        "HashCode": -592852841,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Routing.NavLink.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3695,7 +3695,7 @@
         }
       },
       {
-        "HashCode": 1153880839,
+        "HashCode": -926173840,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3724,7 +3724,7 @@
         }
       },
       {
-        "HashCode": -382035461,
+        "HashCode": 1207530790,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3754,7 +3754,7 @@
         }
       },
       {
-        "HashCode": 1949880288,
+        "HashCode": 104432690,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3773,7 +3773,7 @@
         }
       },
       {
-        "HashCode": -592061894,
+        "HashCode": -1903339923,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadContent.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3793,7 +3793,7 @@
         }
       },
       {
-        "HashCode": -374479524,
+        "HashCode": 1790403309,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadOutlet",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3810,7 +3810,7 @@
         }
       },
       {
-        "HashCode": -1526337121,
+        "HashCode": 1273508497,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.HeadOutlet",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3828,7 +3828,7 @@
         }
       },
       {
-        "HashCode": 790111218,
+        "HashCode": -1639497963,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3857,7 +3857,7 @@
         }
       },
       {
-        "HashCode": 1954890511,
+        "HashCode": -90441404,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3887,7 +3887,7 @@
         }
       },
       {
-        "HashCode": 2110660368,
+        "HashCode": -832989694,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3906,7 +3906,7 @@
         }
       },
       {
-        "HashCode": 689596736,
+        "HashCode": -1052306762,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.PageTitle.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3926,7 +3926,7 @@
         }
       },
       {
-        "HashCode": 898030550,
+        "HashCode": 583853047,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -3984,7 +3984,7 @@
         }
       },
       {
-        "HashCode": -857799783,
+        "HashCode": -279330343,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4043,7 +4043,7 @@
         }
       },
       {
-        "HashCode": -296374138,
+        "HashCode": -952409189,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4062,7 +4062,7 @@
         }
       },
       {
-        "HashCode": -1093758898,
+        "HashCode": 1651567211,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4082,7 +4082,7 @@
         }
       },
       {
-        "HashCode": -923846672,
+        "HashCode": 1020842038,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ErrorContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4113,7 +4113,7 @@
         }
       },
       {
-        "HashCode": -888586443,
+        "HashCode": -1459664716,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.ErrorBoundary.ErrorContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4145,7 +4145,7 @@
         }
       },
       {
-        "HashCode": -604104603,
+        "HashCode": 299617980,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4257,7 +4257,7 @@
         }
       },
       {
-        "HashCode": 711443985,
+        "HashCode": 1943196332,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4370,7 +4370,7 @@
         }
       },
       {
-        "HashCode": 166408949,
+        "HashCode": -1921955421,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4401,7 +4401,7 @@
         }
       },
       {
-        "HashCode": -2099221318,
+        "HashCode": 1292917841,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ChildContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4433,7 +4433,7 @@
         }
       },
       {
-        "HashCode": -1123528166,
+        "HashCode": 177976130,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ItemContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4464,7 +4464,7 @@
         }
       },
       {
-        "HashCode": 720723772,
+        "HashCode": -1704776436,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.ItemContent",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4496,7 +4496,7 @@
         }
       },
       {
-        "HashCode": -366524456,
+        "HashCode": 286175963,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.Placeholder",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4527,7 +4527,7 @@
         }
       },
       {
-        "HashCode": -1593604142,
+        "HashCode": 1901562189,
         "Kind": "Components.ChildContent",
         "Name": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.Placeholder",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -4559,7 +4559,7 @@
         }
       },
       {
-        "HashCode": -686984869,
+        "HashCode": 307581361,
         "Kind": "Components.EventHandler",
         "Name": "onfocus",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4640,7 +4640,7 @@
         }
       },
       {
-        "HashCode": -2081413518,
+        "HashCode": 2026951028,
         "Kind": "Components.EventHandler",
         "Name": "onblur",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4721,7 +4721,7 @@
         }
       },
       {
-        "HashCode": -1149166780,
+        "HashCode": 854220023,
         "Kind": "Components.EventHandler",
         "Name": "onfocusin",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4802,7 +4802,7 @@
         }
       },
       {
-        "HashCode": 366927767,
+        "HashCode": 104951918,
         "Kind": "Components.EventHandler",
         "Name": "onfocusout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4883,7 +4883,7 @@
         }
       },
       {
-        "HashCode": 1815368496,
+        "HashCode": 1962924157,
         "Kind": "Components.EventHandler",
         "Name": "onmouseover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -4964,7 +4964,7 @@
         }
       },
       {
-        "HashCode": -1173749934,
+        "HashCode": -745973245,
         "Kind": "Components.EventHandler",
         "Name": "onmouseout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5045,7 +5045,7 @@
         }
       },
       {
-        "HashCode": -26064017,
+        "HashCode": 1079898020,
         "Kind": "Components.EventHandler",
         "Name": "onmousemove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5126,7 +5126,7 @@
         }
       },
       {
-        "HashCode": 1229784509,
+        "HashCode": 1791778432,
         "Kind": "Components.EventHandler",
         "Name": "onmousedown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5207,7 +5207,7 @@
         }
       },
       {
-        "HashCode": 135569024,
+        "HashCode": 594208120,
         "Kind": "Components.EventHandler",
         "Name": "onmouseup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5288,7 +5288,7 @@
         }
       },
       {
-        "HashCode": 2119469245,
+        "HashCode": -1145856822,
         "Kind": "Components.EventHandler",
         "Name": "onclick",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5369,7 +5369,7 @@
         }
       },
       {
-        "HashCode": -137313795,
+        "HashCode": -1220765674,
         "Kind": "Components.EventHandler",
         "Name": "ondblclick",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5450,7 +5450,7 @@
         }
       },
       {
-        "HashCode": 179786450,
+        "HashCode": -1463070323,
         "Kind": "Components.EventHandler",
         "Name": "onwheel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5531,7 +5531,7 @@
         }
       },
       {
-        "HashCode": -1432803298,
+        "HashCode": -1084718540,
         "Kind": "Components.EventHandler",
         "Name": "onmousewheel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5612,7 +5612,7 @@
         }
       },
       {
-        "HashCode": -1339211418,
+        "HashCode": 50530576,
         "Kind": "Components.EventHandler",
         "Name": "oncontextmenu",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5693,7 +5693,7 @@
         }
       },
       {
-        "HashCode": -305490976,
+        "HashCode": -1224987049,
         "Kind": "Components.EventHandler",
         "Name": "ondrag",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5774,7 +5774,7 @@
         }
       },
       {
-        "HashCode": -1156151862,
+        "HashCode": 814640548,
         "Kind": "Components.EventHandler",
         "Name": "ondragend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5855,7 +5855,7 @@
         }
       },
       {
-        "HashCode": 1737800740,
+        "HashCode": -876745387,
         "Kind": "Components.EventHandler",
         "Name": "ondragenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -5936,7 +5936,7 @@
         }
       },
       {
-        "HashCode": 1818775378,
+        "HashCode": 165354497,
         "Kind": "Components.EventHandler",
         "Name": "ondragleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6017,7 +6017,7 @@
         }
       },
       {
-        "HashCode": 837160724,
+        "HashCode": 711875179,
         "Kind": "Components.EventHandler",
         "Name": "ondragover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6098,7 +6098,7 @@
         }
       },
       {
-        "HashCode": -1151300080,
+        "HashCode": 713683625,
         "Kind": "Components.EventHandler",
         "Name": "ondragstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6179,7 +6179,7 @@
         }
       },
       {
-        "HashCode": 23028467,
+        "HashCode": -1847021974,
         "Kind": "Components.EventHandler",
         "Name": "ondrop",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6260,7 +6260,7 @@
         }
       },
       {
-        "HashCode": -1790393835,
+        "HashCode": 1849813429,
         "Kind": "Components.EventHandler",
         "Name": "onkeydown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6341,7 +6341,7 @@
         }
       },
       {
-        "HashCode": 83190411,
+        "HashCode": -459395886,
         "Kind": "Components.EventHandler",
         "Name": "onkeyup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6422,7 +6422,7 @@
         }
       },
       {
-        "HashCode": 1473875803,
+        "HashCode": -626625677,
         "Kind": "Components.EventHandler",
         "Name": "onkeypress",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6503,7 +6503,7 @@
         }
       },
       {
-        "HashCode": -1139902323,
+        "HashCode": -1917073898,
         "Kind": "Components.EventHandler",
         "Name": "onchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6584,7 +6584,7 @@
         }
       },
       {
-        "HashCode": 1678623660,
+        "HashCode": -467826347,
         "Kind": "Components.EventHandler",
         "Name": "oninput",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6665,7 +6665,7 @@
         }
       },
       {
-        "HashCode": 349323740,
+        "HashCode": 1574470348,
         "Kind": "Components.EventHandler",
         "Name": "oninvalid",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6746,7 +6746,7 @@
         }
       },
       {
-        "HashCode": -1758806258,
+        "HashCode": -164577674,
         "Kind": "Components.EventHandler",
         "Name": "onreset",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6827,7 +6827,7 @@
         }
       },
       {
-        "HashCode": -1902366098,
+        "HashCode": 826499260,
         "Kind": "Components.EventHandler",
         "Name": "onselect",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6908,7 +6908,7 @@
         }
       },
       {
-        "HashCode": 353320034,
+        "HashCode": -179827503,
         "Kind": "Components.EventHandler",
         "Name": "onselectstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -6989,7 +6989,7 @@
         }
       },
       {
-        "HashCode": 164265954,
+        "HashCode": -928028351,
         "Kind": "Components.EventHandler",
         "Name": "onselectionchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7070,7 +7070,7 @@
         }
       },
       {
-        "HashCode": 1209640258,
+        "HashCode": 2106134508,
         "Kind": "Components.EventHandler",
         "Name": "onsubmit",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7151,7 +7151,7 @@
         }
       },
       {
-        "HashCode": -1382504541,
+        "HashCode": -375870469,
         "Kind": "Components.EventHandler",
         "Name": "onbeforecopy",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7232,7 +7232,7 @@
         }
       },
       {
-        "HashCode": -1771642339,
+        "HashCode": 1623013209,
         "Kind": "Components.EventHandler",
         "Name": "onbeforecut",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7313,7 +7313,7 @@
         }
       },
       {
-        "HashCode": -732828309,
+        "HashCode": 410375653,
         "Kind": "Components.EventHandler",
         "Name": "onbeforepaste",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7394,7 +7394,7 @@
         }
       },
       {
-        "HashCode": 639982678,
+        "HashCode": 1508182720,
         "Kind": "Components.EventHandler",
         "Name": "oncopy",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7475,7 +7475,7 @@
         }
       },
       {
-        "HashCode": 179901599,
+        "HashCode": -639364430,
         "Kind": "Components.EventHandler",
         "Name": "oncut",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7556,7 +7556,7 @@
         }
       },
       {
-        "HashCode": 1892081394,
+        "HashCode": -1721819006,
         "Kind": "Components.EventHandler",
         "Name": "onpaste",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7637,7 +7637,7 @@
         }
       },
       {
-        "HashCode": -1084505448,
+        "HashCode": 574747397,
         "Kind": "Components.EventHandler",
         "Name": "ontouchcancel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7718,7 +7718,7 @@
         }
       },
       {
-        "HashCode": 1375784138,
+        "HashCode": -1318861719,
         "Kind": "Components.EventHandler",
         "Name": "ontouchend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7799,7 +7799,7 @@
         }
       },
       {
-        "HashCode": 1880528242,
+        "HashCode": 915565094,
         "Kind": "Components.EventHandler",
         "Name": "ontouchmove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7880,7 +7880,7 @@
         }
       },
       {
-        "HashCode": 581716691,
+        "HashCode": -292125829,
         "Kind": "Components.EventHandler",
         "Name": "ontouchstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -7961,7 +7961,7 @@
         }
       },
       {
-        "HashCode": 626979959,
+        "HashCode": 2028638213,
         "Kind": "Components.EventHandler",
         "Name": "ontouchenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8042,7 +8042,7 @@
         }
       },
       {
-        "HashCode": -1283849081,
+        "HashCode": -807192999,
         "Kind": "Components.EventHandler",
         "Name": "ontouchleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8123,7 +8123,7 @@
         }
       },
       {
-        "HashCode": -1752468904,
+        "HashCode": -1985350349,
         "Kind": "Components.EventHandler",
         "Name": "ongotpointercapture",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8204,7 +8204,7 @@
         }
       },
       {
-        "HashCode": -1294947888,
+        "HashCode": 1050867130,
         "Kind": "Components.EventHandler",
         "Name": "onlostpointercapture",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8285,7 +8285,7 @@
         }
       },
       {
-        "HashCode": -1207426553,
+        "HashCode": 935941659,
         "Kind": "Components.EventHandler",
         "Name": "onpointercancel",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8366,7 +8366,7 @@
         }
       },
       {
-        "HashCode": -109069464,
+        "HashCode": -1432239679,
         "Kind": "Components.EventHandler",
         "Name": "onpointerdown",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8447,7 +8447,7 @@
         }
       },
       {
-        "HashCode": -1880234930,
+        "HashCode": -610743003,
         "Kind": "Components.EventHandler",
         "Name": "onpointerenter",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8528,7 +8528,7 @@
         }
       },
       {
-        "HashCode": -580011982,
+        "HashCode": -285283483,
         "Kind": "Components.EventHandler",
         "Name": "onpointerleave",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8609,7 +8609,7 @@
         }
       },
       {
-        "HashCode": -1386383847,
+        "HashCode": -1034998205,
         "Kind": "Components.EventHandler",
         "Name": "onpointermove",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8690,7 +8690,7 @@
         }
       },
       {
-        "HashCode": 309296328,
+        "HashCode": -84738005,
         "Kind": "Components.EventHandler",
         "Name": "onpointerout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8771,7 +8771,7 @@
         }
       },
       {
-        "HashCode": 1042408008,
+        "HashCode": 1733091183,
         "Kind": "Components.EventHandler",
         "Name": "onpointerover",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8852,7 +8852,7 @@
         }
       },
       {
-        "HashCode": -2062993351,
+        "HashCode": 1373183633,
         "Kind": "Components.EventHandler",
         "Name": "onpointerup",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -8933,7 +8933,7 @@
         }
       },
       {
-        "HashCode": -45027306,
+        "HashCode": -563031586,
         "Kind": "Components.EventHandler",
         "Name": "oncanplay",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9014,7 +9014,7 @@
         }
       },
       {
-        "HashCode": 596212902,
+        "HashCode": -476884044,
         "Kind": "Components.EventHandler",
         "Name": "oncanplaythrough",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9095,7 +9095,7 @@
         }
       },
       {
-        "HashCode": -565770829,
+        "HashCode": 1534658423,
         "Kind": "Components.EventHandler",
         "Name": "oncuechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9176,7 +9176,7 @@
         }
       },
       {
-        "HashCode": 250159454,
+        "HashCode": 1046455309,
         "Kind": "Components.EventHandler",
         "Name": "ondurationchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9257,7 +9257,7 @@
         }
       },
       {
-        "HashCode": -1695287937,
+        "HashCode": -1293488715,
         "Kind": "Components.EventHandler",
         "Name": "onemptied",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9338,7 +9338,7 @@
         }
       },
       {
-        "HashCode": 774186506,
+        "HashCode": -1015994700,
         "Kind": "Components.EventHandler",
         "Name": "onpause",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9419,7 +9419,7 @@
         }
       },
       {
-        "HashCode": -1424797282,
+        "HashCode": -1314365265,
         "Kind": "Components.EventHandler",
         "Name": "onplay",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9500,7 +9500,7 @@
         }
       },
       {
-        "HashCode": 839979008,
+        "HashCode": -991494002,
         "Kind": "Components.EventHandler",
         "Name": "onplaying",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9581,7 +9581,7 @@
         }
       },
       {
-        "HashCode": 444594955,
+        "HashCode": -1404135166,
         "Kind": "Components.EventHandler",
         "Name": "onratechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9662,7 +9662,7 @@
         }
       },
       {
-        "HashCode": 34284770,
+        "HashCode": -2092289904,
         "Kind": "Components.EventHandler",
         "Name": "onseeked",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9743,7 +9743,7 @@
         }
       },
       {
-        "HashCode": -486220380,
+        "HashCode": 88023024,
         "Kind": "Components.EventHandler",
         "Name": "onseeking",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9824,7 +9824,7 @@
         }
       },
       {
-        "HashCode": 1393309626,
+        "HashCode": -968160979,
         "Kind": "Components.EventHandler",
         "Name": "onstalled",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9905,7 +9905,7 @@
         }
       },
       {
-        "HashCode": 986693969,
+        "HashCode": -1736469599,
         "Kind": "Components.EventHandler",
         "Name": "onstop",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -9986,7 +9986,7 @@
         }
       },
       {
-        "HashCode": -1042227267,
+        "HashCode": 1635685667,
         "Kind": "Components.EventHandler",
         "Name": "onsuspend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10067,7 +10067,7 @@
         }
       },
       {
-        "HashCode": -782363122,
+        "HashCode": 1243506555,
         "Kind": "Components.EventHandler",
         "Name": "ontimeupdate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10148,7 +10148,7 @@
         }
       },
       {
-        "HashCode": 1239647282,
+        "HashCode": -1056494145,
         "Kind": "Components.EventHandler",
         "Name": "onvolumechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10229,7 +10229,7 @@
         }
       },
       {
-        "HashCode": -1078536310,
+        "HashCode": -972704390,
         "Kind": "Components.EventHandler",
         "Name": "onwaiting",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10310,7 +10310,7 @@
         }
       },
       {
-        "HashCode": 474100032,
+        "HashCode": -939778065,
         "Kind": "Components.EventHandler",
         "Name": "onloadstart",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10391,7 +10391,7 @@
         }
       },
       {
-        "HashCode": -695911941,
+        "HashCode": -2120917317,
         "Kind": "Components.EventHandler",
         "Name": "ontimeout",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10472,7 +10472,7 @@
         }
       },
       {
-        "HashCode": 1527281632,
+        "HashCode": -701100441,
         "Kind": "Components.EventHandler",
         "Name": "onabort",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10553,7 +10553,7 @@
         }
       },
       {
-        "HashCode": 1365858281,
+        "HashCode": -99898971,
         "Kind": "Components.EventHandler",
         "Name": "onload",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10634,7 +10634,7 @@
         }
       },
       {
-        "HashCode": 1030641216,
+        "HashCode": 21512299,
         "Kind": "Components.EventHandler",
         "Name": "onloadend",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10715,7 +10715,7 @@
         }
       },
       {
-        "HashCode": 1949207614,
+        "HashCode": -2023846906,
         "Kind": "Components.EventHandler",
         "Name": "onprogress",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10796,7 +10796,7 @@
         }
       },
       {
-        "HashCode": 1527737961,
+        "HashCode": -1101227709,
         "Kind": "Components.EventHandler",
         "Name": "onerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10877,7 +10877,7 @@
         }
       },
       {
-        "HashCode": -2099837520,
+        "HashCode": 450612674,
         "Kind": "Components.EventHandler",
         "Name": "onactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -10958,7 +10958,7 @@
         }
       },
       {
-        "HashCode": -1030843530,
+        "HashCode": -789407359,
         "Kind": "Components.EventHandler",
         "Name": "onbeforeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11039,7 +11039,7 @@
         }
       },
       {
-        "HashCode": 478813342,
+        "HashCode": 417621111,
         "Kind": "Components.EventHandler",
         "Name": "onbeforedeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11120,7 +11120,7 @@
         }
       },
       {
-        "HashCode": -997242680,
+        "HashCode": 858790799,
         "Kind": "Components.EventHandler",
         "Name": "ondeactivate",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11201,7 +11201,7 @@
         }
       },
       {
-        "HashCode": 460905531,
+        "HashCode": -381488449,
         "Kind": "Components.EventHandler",
         "Name": "onended",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11282,7 +11282,7 @@
         }
       },
       {
-        "HashCode": 393139248,
+        "HashCode": -1722355062,
         "Kind": "Components.EventHandler",
         "Name": "onfullscreenchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11363,7 +11363,7 @@
         }
       },
       {
-        "HashCode": 1119067702,
+        "HashCode": 1140341708,
         "Kind": "Components.EventHandler",
         "Name": "onfullscreenerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11444,7 +11444,7 @@
         }
       },
       {
-        "HashCode": -1738612660,
+        "HashCode": -1004877480,
         "Kind": "Components.EventHandler",
         "Name": "onloadeddata",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11525,7 +11525,7 @@
         }
       },
       {
-        "HashCode": 1524994872,
+        "HashCode": 1805642298,
         "Kind": "Components.EventHandler",
         "Name": "onloadedmetadata",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11606,7 +11606,7 @@
         }
       },
       {
-        "HashCode": 1634871635,
+        "HashCode": -1995654476,
         "Kind": "Components.EventHandler",
         "Name": "onpointerlockchange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11687,7 +11687,7 @@
         }
       },
       {
-        "HashCode": 748680600,
+        "HashCode": -2037492001,
         "Kind": "Components.EventHandler",
         "Name": "onpointerlockerror",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11768,7 +11768,7 @@
         }
       },
       {
-        "HashCode": -722061100,
+        "HashCode": 1551158762,
         "Kind": "Components.EventHandler",
         "Name": "onreadystatechange",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11849,7 +11849,7 @@
         }
       },
       {
-        "HashCode": -2002038523,
+        "HashCode": 1568256408,
         "Kind": "Components.EventHandler",
         "Name": "onscroll",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -11930,7 +11930,7 @@
         }
       },
       {
-        "HashCode": 1276951562,
+        "HashCode": 636154101,
         "Kind": "Components.EventHandler",
         "Name": "ontoggle",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -12011,7 +12011,7 @@
         }
       },
       {
-        "HashCode": -1360293399,
+        "HashCode": -26391026,
         "Kind": "Components.Splat",
         "Name": "Attributes",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -12050,7 +12050,7 @@
         }
       },
       {
-        "HashCode": -1314045932,
+        "HashCode": 443302126,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.Razor",
@@ -12365,7 +12365,7 @@
         }
       },
       {
-        "HashCode": 1929280664,
+        "HashCode": 1379260586,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12562,7 +12562,7 @@
         }
       },
       {
-        "HashCode": -765171067,
+        "HashCode": 1797536395,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.CacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12689,7 +12689,7 @@
         }
       },
       {
-        "HashCode": -1470657536,
+        "HashCode": 478058240,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ComponentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12744,7 +12744,7 @@
         }
       },
       {
-        "HashCode": 599890992,
+        "HashCode": 92890517,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.DistributedCacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12876,7 +12876,7 @@
         }
       },
       {
-        "HashCode": 643917119,
+        "HashCode": 1322662731,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.EnvironmentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -12922,7 +12922,7 @@
         }
       },
       {
-        "HashCode": -1100876075,
+        "HashCode": -788574189,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13339,7 +13339,7 @@
         }
       },
       {
-        "HashCode": -816722336,
+        "HashCode": -67871473,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13441,7 +13441,7 @@
         }
       },
       {
-        "HashCode": 1443483069,
+        "HashCode": -1181247848,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13487,7 +13487,7 @@
         }
       },
       {
-        "HashCode": -1451818174,
+        "HashCode": 1549433798,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13557,7 +13557,7 @@
         }
       },
       {
-        "HashCode": 938961055,
+        "HashCode": -668479731,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13590,7 +13590,7 @@
         }
       },
       {
-        "HashCode": 1399524694,
+        "HashCode": 189647712,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13786,7 +13786,7 @@
         }
       },
       {
-        "HashCode": 659698749,
+        "HashCode": -512550583,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13814,7 +13814,7 @@
         }
       },
       {
-        "HashCode": -783699643,
+        "HashCode": -1571562347,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13895,7 +13895,7 @@
         }
       },
       {
-        "HashCode": 1804648232,
+        "HashCode": -200741470,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PersistComponentStateTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -13924,7 +13924,7 @@
         }
       },
       {
-        "HashCode": -996356404,
+        "HashCode": -1094155538,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14077,7 +14077,7 @@
         }
       },
       {
-        "HashCode": -1884876274,
+        "HashCode": 470719290,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14136,7 +14136,7 @@
         }
       },
       {
-        "HashCode": -836785413,
+        "HashCode": 1025471711,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14178,7 +14178,7 @@
         }
       },
       {
-        "HashCode": -235553425,
+        "HashCode": 761244129,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14211,7 +14211,7 @@
         }
       },
       {
-        "HashCode": -1345237894,
+        "HashCode": -912070356,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -14245,7 +14245,7 @@
         }
       },
       {
-        "HashCode": -378850419,
+        "HashCode": 1008014930,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__FoodCountComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14277,7 +14277,7 @@
         }
       },
       {
-        "HashCode": 1624773499,
+        "HashCode": 1608498443,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__InvoiceCountComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14309,7 +14309,7 @@
         }
       },
       {
-        "HashCode": 799048106,
+        "HashCode": 1171500818,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__LastInvoicesComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14341,7 +14341,7 @@
         }
       },
       {
-        "HashCode": -549043403,
+        "HashCode": 1046955267,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__LastServicesComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14373,7 +14373,7 @@
         }
       },
       {
-        "HashCode": 1444945457,
+        "HashCode": -914423511,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__LastUsersComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14405,7 +14405,7 @@
         }
       },
       {
-        "HashCode": -597505788,
+        "HashCode": -297798948,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__UserCountComponentViewComponentTagHelper",
         "AssemblyName": "LeitnerApi",
@@ -14437,7 +14437,7 @@
         }
       },
       {
-        "HashCode": 1486818907,
+        "HashCode": 1227172675,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14506,7 +14506,7 @@
         }
       },
       {
-        "HashCode": -96490976,
+        "HashCode": 417611683,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14584,7 +14584,7 @@
         }
       },
       {
-        "HashCode": -635038132,
+        "HashCode": -786532317,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14662,7 +14662,7 @@
         }
       },
       {
-        "HashCode": -604882984,
+        "HashCode": 329545677,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14746,7 +14746,7 @@
         }
       },
       {
-        "HashCode": -284068,
+        "HashCode": -323058647,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14830,7 +14830,7 @@
         }
       },
       {
-        "HashCode": 1134669245,
+        "HashCode": -930554394,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14914,7 +14914,7 @@
         }
       },
       {
-        "HashCode": -1016572601,
+        "HashCode": 1959883949,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -14998,7 +14998,7 @@
         }
       },
       {
-        "HashCode": -1980197380,
+        "HashCode": -1363042359,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15082,7 +15082,7 @@
         }
       },
       {
-        "HashCode": 745229281,
+        "HashCode": 1986432805,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15166,7 +15166,7 @@
         }
       },
       {
-        "HashCode": 421422761,
+        "HashCode": -921330785,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15250,7 +15250,7 @@
         }
       },
       {
-        "HashCode": -463027009,
+        "HashCode": -1807789099,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15334,7 +15334,7 @@
         }
       },
       {
-        "HashCode": 1182609992,
+        "HashCode": 257480074,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15418,7 +15418,7 @@
         }
       },
       {
-        "HashCode": 351569670,
+        "HashCode": 1609498636,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15502,7 +15502,7 @@
         }
       },
       {
-        "HashCode": -1310577659,
+        "HashCode": -1577127729,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15586,7 +15586,7 @@
         }
       },
       {
-        "HashCode": -1745775809,
+        "HashCode": -991174339,
         "Kind": "Components.Bind",
         "Name": "Bind_value",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15670,7 +15670,7 @@
         }
       },
       {
-        "HashCode": -809114718,
+        "HashCode": -361212767,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15748,7 +15748,7 @@
         }
       },
       {
-        "HashCode": -784070067,
+        "HashCode": -901972031,
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -15826,7 +15826,7 @@
         }
       },
       {
-        "HashCode": -1602759442,
+        "HashCode": -1914553399,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15867,7 +15867,7 @@
         }
       },
       {
-        "HashCode": 863773364,
+        "HashCode": -913315196,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputCheckbox",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15909,7 +15909,7 @@
         }
       },
       {
-        "HashCode": 9623455,
+        "HashCode": 332163605,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15950,7 +15950,7 @@
         }
       },
       {
-        "HashCode": -1462771305,
+        "HashCode": -1074329513,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputDate<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -15992,7 +15992,7 @@
         }
       },
       {
-        "HashCode": -888336635,
+        "HashCode": 845260532,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16033,7 +16033,7 @@
         }
       },
       {
-        "HashCode": 1748792838,
+        "HashCode": -852833478,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputNumber<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16075,7 +16075,7 @@
         }
       },
       {
-        "HashCode": 1826894939,
+        "HashCode": -1523125769,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16116,7 +16116,7 @@
         }
       },
       {
-        "HashCode": 1678298149,
+        "HashCode": 1679861609,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputRadioGroup<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16158,7 +16158,7 @@
         }
       },
       {
-        "HashCode": 251785513,
+        "HashCode": 1169340404,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16199,7 +16199,7 @@
         }
       },
       {
-        "HashCode": -724108183,
+        "HashCode": 1962162437,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputSelect<TValue>",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16241,7 +16241,7 @@
         }
       },
       {
-        "HashCode": 726998450,
+        "HashCode": 1954397551,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16282,7 +16282,7 @@
         }
       },
       {
-        "HashCode": 856631328,
+        "HashCode": 67897457,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputText",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16324,7 +16324,7 @@
         }
       },
       {
-        "HashCode": 2129402838,
+        "HashCode": -344442779,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16365,7 +16365,7 @@
         }
       },
       {
-        "HashCode": 1270691190,
+        "HashCode": -1753504300,
         "Kind": "Components.Bind",
         "Name": "Microsoft.AspNetCore.Components.Forms.InputTextArea",
         "AssemblyName": "Microsoft.AspNetCore.Components.Web",
@@ -16407,7 +16407,7 @@
         }
       },
       {
-        "HashCode": -745787216,
+        "HashCode": 1689258165,
         "Kind": "Components.Ref",
         "Name": "Ref",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -16446,7 +16446,7 @@
         }
       },
       {
-        "HashCode": 43005661,
+        "HashCode": 308588498,
         "Kind": "Components.Key",
         "Name": "Key",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -16490,13 +16490,373 @@
   "RootNamespace": "LeitnerApi",
   "Documents": [
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Create.cshtml",
-      "TargetPath": "Views\\Allergy\\Create.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Details.cshtml",
+      "TargetPath": "Views\\Sickness\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Details.cshtml",
-      "TargetPath": "Views\\Discount\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Edit.cshtml",
+      "TargetPath": "Views\\Muscle\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Create.cshtml",
+      "TargetPath": "Views\\Role\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Details.cshtml",
+      "TargetPath": "Views\\WaterRate\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Details.cshtml",
+      "TargetPath": "Views\\Recipe\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Delete.cshtml",
+      "TargetPath": "Views\\Allergy\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Delete.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Details.cshtml",
+      "TargetPath": "Views\\Unit\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Index.cshtml",
+      "TargetPath": "Views\\Meel\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Create.cshtml",
+      "TargetPath": "Views\\SleepRate\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Create.cshtml",
+      "TargetPath": "Views\\Protein\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Details.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Delete.cshtml",
+      "TargetPath": "Views\\Protein\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Create.cshtml",
+      "TargetPath": "Views\\Discount\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Create.cshtml",
+      "TargetPath": "Views\\Goal\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Edit.cshtml",
+      "TargetPath": "Views\\WaterRate\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Edit.cshtml",
+      "TargetPath": "Views\\Meel\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Create.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Create.cshtml",
+      "TargetPath": "Views\\SportItem\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Details.cshtml",
+      "TargetPath": "Views\\FoodUnit\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Details.cshtml",
+      "TargetPath": "Views\\Home\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Index.cshtml",
+      "TargetPath": "Views\\Unit\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Delete.cshtml",
+      "TargetPath": "Views\\Muscle\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Create.cshtml",
+      "TargetPath": "Views\\User\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Create.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Create.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Index.cshtml",
+      "TargetPath": "Views\\Invoice\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Details.cshtml",
+      "TargetPath": "Views\\ServicePackage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Index.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Edit.cshtml",
+      "TargetPath": "Views\\Protein\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Edit.cshtml",
+      "TargetPath": "Views\\BadHabit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Edit.cshtml",
+      "TargetPath": "Views\\Discount\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Create.cshtml",
+      "TargetPath": "Views\\Question\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Edit.cshtml",
+      "TargetPath": "Views\\FoodUnit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Delete.cshtml",
+      "TargetPath": "Views\\SportGroup\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Index.cshtml",
+      "TargetPath": "Views\\Sickness\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Index.cshtml",
+      "TargetPath": "Views\\SleepRate\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Create.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Edit.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Create.cshtml",
+      "TargetPath": "Views\\SportGroup\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Index.cshtml",
+      "TargetPath": "Views\\Nutrient\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Index.cshtml",
+      "TargetPath": "Views\\SportGroup\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Create.cshtml",
+      "TargetPath": "Views\\BadHabit\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Edit.cshtml",
+      "TargetPath": "Views\\Recipe\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Index.cshtml",
+      "TargetPath": "Views\\UserRole\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Delete.cshtml",
+      "TargetPath": "Views\\Nutrient\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Details.cshtml",
+      "TargetPath": "Views\\SleepRate\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Index.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Delete.cshtml",
+      "TargetPath": "Views\\UserRole\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Create.cshtml",
+      "TargetPath": "Views\\Podcast\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Index.cshtml",
+      "TargetPath": "Views\\Goal\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Delete.cshtml",
+      "TargetPath": "Views\\Discount\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Delete.cshtml",
+      "TargetPath": "Views\\Unit\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Details.cshtml",
+      "TargetPath": "Views\\Nutrient\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Delete.cshtml",
+      "TargetPath": "Views\\Gender\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Index.cshtml",
+      "TargetPath": "Views\\User\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Details.cshtml",
+      "TargetPath": "Views\\BadHabit\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Details.cshtml",
+      "TargetPath": "Views\\Group\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Index.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Delete.cshtml",
+      "TargetPath": "Views\\Question\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Details.cshtml",
+      "TargetPath": "Views\\Sport\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Index.cshtml",
+      "TargetPath": "Views\\Muscle\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Edit.cshtml",
+      "TargetPath": "Views\\SImage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Edit.cshtml",
+      "TargetPath": "Views\\Sport\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Details.cshtml",
+      "TargetPath": "Views\\Role\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Create.cshtml",
+      "TargetPath": "Views\\WaterRate\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16510,558 +16870,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Create.cshtml",
-      "TargetPath": "Views\\PodcastSickness\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Details.cshtml",
-      "TargetPath": "Views\\Meel\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\UserCountComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Delete.cshtml",
-      "TargetPath": "Views\\Goal\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Details.cshtml",
-      "TargetPath": "Views\\Recipe\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Delete.cshtml",
-      "TargetPath": "Views\\Gender\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Details.cshtml",
-      "TargetPath": "Views\\Goal\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Edit.cshtml",
-      "TargetPath": "Views\\FatPart\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Delete.cshtml",
-      "TargetPath": "Views\\ServicePackage\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Details.cshtml",
-      "TargetPath": "Views\\Home\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Index.cshtml",
-      "TargetPath": "Views\\PodcastGroup\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Delete.cshtml",
       "TargetPath": "Views\\Sport\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Index.cshtml",
-      "TargetPath": "Views\\FoodUnit\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Edit.cshtml",
-      "TargetPath": "Views\\Sport\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Details.cshtml",
-      "TargetPath": "Views\\Protein\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Index.cshtml",
-      "TargetPath": "Views\\Unit\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Index.cshtml",
-      "TargetPath": "Views\\SportItem\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LastInvoicesComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\LastInvoicesComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Delete.cshtml",
-      "TargetPath": "Views\\Sickness\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Edit.cshtml",
-      "TargetPath": "Views\\PodcastGroup\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Create.cshtml",
-      "TargetPath": "Views\\ServicePackage\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Edit.cshtml",
-      "TargetPath": "Views\\User\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Index.cshtml",
-      "TargetPath": "Views\\Meel\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Index.cshtml",
-      "TargetPath": "Views\\PodcastQuestion\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Details.cshtml",
-      "TargetPath": "Views\\Question\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Index.cshtml",
-      "TargetPath": "Views\\Podcast\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Delete.cshtml",
-      "TargetPath": "Views\\SportItem\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Delete.cshtml",
-      "TargetPath": "Views\\UserRole\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Index.cshtml",
-      "TargetPath": "Views\\UserRole\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Delete.cshtml",
-      "TargetPath": "Views\\Question\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Create.cshtml",
-      "TargetPath": "Views\\Gender\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Index.cshtml",
-      "TargetPath": "Views\\Protein\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Delete.cshtml",
-      "TargetPath": "Views\\Group\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Delete.cshtml",
-      "TargetPath": "Views\\Unit\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Create.cshtml",
-      "TargetPath": "Views\\Discount\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Create.cshtml",
-      "TargetPath": "Views\\SportGroup\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Details.cshtml",
-      "TargetPath": "Views\\Group\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Index.cshtml",
-      "TargetPath": "Views\\BadHabit\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Edit.cshtml",
-      "TargetPath": "Views\\Food\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Edit.cshtml",
-      "TargetPath": "Views\\Goal\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Create.cshtml",
-      "TargetPath": "Views\\UserRole\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\FoodSickness.cshtml",
-      "TargetPath": "Views\\Food\\FoodSickness.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Details.cshtml",
-      "TargetPath": "Views\\ActivityRate\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Details.cshtml",
-      "TargetPath": "Views\\SicknessFood\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Details.cshtml",
-      "TargetPath": "Views\\WaterRate\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Delete.cshtml",
-      "TargetPath": "Views\\Protein\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Index.cshtml",
-      "TargetPath": "Views\\Goal\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Details.cshtml",
-      "TargetPath": "Views\\Sickness\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Edit.cshtml",
-      "TargetPath": "Views\\SleepRate\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Index.cshtml",
-      "TargetPath": "Views\\Sport\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Delete.cshtml",
-      "TargetPath": "Views\\Muscle\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Delete.cshtml",
-      "TargetPath": "Views\\PodcastGroup\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Create.cshtml",
-      "TargetPath": "Views\\Podcast\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Create.cshtml",
-      "TargetPath": "Views\\SportItem\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Edit.cshtml",
-      "TargetPath": "Views\\Discount\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Create.cshtml",
-      "TargetPath": "Views\\Goal\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Delete.cshtml",
-      "TargetPath": "Views\\SicknessFood\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LessonCountComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\LessonCountComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Index.cshtml",
-      "TargetPath": "Views\\User\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Create.cshtml",
-      "TargetPath": "Views\\SleepRate\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Edit.cshtml",
-      "TargetPath": "Views\\PodcastQuestion\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Delete.cshtml",
-      "TargetPath": "Views\\Role\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Create.cshtml",
-      "TargetPath": "Views\\Group\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Delete.cshtml",
-      "TargetPath": "Views\\ActivityRate\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Edit.cshtml",
-      "TargetPath": "Views\\Podcast\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Index.cshtml",
-      "TargetPath": "Views\\Discount\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Delete.cshtml",
-      "TargetPath": "Views\\SportGroup\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Details.cshtml",
-      "TargetPath": "Views\\Food\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Edit.cshtml",
-      "TargetPath": "Views\\ServicePackage\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Index.cshtml",
-      "TargetPath": "Views\\Sickness\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Index.cshtml",
-      "TargetPath": "Views\\Allergy\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Create.cshtml",
-      "TargetPath": "Views\\Unit\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Create.cshtml",
-      "TargetPath": "Views\\Sickness\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Index.cshtml",
-      "TargetPath": "Views\\ServicePackage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Edit.cshtml",
-      "TargetPath": "Views\\Sickness\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Edit.cshtml",
-      "TargetPath": "Views\\ActivityRate\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Delete.cshtml",
-      "TargetPath": "Views\\Discount\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Delete.cshtml",
-      "TargetPath": "Views\\Nutrient\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Index.cshtml",
-      "TargetPath": "Views\\Question\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Index.cshtml",
-      "TargetPath": "Views\\Group\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Edit.cshtml",
-      "TargetPath": "Views\\Nutrient\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Delete.cshtml",
-      "TargetPath": "Views\\SleepRate\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Create.cshtml",
-      "TargetPath": "Views\\Food\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Index.cshtml",
-      "TargetPath": "Views\\SportGroup\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Index.cshtml",
-      "TargetPath": "Views\\Food\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Details.cshtml",
-      "TargetPath": "Views\\SportItem\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Create.cshtml",
-      "TargetPath": "Views\\Muscle\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Edit.cshtml",
-      "TargetPath": "Views\\SImage\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Edit.cshtml",
-      "TargetPath": "Views\\Group\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Details.cshtml",
-      "TargetPath": "Views\\Unit\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Edit.cshtml",
-      "TargetPath": "Views\\Unit\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Edit.cshtml",
-      "TargetPath": "Views\\Gender\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Edit.cshtml",
-      "TargetPath": "Views\\SportItem\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Create.cshtml",
-      "TargetPath": "Views\\FoodUnit\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Create.cshtml",
-      "TargetPath": "Views\\Protein\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Edit.cshtml",
-      "TargetPath": "Views\\Muscle\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Delete.cshtml",
-      "TargetPath": "Views\\SImage\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Index.cshtml",
-      "TargetPath": "Views\\WaterRate\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Delete.cshtml",
-      "TargetPath": "Views\\Invoice\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Details.cshtml",
-      "TargetPath": "Views\\Podcast\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Edit.cshtml",
-      "TargetPath": "Views\\FoodUnit\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Index.cshtml",
-      "TargetPath": "Views\\Recipe\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Delete.cshtml",
-      "TargetPath": "Views\\Food\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Create.cshtml",
-      "TargetPath": "Views\\PodcastQuestion\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17070,233 +16880,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Delete.cshtml",
-      "TargetPath": "Views\\FatPart\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Delete.cshtml",
+      "TargetPath": "Views\\Invoice\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Details.cshtml",
-      "TargetPath": "Views\\Nutrient\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Create.cshtml",
-      "TargetPath": "Views\\ActivityRate\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Delete.cshtml",
-      "TargetPath": "Views\\PodcastSickness\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Create.cshtml",
-      "TargetPath": "Views\\User\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Index.cshtml",
-      "TargetPath": "Views\\FatPart\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Details.cshtml",
-      "TargetPath": "Views\\SImage\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Index.cshtml",
-      "TargetPath": "Views\\Muscle\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Create.cshtml",
-      "TargetPath": "Views\\Role\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Details.cshtml",
-      "TargetPath": "Views\\SportGroup\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Details.cshtml",
-      "TargetPath": "Views\\SleepRate\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Edit.cshtml",
-      "TargetPath": "Views\\Protein\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Index.cshtml",
-      "TargetPath": "Views\\SImage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Details.cshtml",
-      "TargetPath": "Views\\PodcastSickness\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Create.cshtml",
-      "TargetPath": "Views\\FatPart\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Edit.cshtml",
-      "TargetPath": "Views\\WaterRate\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Delete.cshtml",
-      "TargetPath": "Views\\FoodUnit\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Details.cshtml",
-      "TargetPath": "Views\\Gender\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Edit.cshtml",
-      "TargetPath": "Views\\Invoice\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Delete.cshtml",
-      "TargetPath": "Views\\PodcastQuestion\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Create.cshtml",
-      "TargetPath": "Views\\PodcastGroup\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\InvoiceCountComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\InvoiceCountComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Create.cshtml",
-      "TargetPath": "Views\\Nutrient\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Details.cshtml",
-      "TargetPath": "Views\\BadHabit\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\FoodCountComponent\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Details.cshtml",
-      "TargetPath": "Views\\ServicePackage\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Create.cshtml",
-      "TargetPath": "Views\\Recipe\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Create.cshtml",
-      "TargetPath": "Views\\Meel\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Edit.cshtml",
-      "TargetPath": "Views\\SportGroup\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Details.cshtml",
-      "TargetPath": "Views\\UserRole\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Details.cshtml",
-      "TargetPath": "Views\\FoodUnit\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Login.cshtml",
-      "TargetPath": "Views\\User\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Index.cshtml",
-      "TargetPath": "Views\\PodcastSickness\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Create.cshtml",
-      "TargetPath": "Views\\SImage\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Edit.cshtml",
-      "TargetPath": "Views\\Meel\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Edit.cshtml",
-      "TargetPath": "Views\\Role\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Create.cshtml",
-      "TargetPath": "Views\\Question\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\EditorTemplates\\ImageUpload.cshtml",
-      "TargetPath": "Views\\Shared\\EditorTemplates\\ImageUpload.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Details.cshtml",
-      "TargetPath": "Views\\FatPart\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Details.cshtml",
-      "TargetPath": "Views\\PodcastQuestion\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Edit.cshtml",
-      "TargetPath": "Views\\Allergy\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\EditorTemplates\\DateTime.cshtml",
-      "TargetPath": "Views\\Shared\\EditorTemplates\\DateTime.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Edit.cshtml",
-      "TargetPath": "Views\\BadHabit\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\ReadExcell.cshtml",
-      "TargetPath": "Views\\Food\\ReadExcell.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Details.cshtml",
-      "TargetPath": "Views\\Invoice\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Delete.cshtml",
+      "TargetPath": "Views\\Group\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17305,28 +16895,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Edit.cshtml",
-      "TargetPath": "Views\\PodcastSickness\\Edit.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Index.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Index.cshtml",
-      "TargetPath": "Views\\SleepRate\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Delete.cshtml",
+      "TargetPath": "Views\\ServicePackage\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Details.cshtml",
-      "TargetPath": "Views\\Muscle\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Create.cshtml",
+      "TargetPath": "Views\\Group\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Create.cshtml",
-      "TargetPath": "Views\\Invoice\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Delete.cshtml",
-      "TargetPath": "Views\\Recipe\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Create.cshtml",
+      "TargetPath": "Views\\Muscle\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17335,58 +16920,133 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Create.cshtml",
-      "TargetPath": "Views\\SicknessFood\\Create.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Details.cshtml",
+      "TargetPath": "Views\\SportGroup\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Index.cshtml",
-      "TargetPath": "Views\\Invoice\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Create.cshtml",
+      "TargetPath": "Views\\Allergy\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Details.cshtml",
-      "TargetPath": "Views\\Role\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Create.cshtml",
+      "TargetPath": "Views\\Meel\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Edit.cshtml",
-      "TargetPath": "Views\\UserRole\\Edit.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Create.cshtml",
+      "TargetPath": "Views\\Gender\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Index.cshtml",
-      "TargetPath": "Views\\Gender\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Index.cshtml",
+      "TargetPath": "Views\\Recipe\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Delete.cshtml",
-      "TargetPath": "Views\\User\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportGroup\\Edit.cshtml",
+      "TargetPath": "Views\\SportGroup\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Details.cshtml",
+      "TargetPath": "Views\\SImage\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Delete.cshtml",
-      "TargetPath": "Views\\Meel\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Delete.cshtml",
+      "TargetPath": "Views\\FatPart\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Details.cshtml",
-      "TargetPath": "Views\\Sport\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Create.cshtml",
+      "TargetPath": "Views\\Invoice\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Edit.cshtml",
-      "TargetPath": "Views\\Question\\Edit.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Delete.cshtml",
+      "TargetPath": "Views\\Role\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Delete.cshtml",
-      "TargetPath": "Views\\Allergy\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Index.cshtml",
+      "TargetPath": "Views\\Food\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Delete.cshtml",
+      "TargetPath": "Views\\FoodUnit\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Create.cshtml",
+      "TargetPath": "Views\\Food\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Details.cshtml",
+      "TargetPath": "Views\\FatPart\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Edit.cshtml",
+      "TargetPath": "Views\\SportItem\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LastInvoicesComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\LastInvoicesComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Edit.cshtml",
+      "TargetPath": "Views\\ServicePackage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LessonCountComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\LessonCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Details.cshtml",
+      "TargetPath": "Views\\Invoice\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Create.cshtml",
+      "TargetPath": "Views\\Recipe\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Index.cshtml",
+      "TargetPath": "Views\\FoodUnit\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Index.cshtml",
+      "TargetPath": "Views\\Discount\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastQuestion\\Create.cshtml",
+      "TargetPath": "Views\\PodcastQuestion\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Details.cshtml",
+      "TargetPath": "Views\\Question\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17395,33 +17055,83 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Index.cshtml",
-      "TargetPath": "Views\\ActivityRate\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Delete.cshtml",
+      "TargetPath": "Views\\Podcast\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Edit.cshtml",
-      "TargetPath": "Views\\Recipe\\Edit.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Details.cshtml",
+      "TargetPath": "Views\\Meel\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Create.cshtml",
-      "TargetPath": "Views\\BadHabit\\Create.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Details.cshtml",
+      "TargetPath": "Views\\SportItem\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Create.cshtml",
-      "TargetPath": "Views\\WaterRate\\Create.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Edit.cshtml",
+      "TargetPath": "Views\\Podcast\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Create.cshtml",
-      "TargetPath": "Views\\Sport\\Create.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Delete.cshtml",
+      "TargetPath": "Views\\User\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Details.cshtml",
-      "TargetPath": "Views\\User\\Details.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FoodUnit\\Create.cshtml",
+      "TargetPath": "Views\\FoodUnit\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Details.cshtml",
+      "TargetPath": "Views\\Podcast\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Delete.cshtml",
+      "TargetPath": "Views\\Sickness\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Edit.cshtml",
+      "TargetPath": "Views\\FatPart\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Recipe\\Delete.cshtml",
+      "TargetPath": "Views\\Recipe\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Index.cshtml",
+      "TargetPath": "Views\\Group\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\InvoiceCountComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\InvoiceCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Delete.cshtml",
+      "TargetPath": "Views\\SportItem\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Delete.cshtml",
+      "TargetPath": "Views\\Goal\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Create.cshtml",
+      "TargetPath": "Views\\UserRole\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -17430,23 +17140,313 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Delete.cshtml",
-      "TargetPath": "Views\\Podcast\\Delete.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Delete.cshtml",
+      "TargetPath": "Views\\Food\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Index.cshtml",
-      "TargetPath": "Views\\SicknessFood\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Create.cshtml",
+      "TargetPath": "Views\\FatPart\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Index.cshtml",
-      "TargetPath": "Views\\Nutrient\\Index.cshtml",
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\BadHabit\\Index.cshtml",
+      "TargetPath": "Views\\BadHabit\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Role\\Edit.cshtml",
+      "TargetPath": "Views\\Role\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Delete.cshtml",
+      "TargetPath": "Views\\SImage\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Index.cshtml",
+      "TargetPath": "Views\\Allergy\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Edit.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Index.cshtml",
+      "TargetPath": "Views\\Gender\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Edit.cshtml",
+      "TargetPath": "Views\\Sickness\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\ReadExcell.cshtml",
+      "TargetPath": "Views\\Food\\ReadExcell.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Edit.cshtml",
+      "TargetPath": "Views\\Gender\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Index.cshtml",
+      "TargetPath": "Views\\Sport\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\FoodSickness.cshtml",
+      "TargetPath": "Views\\Food\\FoodSickness.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Discount\\Details.cshtml",
+      "TargetPath": "Views\\Discount\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Index.cshtml",
+      "TargetPath": "Views\\Question\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Details.cshtml",
+      "TargetPath": "Views\\Protein\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Details.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sport\\Create.cshtml",
+      "TargetPath": "Views\\Sport\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Index.cshtml",
+      "TargetPath": "Views\\ServicePackage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastGroup\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastGroup\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Protein\\Index.cshtml",
+      "TargetPath": "Views\\Protein\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\WaterRate\\Index.cshtml",
+      "TargetPath": "Views\\WaterRate\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Edit.cshtml",
+      "TargetPath": "Views\\SleepRate\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\EditorTemplates\\ImageUpload.cshtml",
+      "TargetPath": "Views\\Shared\\EditorTemplates\\ImageUpload.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Details.cshtml",
+      "TargetPath": "Views\\Goal\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Edit.cshtml",
+      "TargetPath": "Views\\User\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Create.cshtml",
+      "TargetPath": "Views\\Unit\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Details.cshtml",
+      "TargetPath": "Views\\User\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Podcast\\Index.cshtml",
+      "TargetPath": "Views\\Podcast\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Allergy\\Edit.cshtml",
+      "TargetPath": "Views\\Allergy\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ServicePackage\\Create.cshtml",
+      "TargetPath": "Views\\ServicePackage\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Meel\\Delete.cshtml",
+      "TargetPath": "Views\\Meel\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\BookCountComponent\\Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\BookCountComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Index.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Question\\Edit.cshtml",
+      "TargetPath": "Views\\Question\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\FatPart\\Index.cshtml",
+      "TargetPath": "Views\\FatPart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Details.cshtml",
+      "TargetPath": "Views\\UserRole\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Invoice\\Edit.cshtml",
+      "TargetPath": "Views\\Invoice\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SicknessFood\\Details.cshtml",
+      "TargetPath": "Views\\SicknessFood\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\EditorTemplates\\DateTime.cshtml",
+      "TargetPath": "Views\\Shared\\EditorTemplates\\DateTime.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Goal\\Edit.cshtml",
+      "TargetPath": "Views\\Goal\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SleepRate\\Delete.cshtml",
+      "TargetPath": "Views\\SleepRate\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Details.cshtml",
+      "TargetPath": "Views\\Food\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\LastServicesComponent\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SportItem\\Index.cshtml",
+      "TargetPath": "Views\\SportItem\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Food\\Edit.cshtml",
+      "TargetPath": "Views\\Food\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\PodcastSickness\\Delete.cshtml",
+      "TargetPath": "Views\\PodcastSickness\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Group\\Edit.cshtml",
+      "TargetPath": "Views\\Group\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Muscle\\Details.cshtml",
+      "TargetPath": "Views\\Muscle\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\UserRole\\Edit.cshtml",
+      "TargetPath": "Views\\UserRole\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Edit.cshtml",
+      "TargetPath": "Views\\Nutrient\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\User\\Login.cshtml",
+      "TargetPath": "Views\\User\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Create.cshtml",
+      "TargetPath": "Views\\SImage\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Delete.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Unit\\Edit.cshtml",
+      "TargetPath": "Views\\Unit\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\SImage\\Index.cshtml",
+      "TargetPath": "Views\\SImage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\ActivityRate\\Details.cshtml",
+      "TargetPath": "Views\\ActivityRate\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Sickness\\Create.cshtml",
+      "TargetPath": "Views\\Sickness\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Gender\\Details.cshtml",
+      "TargetPath": "Views\\Gender\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "i:\\Asp.net Core Projects\\PoidsApi\\Views\\Nutrient\\Create.cshtml",
+      "TargetPath": "Views\\Nutrient\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

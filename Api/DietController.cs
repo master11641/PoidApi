@@ -26,6 +26,9 @@ namespace Barnama.Controllers {
             }
             double weight = diet.Weights.OrderBy(x=>x.RegisterDate).LastOrDefault ().UserWeight;
             var bmi = weight / ((diet.Height / 100) * (diet.Height / 100));
+            if(diet.Height == 0){
+              return BadRequest("قد خود را صفر ثبت کرده اید");
+            }
             string description = "";
             if (bmi < 18.5) {
                 description = "لاغر-دچار کمبود وزن";
@@ -146,7 +149,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("SetAgeUser")]
         public IActionResult SetAgeUser (int userId, double age) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -157,9 +160,12 @@ namespace Barnama.Controllers {
 
         [HttpPost ("SetHeightUser")]
         public IActionResult SetHeightUser (int userId, double height) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
+            }
+              if (height == 0) {
+                return BadRequest ("قد شما نمی تواند صفر باشد");
             }
             diet.Height = height;
             _context.SaveChanges ();
@@ -168,7 +174,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("SetWaistUser")]
         public IActionResult SetWaistUser (int userId, double waist) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -179,7 +185,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("SetWristUser")]
         public IActionResult SetWristUser (int userId, double wrist) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -371,7 +377,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddParts")]
         public IActionResult AddParts (int userId, List<int> id) {
-            var diet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.FatPartDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -388,7 +394,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddSicknesses")]
         public IActionResult AddSicknesses (int userId, List<int> id) {
-            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -406,7 +412,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddSleepRate")]
         public IActionResult AddSleepRate (int userId, int sleepRateId) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -418,7 +424,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddWaterRate")]
         public IActionResult AddWaterRate (int userId, int waterRateId) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -429,7 +435,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddAllergies")]
         public IActionResult AddAllergies (int userId, List<int> id) {
-            var diet = _context.Diets.Include (x => x.AllergyDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.AllergyDiets).Where (x => x.UserId == userId).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -447,7 +453,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddBadHabits")]
         public IActionResult AddBadHabits (int userId, List<int> id) {
-            var diet = _context.Diets.Include (x => x.BadHabitDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.BadHabitDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -465,7 +471,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddProteins")]
         public IActionResult AddProteins (int userId, List<int> id) {
-            var diet = _context.Diets.Include (x => x.ProteinDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.ProteinDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -483,7 +489,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddQuestions")]
         public IActionResult AddQuestions (int userId, List<int> questionIds, List<int> values) {
-            var diet = _context.Diets.Include (x => x.QuestionDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.QuestionDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -501,7 +507,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddActivity")]
         public IActionResult AddActivity (int userId, int activityId) {
-            var diet = _context.Diets.Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -513,7 +519,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddSickDiscription")]
         public IActionResult AddSickDiscription (int userId, string description) {
-            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -524,7 +530,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddAllergyDiscription")]
         public IActionResult AddAllergyDiscription (int userId, string description) {
-            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -535,7 +541,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddMedicationDiscription")]
         public IActionResult AddMedicationDiscription (int userId, string description) {
-            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }
@@ -546,7 +552,7 @@ namespace Barnama.Controllers {
 
         [HttpPost ("AddActivityDiscription")]
         public IActionResult AddActivityDiscription (int userId, string description) {
-            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId && x.RequestComplete != true).FirstOrDefault ();
+            var diet = _context.Diets.Include (x => x.SicknessDiets).Where (x => x.UserId == userId ).FirstOrDefault ();
             if (diet == null) {
                 return BadRequest ("رژیم قابل ویرایش وجود ندارد .");
             }

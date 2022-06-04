@@ -26,7 +26,7 @@ namespace Barnama {
             services.AddMvc (option => option.EnableEndpointRouting = false).AddRazorPagesOptions (options => {
 
             });
-         
+
             services.AddSwaggerGen (c => {
                 c.SwaggerDoc ("v1", new OpenApiInfo { Title = "Barnama Version 0.0.1", Version = "v1" });
                 c.AddSecurityDefinition ("Bearer", new OpenApiSecurityScheme {
@@ -53,10 +53,10 @@ namespace Barnama {
             //     });
             // services.AddControllers ().AddJsonOptions (x =>
             //     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
-           services.AddControllersWithViews()
-                .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
+            services.AddControllersWithViews ()
+                .AddNewtonsoftJson (options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
             services.Configure<AppSettings> (Configuration.GetSection ("AppSettings"));
             services.AddEntityFrameworkSqlServer ();
             String connection = Configuration.GetConnectionString ("HostConnection");
@@ -95,6 +95,8 @@ namespace Barnama {
                 options.SaveToken = true;
             });
             services.AddScoped<IUserService, UserService> ();
+            services.AddScoped<ToolsService, ToolsService> ();
+
         }
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment ()) {

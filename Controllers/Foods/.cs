@@ -200,7 +200,7 @@ namespace LeitnerApi.Controllers.Foods {
                 }
 
                 foreach (int id in SicknessIds) {
-                    SicknessFood sicknessFood = new SicknessFood { FoodId = id, Food = food };
+                    SicknessFood sicknessFood = new SicknessFood { FoodId = id, Food = food , MustBe = true};
                     _context.SicknessFoods.Attach (sicknessFood);
                 }
 
@@ -272,7 +272,7 @@ namespace LeitnerApi.Controllers.Foods {
 
                     model.SicknessFoods.Clear ();
                     foreach (int sickId in SicknessIds) {
-                        SicknessFood sicknessFood = new SicknessFood { SicknessId = sickId, Food = model };
+                        SicknessFood sicknessFood = new SicknessFood { SicknessId = sickId, Food = model ,MustBe = true};
                         model.SicknessFoods.Add (sicknessFood);
                     }
 
