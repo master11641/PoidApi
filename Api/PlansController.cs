@@ -68,12 +68,22 @@ namespace Barnama.Controllers {
         [HttpPost ("GetPlanByDate")]
         public IActionResult GetPlanByDate (int DietId, DateTime CurrentDate) {
             Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).Include (x => x.SicknessDiets).FirstOrDefault ();
-            var invoices = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == CurrentDiet.UserId).ToList ();
+            var invoices = _context.Invoices.Include (x => x.ServicePackage)
+                .Where (x => x.UserId == CurrentDiet.UserId && x.IsConfirm == true).OrderByDescending (x => x.Id).ToList ();
+            List<Course> courses = new List<Course> ();
+            foreach (var temp in invoices) {
+                Course course = new Course () {
+                    StartDate = (DateTime) temp.PaymentDate,
+                    EndDate = ((DateTime) temp.PaymentDate).AddDays (temp.ServicePackage.ExpireAfterBuyInDays)
+                };
+                courses.Add (course);
+            }
+            var invoice = invoices.FirstOrDefault ();
             double TotalCallory = GetCallerieForUser (CurrentDiet.UserId);
             if (CurrentDiet.Plan == null) {
                 Plan Plan = new Plan ();
                 Plan.CreationDate = DateTime.Now;
-                Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) : ((DateTime) invoices.Last ().PaymentDate).AddDays (invoices.Last ().ServicePackage.ExpireAfterBuyInDays);
+                Plan.EndDate = invoice == null ? DateTime.Now.AddDays (5) : ((DateTime) invoice.PaymentDate).AddDays (invoice.ServicePackage.ExpireAfterBuyInDays);
                 Plan.DietId = DietId;
                 Plan.Calorie = TotalCallory;
                 CurrentDiet.Plan = Plan;
@@ -81,9 +91,25 @@ namespace Barnama.Controllers {
                 _context.SaveChanges ();
                 CurrentDiet.PlanId = Plan.Id;
             }
-            if (CurrentDate > CurrentDiet.Plan.EndDate) {
-                return BadRequest ("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
+            bool isApproved = false;
+            foreach (var course in courses) {
+                if (CurrentDate.Date >= course.StartDate.Date && CurrentDate < course.EndDate.Date) {
+                    isApproved = true;
+                }
+
             }
+            if (isApproved == false) {
+                return BadRequest ("رژیم فعالی در تاریخ فوق ندارید");
+            }
+            // if (CurrentDate.Date >= ((DateTime) invoice.PaymentDate).AddDays (invoice.ServicePackage.ExpireAfterBuyInDays).Date) {
+            //     return BadRequest ("کاربر گرامی ، ابتدا پلنی را خریداری نموده و سپس مجدد اقدام نمایید .");
+            // }
+            // if (CurrentDate.Date < ((DateTime) invoice.PaymentDate).Date) {
+            //     return BadRequest (String.Format ("کاربر گرامی ،تاریخ شروع رژیم شما {0} می باشد .", ((DateTime) invoice.PaymentDate).ToPersianDigitalDateTimeString ().Split (" ") [0]));
+            // }
+            // if (CurrentDate.Date > DateTime.Now.Date) {
+            //     return BadRequest ("کاربر گرامی،رژیم های روزهای آینده را در همان روز مشاهده نمایید .");
+            // }
             PlanDate PlanDate = _context.PlanDates.Include (x => x.PlanDetails).ThenInclude (x => x.Food)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Meel)
                 .Include (x => x.PlanDetails).ThenInclude (x => x.Unit)
@@ -120,9 +146,23 @@ namespace Barnama.Controllers {
             List<Food> AllFoods = new List<Food> ();
             //اگر کاربر دارای بیماری است فقط غذاهای همان بیماری را انتخاب می کنیم
             // if(CurrentDiet.SicknessDiets.Count != 0){
-            if (false) {
-                AllFoods = _context.Foods.Include (x => x.SicknessFoods).Include (x => x.FoodMeels).Include (x => x.FoodUnits)
-                    .ThenInclude (x => x.Unit).Where (x => x.FoodUnits.Any (x => x.Calorie != null) && x.SicknessFoods.Any (x => CurrentDiet.SicknessDiets.Select (x => x.SicknessId).Contains (x.SicknessId))).ToList ();
+            if (CurrentDiet.SicknessDiets.Count != 0) {
+                // AllFoods = _context.Foods.Include (x => x.SicknessFoods).Include (x => x.FoodMeels).Include (x => x.FoodUnits)
+                //     .ThenInclude (x => x.Unit).Where (x => x.FoodUnits.Any (x => x.Calorie != null) && x.SicknessFoods.Any (x => CurrentDiet.SicknessDiets.Select (x => x.SicknessId).Contains (x.SicknessId))).ToList ();
+               AllFoods = _context.Foods.Include (x => x.SicknessFoods).Include (x => x.FoodMeels).Include (x => x.FoodUnits)
+                    .ThenInclude (x => x.Unit)
+                    .Where (x => x.FoodUnits.Any (x => x.Calorie != null)  
+                   ).ToList ();
+                   //شناسه بیماری های کاربر
+                   //
+                   List<int> sickDietIds = CurrentDiet.SicknessDiets.Select (x => x.SicknessId).ToList (); 
+                   List<int>  foodIdsMustNotBe=  AllFoods.SelectMany(x=>x.SicknessFoods)
+                   .Where(x=>x.MustBe == false &&  sickDietIds.Contains(x.SicknessId)).Select(x=>x.FoodId).Distinct().ToList();               
+                   AllFoods.RemoveAll(x=>foodIdsMustNotBe.Contains(x.Id));
+
+                   
+            // !x.SicknessFoods.Where(y=>y.MustBe == false).Any (x => CurrentDiet.SicknessDiets.Select (x => x.SicknessId).Contains (x.SicknessId))
+            //AllFoods.RemoveAll();
             } else {
                 AllFoods = _context.Foods.Include (x => x.FoodMeels).Include (x => x.FoodUnits)
                     .ThenInclude (x => x.Unit).Where (x => x.FoodUnits.Any (x => x.Calorie != null)).ToList ();
@@ -155,9 +195,10 @@ namespace Barnama.Controllers {
             if (planDetail == null) {
                 return BadRequest ("اطلاعات ارسالی اشتباه می باشد ");
             }
+            Food currentFood = _context.Foods.FirstOrDefault(x=>x.Id == foodId);
             //گرفتن غذاهایی که در وعده  غذای قبلی قرار دارند
             List<Food> AllFoods = _context.Foods.Include (x => x.FoodMeels)
-                .Where (x => x.FoodMeels.Any (x => x.MeelId == planDetail.MeelId)).ToList ();
+                .Where (x => x.FoodMeels.Any (x => x.MeelId == planDetail.MeelId) && x.GroupId==currentFood.GroupId ).ToList ();
             return Ok (AllFoods.Select (x => new { x.Title, x.Id }));
         }
 
@@ -524,9 +565,11 @@ namespace Barnama.Controllers {
                     x.Upfa
             }));
         }
-        [HttpPost("GetPlanInfo")]
-        public IActionResult GetPlanInfo (int dietId) {
-            return Ok (_toolsService.GetActivePlanInfo(dietId));
+
+        [HttpPost ("GetPlanInfo")]
+        public IActionResult GetPlanInfo (int userId) {
+            var diet = _context.Diets.Where (x => x.UserId == userId).OrderByDescending (x => x.Id).FirstOrDefault ();
+            return Ok (_toolsService.GetActivePlanInfo (diet.Id));
         }
     }
 

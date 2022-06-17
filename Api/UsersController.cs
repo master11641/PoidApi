@@ -59,7 +59,7 @@ public class UsersApiController : ControllerBase {
        
             _context.Users.Add (addUser);
             _context.SaveChanges ();
-           // user = addUser;
+            user = addUser;
             ServicePackage freePackage = _context.ServicePackages.Where (x => x.Price == 0).FirstOrDefault ();
             _context.Invoices.Add (new Invoice {
                 Amount = 0,
@@ -235,7 +235,7 @@ public class UsersApiController : ControllerBase {
             return Ok (0);
         }
         var diffInDays = (DateTime.Now - (DateTime) invoice.PaymentDate).Days;
-        int remindInDays = invoice.ServicePackage.ExpireAfterBuyInDays - diffInDays;
+        int remindInDays = (((DateTime) invoice.PaymentDate).Date.AddDays (invoice.ServicePackage.ExpireAfterBuyInDays) - DateTime.Now.Date ).Days ;
         //    //
         double weight = currentDiet.Weights.LastOrDefault ().UserWeight;
         var bmi = weight / ((currentDiet.Height / 100) * (currentDiet.Height / 100));

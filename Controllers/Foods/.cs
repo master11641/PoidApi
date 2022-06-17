@@ -22,13 +22,21 @@ namespace LeitnerApi.Controllers.Foods {
         }
 
         // GET: Food
-        public async Task<IActionResult> Index () {
-            var barnamaConntext = _context.Foods.Include (f => f.Group);
-            return View (await barnamaConntext.ToListAsync ());
+        public IActionResult Index () {
+           // var barnamaConntext = _context.Foods.Include (f => f.Group);
+            ViewData["Categories"] = _context.Groups.Select(x=> new{
+                value = x.Id,
+                text = x.Title
+            }).ToList();               
+         
+            return View ();
         }
 
          public IActionResult FoodSickness () {
-         
+         ViewData["Categories"] = _context.Groups.Select(x=> new{
+                value = x.Id,
+                text = x.Title
+            }).ToList();  
             return View ();
         }
 
@@ -38,7 +46,7 @@ namespace LeitnerApi.Controllers.Foods {
             var dataString = this.HttpContext.GetJsonDataFromQueryString ();
             var request = JsonConvert.DeserializeObject<DataSourceRequest> (dataString);
 
-            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit).Include (x => x.SicknessFoods).ThenInclude (x => x.Sickness);
+            var list = _context.Foods.Include (x => x.FoodUnits).ThenInclude (x => x.Unit);
             return list.AsQueryable ()
                 .ToDataSourceResult (5, request.Skip, request.Sort, request.Filter);
         }

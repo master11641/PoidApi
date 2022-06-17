@@ -14,22 +14,49 @@ public class ToolsService {
         Diet CurrentDiet = _context.Diets.Include (x => x.Plan).Where (x => x.Id == DietId).Include (x => x.SicknessDiets).FirstOrDefault ();
         PlanInfo.UserId = CurrentDiet.UserId;
         GetCallerieForUser (PlanInfo); //برخی فیلدهای این شی را تکمیل می کند
-        var invoices = _context.Invoices.Include (x => x.ServicePackage).Where (x => x.UserId == CurrentDiet.UserId).ToList ();
+        var invoices = _context.Invoices.Include (x => x.ServicePackage).
+        Where (x => x.UserId == CurrentDiet.UserId && x.IsConfirm == true).OrderByDescending (x => x.Id).ToList ();
+        var invoice = invoices.FirstOrDefault ();
+        if (invoice == null) {
+            ServicePackage freePackage = _context.ServicePackages.Where (x => x.Price == 0).FirstOrDefault ();
+            invoice = new Invoice {
+                Amount = 0,
+                PaymentDate = DateTime.Now,
+                IsConfirm = true,
+                RegisterDate = DateTime.Now,
+                ServicePackageId = freePackage.Id,
+                UserId = CurrentDiet.UserId,
+                RefId = "free package",
+                Authority = "free package",
+            };
+            _context.Invoices.Add (invoice);
+            _context.SaveChanges ();
+            invoices.Add (invoice);
+        }
+
         if (CurrentDiet.Plan == null) {
             Plan Plan = new Plan ();
             Plan.CreationDate = DateTime.Now;
-            Plan.EndDate = invoices.Count == 0 ? DateTime.Now.AddDays (5) : ((DateTime) invoices.Last ().PaymentDate).AddDays (invoices.Last ().ServicePackage.ExpireAfterBuyInDays);
+            Plan.EndDate = ((DateTime) invoice.PaymentDate).AddDays (invoice.ServicePackage.ExpireAfterBuyInDays);
             Plan.DietId = DietId;
             Plan.Calorie = PlanInfo.Calorie;
-             Plan.StartDate = DateTime.Now;
-            CurrentDiet.Plan = Plan;          
+            Plan.StartDate = (DateTime) invoice.PaymentDate;
+            CurrentDiet.Plan = Plan;
             _context.SaveChanges ();
             CurrentDiet.PlanId = Plan.Id;
         }
-
-        PlanInfo.StartDate = CurrentDiet.Plan.CreationDate;
-        PlanInfo.EndDate = CurrentDiet.Plan.EndDate;
+        // var diffInDays = (DateTime.Now - (DateTime) invoice.PaymentDate).Days;
+        // int remindInDays = invoice.ServicePackage.ExpireAfterBuyInDays - diffInDays;
+        PlanInfo.StartDate = (DateTime) invoice.PaymentDate;
+        PlanInfo.EndDate = ((DateTime) invoice.PaymentDate).AddDays (invoice.ServicePackage.ExpireAfterBuyInDays);
         PlanInfo.Calorie = PlanInfo.Calorie;
+        foreach (var temp in invoices) {
+            Course course = new Course () {
+                StartDate = (DateTime) temp.PaymentDate,
+                EndDate = ((DateTime) temp.PaymentDate).AddDays (temp.ServicePackage.ExpireAfterBuyInDays)
+            };
+            PlanInfo.Courses.Add(course);
+        }
         return PlanInfo;
 
     }
@@ -78,7 +105,7 @@ public class ToolsService {
             description = "چاقی درجه سه";
         }
         PlanInfo.CurrentWeight = weight;
-        PlanInfo.Bmi =(double) bmi;
+        PlanInfo.Bmi = (double) bmi;
         PlanInfo.Calorie = callery;
         PlanInfo.Description = description;
 

@@ -1,5 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 public class InvoiceCountComponent : ViewComponent
     {
@@ -12,7 +13,7 @@ public class InvoiceCountComponent : ViewComponent
 
         public IViewComponentResult Invoke(int numberToTake)
         {
-            var amount =  _context.Invoices.Where(x=>x.RefId!=null).Sum(x=>x.Amount);
+            var amount =  _context.Invoices.Include(x=>x.ServicePackage).Where(x=>x.RefId!=null && x.ServicePackage.Price!=0 ).Sum(x=>x.Amount);
             return View(viewName: "Default", model: amount);
         }
 

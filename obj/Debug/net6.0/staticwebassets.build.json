@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4d6d7wF0eXygerJvQwVNjsLE36RzwDKWZkJUHx8t0mU=",
+  "Hash": "YgIOygsXXHkgNCA5NKL+IcD3zgTzy4CdcwQmiaXqiDE=",
   "Source": "LeitnerApi",
   "BasePath": "_content/LeitnerApi",
   "Mode": "Default",
@@ -33386,6 +33386,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\64bb0279-8945-4a00-9715-8f98d2ef25605215416827832396482.jpg"
+    },
+    {
+      "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\6ec8e565-9567-4df4-a483-25010f5a9c52.webp",
+      "SourceId": "LeitnerApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\",
+      "BasePath": "_content/LeitnerApi",
+      "RelativePath": "uploads/6ec8e565-9567-4df4-a483-25010f5a9c52.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6ec8e565-9567-4df4-a483-25010f5a9c52.webp"
     },
     {
       "Identity": "I:\\Asp.net Core Projects\\PoidsApi\\wwwroot\\uploads\\723c9610-b039-407c-b171-ff5dce022d0d.png",

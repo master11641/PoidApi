@@ -42,6 +42,11 @@
 @section Scripts{
 <script type="text/javascript">
     $(function () {
+            var categories = [];
+             @foreach (var d in ViewBag.Categories)
+            {
+               @: categories.push({ text: '@Html.Raw(@d.text)'  ,value: "@d.value"});
+            }
         var productsDataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -85,10 +90,16 @@
             filterable: true,
             reorderable: true,
             columnMenu: true,
+             edit: function(e){
+              var ddl = e.container.find("[data-role='dropdownlist']").data("kendoDropDownList");
+              if(ddl){
+                ddl.setOptions({filter: "contains"});
+              }
+            },
             columns: [
                 { field: "id", title: "شماره", width: "130px" },
                 { field: "title", title: "عنوان غذا", template: kendo.template($("#titleTemplate").html()) },
-
+                { field: "groupId", width: "200px", values: categories, title: "گروه", filterable: { multi: true, search:true } },
                 {
                     field: "id", title: "عملیات",
                     template: '<a  href="/food/edit/#=id#" class="k-button fa fa-edit tjax" popup="true" >ویرایش</a>  <a  href="/food/delete/#=id#" class="k-button fa fa-remove tjax"  popup="true" >حذف</a>'

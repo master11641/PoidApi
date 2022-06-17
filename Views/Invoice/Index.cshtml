@@ -34,6 +34,12 @@
 @section Scripts{
 <script type="text/javascript">
     $(function () {
+            var users = [];
+             @foreach (var d in ViewBag.Users)
+            {
+               @: users.push({ text: '@Html.Raw(@d.text)'  ,value: "@d.value"});
+            }
+
         var productsDataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -89,7 +95,7 @@
                 { field: "id", title: "شماره", width: "130px" },
                 { field: "servicePackage", title: "پکیج", template: '#=servicePackage.title#' },
                 { field: "refId", title: "شماره ارجاع" },
-              
+                { field: "userId", width: "200px", values: users, title: "کاربر", filterable: { multi: true, search:true } },
                 {
                     field: "paymentDate", title: "تاریخ ثبت",
                     //format: "{0:yyyy/MM/dd}",

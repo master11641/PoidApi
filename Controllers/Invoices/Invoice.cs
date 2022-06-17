@@ -23,8 +23,11 @@ namespace Barnama.Controllers.Invoices
         // GET: Invoice
         public async Task<IActionResult> Index()
         {
-            var barnamaConntext = _context.Invoices.Include(i => i.ServicePackage).Include(i => i.User);
-            return View(await barnamaConntext.ToListAsync());
+            ViewData["Users"] = _context.Users.Select(x=> new{
+                value = x.Id,
+                text = x.PhoneNumber
+            }).ToList(); 
+            return View();
         }
       public DataSourceResult GetInvoices () {
             var dataString = this.HttpContext.GetJsonDataFromQueryString ();

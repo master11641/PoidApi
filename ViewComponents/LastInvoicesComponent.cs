@@ -13,7 +13,7 @@ public class LastInvoicesComponent : ViewComponent
 
         public IViewComponentResult Invoke(int numberToTake)
         {
-            var model =  _context.Invoices.Include(x=>x.ServicePackage).OrderByDescending(x=>x.Id).Take(12).ToList();
+            var model =  _context.Invoices.Include(x=>x.ServicePackage).Where(x=>x.ServicePackage.Price != 0).OrderByDescending(x=>x.Id).Take(12).ToList();
             return View(viewName: "Default", model: model);
         }
      
